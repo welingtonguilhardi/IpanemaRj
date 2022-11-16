@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>#creative</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+	<style>
+		#index {
+			margin: 20px;
+			display: none;
+			letter-spacing: 1px;
+			line-height: 20px;
+			position: absolute;
+			transition: all 1s;
+		}
+
+		.spawnNow {
+			color: #f8f7f6;
+			width: 300px;
+			list-style: none;
+			user-select: none;
+			padding: 10px 20px;
+			text-align: center;
+			letter-spacing: 3px;
+			font-size: 20px;
+			border-radius: 3px;
+			margin-bottom: 10px;
+			transition: all 1s;
+			background: #00fd04;
+			text-transform: uppercase;
+			font-family: 'Roboto',sans-serif;
+		}
+
+		.spawnNow:hover {
+			background: #f7f7f7a2;
+		}
+
+		.spawn {
+			color: #f8f7f6;
+			width: 300px;
+			list-style: none;
+			user-select: none;
+			padding: 10px 20px;
+			text-align: center;
+			letter-spacing: 3px;
+			font-size: 20px;
+			border-radius: 3px;
+			margin-bottom: 10px;
+			transition: all 1s;
+			background: #fda000fe;
+			text-transform: uppercase;
+			font-family: 'Roboto',sans-serif;
+		}
+
+		.spawn:hover {
+			background: #f7f7f7a2;
+		}
+	</style>
+</head>
+<body>
+	<div id="index">
+		<ul>
+			<li class="spawn" data-spawn="armadillo">Hospital</li>
+			<li class="spawn" data-spawn="duluoz">Praça</li>
+			<li class="spawn" data-spawn="eclipse">Garagem Praça</li>
+			<li class="spawn" data-spawn="grapeseed">Garagem Vermelho</li>
+			<li class="spawn" data-spawn="greatocean">Garagem Duque de Caxias</li>
+			<li class="spawn" data-spawn="hawick">Garagem Petrópolis</li>
+			<li class="spawn" data-spawn="ultimalocalizacao">Ultima localização</li>
+			<li class="spawnNow" data-spawn="spawn">CONFIRMAR</li>
+		</ul>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+	<script>
+		$(() => {
+			window.addEventListener('message',(event) => {
+				if (event.data.display) {
+					$('#index').show();
+				} else {
+					$('#index').hide();
+				}
+			})
+
+			$('li').click(function(){
+				$.post('http://login/spawn',JSON.stringify({ choice: $(this).data('spawn') }));
+			});
+		})
+	</script>
+</body>
+</html>

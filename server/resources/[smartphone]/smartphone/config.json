@@ -1,0 +1,57 @@
+{
+  "token": "MN295-YJCE4-K6F7S-M5PBE",
+  "client": {
+    "bankType": "picpay",
+    "uploadServer": "https://discordapp.com/api/webhooks/984523030132846673/oy3dtZCgcmHJdVGOUasm-zROZnZ_ndGpTVKW4DqXkpLobCgJBuLHSUUWQE26Q7faHoXC",
+    "videoServer": "ws:/25.11.84.75:8080",
+    "case": "iphonexs",
+    "isAndroid": false,
+
+    "apps": {
+      "calculator": "https://celularautenticacaofivem.xyz/imagens/calculator.webp",
+      "notes": "https://celularautenticacaofivem.xyz/imagens/notes.webp",
+      "settings": "https://fivem.jesteriruka.dev/apps/settings.png",
+      "contacts": "https://images-ext-1.discordapp.net/external/X6eRPTrhl1TEFjfXX9Jk9eHpym4njkyXioj6EDO8am8/https/fivem.jesteriruka.dev/apps/phone.png",
+      "sms": "https://fivem.jesteriruka.dev/apps/sms.webp",
+      "gallery": "https://fivem.jesteriruka.dev/apps/photos.webp",
+      "phone": "https://fivem.jesteriruka.dev/apps/phone.png",
+      "facetime": "https://celularautenticacaofivem.xyz/imagens/facetime.webp"
+      
+      
+      },
+
+      
+      "apps_android": {
+        "calculator": "https://celularautenticacaofivem.xyz/imagens/calculator.webp",
+        "notes": "https://celularautenticacaofivem.xyz/imagens/notes.webp",
+        "settings": "https://celularautenticacaofivem.xyz/imagens/settings.webp",
+        "contacts": "https://celularautenticacaofivem.xyz/imagens/contacts.webp",
+        "sms": "https://celularautenticacaofivem.xyz/imagens/sms.webp",
+        "gallery": "https://celularautenticacaofivem.xyz/imagens/gallery.webp",
+        "phone": "https://celularautenticacaofivem.xyz/imagens/phone.webp",
+        "facetime": "https://celularautenticacaofivem.xyz/imagens/facetime.webp"
+        
+        },
+
+
+
+    "useGameClock": false,
+    "phone_template": "XXXX",
+    "backgroundURL": "https://i.pinimg.com/736x/7f/11/3c/7f113c30afa95a1b680457ee6805e135.jpg",
+    "disabledApps": []
+  },
+  
+  "call_mode": "pma-voice",
+  "webhookURL": "https://discordapp.com/api/webhooks/984523030132846673/oy3dtZCgcmHJdVGOUasm-zROZnZ_ndGpTVKW4DqXkpLobCgJBuLHSUUWQE26Q7faHoXC",
+  "instagram_verify": "instagram.verificado",
+  "moderator": "owner.permissao",
+  "item": "cellphone",
+  "base": "creative_v5",
+  
+  "services": [
+    { "name": "Policia", "number":"911", "permission":"Lspd" },
+    { "name": "Paramédico", "number":"112", "permission":"Paramedic" },
+    { "name": "Mecânico", "number":"443", "permission":"Mechanic" },
+    { "name": "Staff", "number":"001", "permission":"Admin" }
+  ]
+}

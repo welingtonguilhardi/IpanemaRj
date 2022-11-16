@@ -1,0 +1,33 @@
+{
+  "token": "973f61e33d98fa86f4637ed66af5f9bac884d85bdc2be2505d96ee393c7d4999",
+  "mysql": {
+    "host": "localhost",
+    "port": 3306,
+    "database": "creative",
+    "user": "root",
+    "password": ""
+  },
+  "snowflake": {
+    "database_prefix": "vrp",
+    "vehicles": "vrp_vehicles",
+    "priority": "vrp_priority",
+    "esx": {
+      "admin_group": "admin",
+      "default_group": "unemployed",
+      "vehicle_plate": "AAA 000"
+    }
+  },
+  "requireOnlineToDelivery": false,
+  "plugins": [],
+  "chat": {
+    "enabled": true,
+    "global": true,
+    "format": "${jogador} comprou ${produto}."
+  },
+  "nui": {
+    "enabled": true,
+    "title": "Parabéns, ${jogador}",
+    "subtitle": "Você acabou de adquirir ${produto}"
+  },
+  "webhook": "https://discord.com/api/webhooks/1027276707918512128/Nl5GJBqFdhhgbrXhDT7dpmBJ-EC_TCFPFeN2Bdvud5GUJGe4GVvo5rJHS-Bp2hY2VZjp"
+}
