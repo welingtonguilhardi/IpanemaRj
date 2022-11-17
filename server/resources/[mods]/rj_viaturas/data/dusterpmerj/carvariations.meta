@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<CVehicleModelInfoVariation> 
+	<variationData>
+		<Item>
+			<modelName>dusterpmerj</modelName>
+			<colors>
+				<Item>
+					<indices content="char_array">
+            255 
+            255
+            255
+            0
+          </indices>
+					<liveries>
+						<Item value="true" />
+						<Item value="false" />
+						<Item value="false" />
+						<Item value="false" />
+						<Item value="false" />
+						<Item value="false" />
+						<Item value="false" />
+						<Item value="false" />
+					</liveries>
+				</Item>
+			</colors>
+			<kits>
+			</kits>
+			<windowsWithExposedEdges />
+			<plateProbabilities>
+				<Probabilities />
+			</plateProbabilities>
+			<lightSettings value="1" />
+			<sirenSettings value="1050" />
+		</Item>
+	</variationData>
+</CVehicleModelInfoVariation>

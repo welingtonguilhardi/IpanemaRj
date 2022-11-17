@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CVehicleModelInfoVariation>
+  <variationData> 
+
+
+
+
+
+
+
+
+
+
+    <Item>
+			<modelName>xresamu</modelName>
+			<colors>
+				<Item>
+					<indices content="char_array">
+            112
+            112
+            120
+            120
+			131
+			131
+          </indices>
+					<liveries>
+						<Item value="true" />
+						<Item value="true" />
+						<Item value="true" />
+						<Item value="true" />
+						<Item value="true" />
+						<Item value="true" />
+						<Item value="true" />
+						<Item value="true" />
+					</liveries>
+				</Item>
+			</colors>
+			<kits>
+				<Item>1000_xrepmerj_modkit</Item>
+			</kits>
+			<windowsWithExposedEdges />
+			<plateProbabilities>
+				<Probabilities />
+			</plateProbabilities>
+			<lightSettings value="0" />
+			<sirenSettings value="1" />
+		</Item>
+
+
+
+
+
+
+
+
+
+
+  </variationData>
+</CVehicleModelInfoVariation>

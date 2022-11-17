@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CVehicleModelInfoVariation>
+  <variationData> 
+
+
+
+
+
+
+
+
+
+
+   		<Item>
+			<modelName>wheelchair</modelName>
+			<colors>
+				<Item>
+					<indices content="char_array">2 2 2 2</indices>
+					<liveries />
+				</Item>
+			</colors>
+			<kits>
+				<Item>0_default_modkit</Item>
+			</kits>
+			<windowsWithExposedEdges />
+			<plateProbabilities>
+				<Probabilities>
+					<Item>
+						<Name>Standard White</Name>
+						<Value value="100"/>
+					</Item>
+				</Probabilities>
+			</plateProbabilities>
+			<lightSettings value="1200"/>
+			<sirenSettings value="0"/>
+		</Item>
+
+
+
+
+
+
+
+
+
+
+  </variationData>
+</CVehicleModelInfoVariation>
