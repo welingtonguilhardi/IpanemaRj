@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CVehicleModelInfoVarGlobal>    
+<VehiclePlates>
+    <Kits>
+     <Item>
+			<kitName>1071_tiger_modkit</kitName>
+			<id value="1071" />
+			<kitType>MKT_STANDARD</kitType>
+			<visibleMods>
+				<Item>
+					<modelName>tiger_cano_a</modelName>
+					<modShopLabel />
+					<linkedModels />
+					<turnOffBones>
+						<Item>misc_d</Item>
+						<Item>exhaust</Item>
+					</turnOffBones>
+					<type>VMT_EXHAUST</type>
+					<bone>chassis</bone>
+					<collisionBone>chassis</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.00000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+				<Item>
+					<modelName>tiger_ferros_a</modelName>
+					<modShopLabel />
+					<linkedModels />
+					<turnOffBones>
+						<Item>misc_f</Item>
+					</turnOffBones>
+					<type>VMT_ROOF</type>
+					<bone>chassis</bone>
+					<collisionBone>chassis</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.00000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+				<Item>
+					<modelName>tiger_suporte_a</modelName>
+					<modShopLabel />
+					<linkedModels />
+					<turnOffBones>
+						<Item>misc_f</Item>
+					</turnOffBones>
+					<type>VMT_FRAME</type>
+					<bone>chassis</bone>
+					<collisionBone>chassis</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.00000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+				<Item>
+					<modelName>tiger_bau_a</modelName>
+					<modShopLabel />
+					<linkedModels />
+					<turnOffBones>
+						<Item>misc_f</Item>
+					</turnOffBones>
+					<type>VMT_GRILL</type>
+					<bone>chassis</bone>
+					<collisionBone>chassis</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.00000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+			</visibleMods>
+			<linkMods />
+      </Kits>
+
+</CVehicleModelInfoVarGlobal>

@@ -1,0 +1,62 @@
+honda 160: ok 150-156km/h
+s1000 rr: melhorar freio e melhorar nas curvas/direção 260km/h --mexida
+r1250: ok 250-260km/h
+saveiro: ok 180-200k/h
+hornet: ok 220km/h
+Mercedez ClassX/car xxxxx: melhorar freio e curvas/direção 299km/h -- mexida
+ducatti: ok 240-250km/h
+rrevoque: melhorar aceleração 140-160km/h -- mexida
+tiger: ok 180km/h
+spintaxi: ok 150km/h
+velar: derrapada muito nas curvas 200km/h -- mexida
+xre2019: ok 180km/h
+pop110i:ok 130-140km/h
+trash:ok 130-140km/h
+ttrs: aceleração ta muito rapida tem q abaixar 240km/h -- mexida
+gs310: melhorar aceleração 170km/h -- mexida
+xj6: melhorar aceleração 169km/h -- mexida
+zion:ok 167km/h
+biz1:ok 180km/h
+jetta: ok 200km/h
+palio97: diminuir aceleração e ta capotando mt facil nas curva 175km/h --mexida
+passat: ok 200km/h
+s10:ok 200km/h
+saveirog6: capota mt fácil 180km/h --mexida
+carro forte/stockade: ok padrão do gta
+tritonhpe: derrapa mt nas curva 190-200km/h --mexida
+uno: ok 174km/h
+versa: derrapa mt nas curva 200-210km/h --mexida
+astra: ok 195-200km/h
+chevette: derrapa p krlh nas curva 172km/h --mexida
+corsa98: melhorar um pouco a aceleração 160km/h
+cronos: ok 160-170km/h
+faggio2: ok padrão do gta
+fusca: ok 150km/h
+golg7: ok, mais a aparencia dele é mt bugada 195km/h -- excluido
+hilux2016: ok 250-260km/h
+patinete/serv_electricscooter: ok mais o personagem fica meio estranho em cima dele 
+prancha/surfboard: muito ruim d controlar e pega mt velocidade parece um jetski
+mk8: ok 240km/h
+rmodchiron300: derrapa mt em arrancada e qnd acelera em curva e limitada a velocidade em 299km/h --MEXIDA
+pursport: ok 200km/h
+rmodsianr: derrapa mt em arrancada e qnd acelera em curva 278km/h
+FUSILADE: ok 200km/h
+enduro: ok 150-160km/h
+rmodz06: ok 265km/h
+911venom: tem mt arrancada e melhorarr o freio limita em 299km/h -- mexida
+rmodbolide: melhorar o freio e limita em 299km/h --mexida
+22psh: melhorar na arrancada 160-180km/h --mexida
+918: melhorar nas curvas 210km/h -- mexida
+tonkat: ok para uma camionete pesada 160-170km/h
+bmwg07: arrancada mt forte 260km/h -- mexida
+rmodp1gtr: derrapa mt na arrancada 250km/h
+urus: ok 213km/h
+m422: arrancada mt ruim sem aceleração para uma bmw n passa d 180km/h --mexida
+surge: ok 145km/h
+asterope: ok 150km/h
+c8z0623: derrapa um pouco na arrancada melhorar bastante o freio 280km/h -- mexida
+blispa: ok 150km/h
+rsetrongt21: ok 270-280km/h
+mk8r: melhorar um pouco o freio 299km/h -- mexida
+dv4r: melhorar a direção/curvas melhorar freio 268km/h --mexida
+20r1: melhorar a direção/curvas melhorar freio 260km/h -- mexida

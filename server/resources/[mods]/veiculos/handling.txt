@@ -1,0 +1,88 @@
+[Tultorial]: Ajustar a handling
+
+<nInitialDriveGears>  -> PARA MUDAR AS MARCHAS DO VEÍCULO
+
+<fInitialDriveForce -> POTÊNCIA DE SAÍDA DA TRANSMISSÃO PARA AS RODAS
+
+<fDriveInertia -> SE LEVANTAMOS, O MOTOR VAI MAIS RÁPIDO
+
+<fClutchChangeRateScaleUpShift E <fClutchChangeRateScaleDownShift
+
+NÓS COMBINAMOS EM UM VALOR MAIOR, É USADO PARA ALTERAR MAIS RÁPIDO, AMBOS PARA CIMA E PARA BAIXO
+
+<fInitialDriveMaxFlatVel -> É POSSÍVEL AUMENTAR O PICO DE VELOCIDADE, É PRECISO MULTIPLICÁ-LO PO 1,32 PARA SABER O KM/H REAL
+
+<fHandBrakeForce -> PARA AUMENTAR A FORÇA DO FREIO DE MÃO
+
+<fSteeringLock -> UM VALOR MAIOR AUMENTA O ÂNGULO MÁXIMO DE DIREÇÃO DA DIREÇÃO
+
+<fTractionCurveLateral -> PARA FAZER CURVAS MAIS PRÓXIMAS E COM MAIS APERTO
+
+<fLowSpeedTractionLossMult -> VAMOS ESCOLHER UM VALOR MENOR PARA AUMENTAR A TRAÇÃO DAS RODAS NAS SAÍDAS OU UM VALOR MAIOR PARA QUEIMAR MAIS RODAS
+
+<fTractionBiasFront -> 
+PARA CONFIGURAR SE É TRASEIRA 0,01, 4X4 TRACÇÃO 0,5 OU DIANTEIRA 0,99 DE VALOR, AFETA MUITO A ACELERAÇÃO DO CARRO
+
+<fTractionCurveMax ->
+Aderência em curva do veículo como um multiplicador do atrito da superfície do pneu.
+
+<fTractionCurveMin ->
+A aderência de aceleração / frenagem do veículo como um multiplicador do atrito da superfície do pneu
+
+<fbrakeforce> Óbvio. Multiplica o cálculo do jogo de desaceleração.Números maiores = frenagem mais difícil.Valores: 0,01 - 2.0 ou superior.1.0 usa cálculo de força de freio não modificado.
+
+
+
+
+
+
+
+<fSuspensionCompDamp ->
+Amortecimento durante a compressão da haste. Maior = mais rígido.
+
+<fSuspensionReboundDamp ->
+Amortecimento durante o rebote do suporte. Maior = mais rígido
+
+<fSuspensionUpperLimit ->
+Limite visual ... até que ponto as rodas podem se mover para cima / para baixo da posição original
+
+<fSuspensionLowerLimit ->
+Limite visual ... até que ponto as rodas podem se mover para cima / para baixo da posição original
+
+<fSuspensionRaise ->
+O quanto a suspensão levanta o corpo das rodas. Recomende ajustar na segunda casa decimal, a menos que o veículo tenha espaço para se mover. ou seja, -0,02 é bastante queda em um carro já baixo. Muito irá mostrar as rodas travando ou, se positivo, nenhuma suspensão unindo o corpo às rodas
+
+<fSuspensionBiasFront ->
+Escala de amortecimento de força frente / trás. Se mais rodas atrás (por exemplo, caminhões), a suspensão dianteira precisa ser mais forte. Este valor determina qual suspensão é mais forte, dianteira ou traseira. Se o valor estiver acima de 0,50, a frente é mais rígida, quando abaixo, a traseira.
+
+<fAntiRollBarForce ->
+A constante da mola que é transmitida à roda oposta quando sob compressão, números maiores são uma força maior. Números maiores = menos rotação do corpo
+
+<fAntiRollBarBiasFront ->
+A polarização entre dianteira e traseira para a barra anti-derrapante (0 frontal, 1 traseira)
+
+<vecCentreOfMassOffset -> SE MEXER NO "Z" ELE NÃO IRÁ CAPORTA ( QUANTO MENOR MELHOR )
+
+<fInitialDragCoeff -> Define o coeficiente de arrasto do veículo. Aumente para simular o arrasto aerodinâmico.
+Valor: 10-120
+
+fRollCentreHeightRear -> Este valor modifica a transmissão do peso durante uma aceleração entre a dianteira e a traseira. alto valor positivo pode tornar seu carro capaz de fazer cavalinhos.
+
+Números maiores = menos CAPOTAGEM.
+Valores: (Recomendado) -0,15 a 0,15.
+
+<fAntiRollBarBiasFront ->
+
+Números maiores = menos CAPOTAGEM.
+Valores: (Recomendado) -0,15 a 0,15.
+
+<FCLUTCHCHANGERATESCALEUPSHIFT>
+Multiplicador de velocidade da embreagem em mudanças ascendentes .
+
+Números maiores = mudanças mais rápidas.
+
+
+<FCLUTCHCHANGERATESCALEDOWNSHIFT>
+Multiplicador de velocidade da embreagem nas mudanças para baixo .
+
+Números maiores = mudanças mais rápidas
