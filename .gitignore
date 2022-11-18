@@ -3,7 +3,7 @@
 
 <<<<<<< HEAD
 server/resources/[script]/uf-daily/NAO_TOCAR.json
-/server/hypnonema.db
+server/hypnonema.db
 
 =======
 >>>>>>> parent of 8d4de60 (Update .gitignore)
