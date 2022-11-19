@@ -1,0 +1,3 @@
+FiveM não apoia microtransações pay-to-win.
+Renomeie o script para algo desconexo com a loja, exemplo: vrp_mecanico
+Para o tutorial, assista https://youtu.be/yq4UGM8TFCk
