@@ -4,6 +4,7 @@
 local Tunnel = module("vrp","lib/Tunnel")
 local Proxy = module("vrp","lib/Proxy")
 vRP = Proxy.getInterface("vRP")
+vPLAYER = Tunnel.getInterface("player")
 src = {}
 Tunnel.bindInterface("target",src)
 vSERVER = Tunnel.getInterface("checkin")
@@ -640,7 +641,9 @@ function playerTargetEnable()
 								SendNUIMessage({ response = "leftTarget" })
 							end
 						end
-					elseif IsEntityAVehicle(entity) and policeService then
+					elseif IsEntityAVehicle(entity) and vPLAYER.checkPolicia() then
+						print('chamadp')
+
 						if #(coords - entCoords) <= 1.0 then
 							success = true
 
@@ -668,7 +671,7 @@ function playerTargetEnable()
 
 							SendNUIMessage({ response = "leftTarget" })
 						end
-					elseif IsPedAPlayer(entity) and policeService then
+					elseif IsPedAPlayer(entity) and vPLAYER.checkPolicia() then
 						if #(coords - entCoords) <= 1.0 then
 							local index = NetworkGetPlayerIndexFromPed(entity)
 							local source = GetPlayerServerId(index)

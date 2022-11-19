@@ -1,4 +1,4 @@
-const imgDir = "http://13.59.26.223/nation_barbershop/"; // DIRETÓRIO DAS IMAGENS
+const imgDir = "http://localhost/nation_barbershop/"; // DIRETÓRIO DAS IMAGENS
 
 const pt_BR = {
     back: "voltar",
