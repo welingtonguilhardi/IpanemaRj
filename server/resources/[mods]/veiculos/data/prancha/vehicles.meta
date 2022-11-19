@@ -1301,7 +1301,7 @@
       <txdName>surfboard</txdName>
       <handlingId>SEASHARK</handlingId>
       <gameName>SEASHARK</gameName>
-      <vehicleMakeName>SPEEDOPH</vehicleMakeName>
+      <vehicleMakeName>null</vehicleMakeName>
       <expressionDictName>null</expressionDictName>
       <expressionName>null</expressionName>
       <animConvRoofDictName>null</animConvRoofDictName>
