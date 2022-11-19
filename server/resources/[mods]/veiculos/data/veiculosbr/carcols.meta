@@ -9484,7 +9484,166 @@
 			<slotNames />
 			<liveryNames />
 		</Item>
-		
+		<Item>
+			<kitName>golg7_modkit</kitName>
+			<id value="15010" />
+			<kitType>MKT_SPORT</kitType>
+			<visibleMods>
+				<Item>
+					<modelName>golg7_spoil_1</modelName>
+					<modShopLabel>Top Secret</modShopLabel>
+					<linkedModels />
+					<turnOffBones>
+						<Item>misc_c</Item> 
+					</turnOffBones>
+					<type>VMT_SPOILER</type>
+					<bone>boot</bone>
+					<collisionBone>boot</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+				<Item>
+					<modelName>golg7_skirt1</modelName>
+					<modShopLabel>golg7_SKIRT1</modShopLabel>
+					<linkedModels />
+					<turnOffBones>
+						<Item>misc_b</Item> 
+					</turnOffBones>
+					<type>VMT_SKIRT</type>
+					<bone>chassis</bone>
+					<collisionBone>chassis</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+				<Item>
+					<modelName>golg7_skirt2</modelName>
+					<modShopLabel>golg7_SKIRT2</modShopLabel>
+					<linkedModels />
+					<turnOffBones>
+						<Item>misc_b</Item> 
+					</turnOffBones>
+					<type>VMT_SKIRT</type>
+					<bone>chassis</bone>
+					<collisionBone>chassis</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+				<Item>
+					<modelName>golg7_bnt1</modelName>
+					<modShopLabel>golg7_BNT1</modShopLabel>
+					<linkedModels />
+					<turnOffBones>
+						<Item>bonnet</Item> 
+					</turnOffBones>
+					<type>VMT_BONNET</type>
+					<bone>bonnet</bone>
+					<collisionBone>chassis</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+				<Item>
+					<modelName>golg7_split1</modelName>
+					<modShopLabel>golg7_SPLIT1</modShopLabel>
+					<linkedModels />
+					<turnOffBones>
+						<Item>misc_d</Item> 
+					</turnOffBones>
+					<type>VMT_BUMPER_F</type>
+					<bone>bumper_f</bone>
+					<collisionBone>chassis</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+				<Item>
+					<modelName>golg7_split2</modelName>
+					<modShopLabel>golg7_SPLIT2</modShopLabel>
+					<linkedModels />
+					<turnOffBones>
+						<Item>misc_d</Item> 
+					</turnOffBones>
+					<type>VMT_BUMPER_F</type>
+					<bone>bumper_f</bone>
+					<collisionBone>chassis</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+				<Item>
+					<modelName>golg7_bumr1</modelName>
+					<modShopLabel>golg7_BUMR1</modShopLabel>
+					<linkedModels />
+					<turnOffBones>
+						<Item>misc_e</Item> 
+					</turnOffBones>
+					<type>VMT_BUMPER_R</type>
+					<bone>bumper_r</bone>
+					<collisionBone>chassis</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+				<Item>
+					<modelName>golg7_bumr2</modelName>
+					<modShopLabel>golg7_BUMR2</modShopLabel>
+					<linkedModels />
+					<turnOffBones>
+						<Item>misc_e</Item> 
+					</turnOffBones>
+					<type>VMT_BUMPER_R</type>
+					<bone>bumper_r</bone>
+					<collisionBone>chassis</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+				<Item>
+					<modelName>golg7_exh_1</modelName>
+					<modShopLabel>golg7_exh1</modShopLabel>
+					<linkedModels />
+					<turnOffBones>
+						<Item>misc_a</Item> 
+					</turnOffBones>
+					<type>VMT_EXHAUST</type>
+					<bone>chassis</bone>
+					<collisionBone>chassis</collisionBone>
+					<cameraPos>VMCP_DEFAULT</cameraPos>
+					<audioApply value="1.000000" />
+					<weight value="0" />
+					<turnOffExtra value="false" />
+					<disableBonnetCamera value="false" />
+					<allowBonnetSlide value="true" />
+				</Item>
+			</visibleMods>
+			<linkMods />
 			<statMods>
 				<Item>
 					<identifier />
