@@ -322,12 +322,14 @@ const colorPicker = (percent) => {
 
 	return colorPercent;
 }
-Info = {}
 const updateMochila = () => {
 	$.post("http://inventory/requestMochila",JSON.stringify({}),(data) => {
 		info = data["infos"] 
 		id = info[1]
 		job = info[2]
+		if (!job){
+			job = "Desempregado"
+		}
   		$("#weightTextLeft").html(`Função: ${(job)} │ Id: ${(id)} │ Peso: ${(data["peso"]).toFixed(2)}   /   ${(data["maxpeso"]).toFixed(2)}`);
 
 		$("#weightBarLeft").html(`<div id="weightContent" style="width: ${data["peso"] / data["maxpeso"] * 100}%"></div>`);
