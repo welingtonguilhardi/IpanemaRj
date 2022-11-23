@@ -164,7 +164,7 @@ function func.Mochila()
 			end
 
 			local identity = vRP.getUserIdentity(user_id)
-			return inventory,vRP.computeInvWeight(user_id),vRP.getBackpack(user_id),{ identity.name.." "..identity.name2,parseInt(user_id),parseInt(identity.bank),parseInt(vRP.getGmsId(user_id)),identity.phone,identity.registration,identity.garage }
+			return inventory,vRP.computeInvWeight(user_id),vRP.getBackpack(user_id),{ identity.name.." "..identity.name2,parseInt(user_id),vRP.getUserGroupByType(user_id,"job"),parseInt(identity.bank),parseInt(vRP.getGmsId(user_id)),identity.phone,identity.registration,identity.garage }
 		end
 	end
 end

@@ -20,7 +20,7 @@ Config.getIdentity = function (nuser_id)
     return {
         nome = identidade.name,
         sobrenome = identidade.name2,
-        idade = identidade.id,
+        idade = identidade.age,
         registro = identidade.registration
     }
 end

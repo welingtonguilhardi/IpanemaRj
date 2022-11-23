@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            display: flex;
+            user-select: none;
+            margin: auto; 
+            background-color: rgba(251, 249, 251, 0.275);
+            background-repeat: no-repeat;
+            max-width:50%;
+            max-height: 50%;
+        }
+        .container{
+            margin: auto; 
+            width:100%;
+        }
+
+        .main-box {
+            margin: auto; 
+            margin-top:10%;
+            color: rgb(224, 159, 39);
+            font-weight: bold;
+            font-family: sans-serif;
+            display: flex;
+            flex-flow: column;
+            background: rgba(233, 227, 233, 0.758);
+            align-items: center;
+            padding: 50px;
+            flex-direction: column;
+            justify-content: center;
+            max-width:50%;
+            max-height: 50%;
+            
+        }
+        #img-1 {
+            display: none;
+            max-width: 50%;
+            max-height: 50%;
+            margin: 10px;
+        }
+        #img-2 {
+            display: none;
+            max-width: 50%;
+            max-height: 50%;
+            margin: 10px;
+        }
+        #candidato-1{
+            display: none;
+        }
+        #candidato-2{
+            display: none;
+        }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button
+        {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+        button{
+            border:none;
+            margin: 10px;
+            width:50%;
+            background: rgba(255, 253, 255, 0);
+        }
+        button:hover{
+            background-color:rgba(11, 249, 19, 0.353);
+        }
+        span{
+            font-size:20px;
+            font-weight: 600;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="main-box">
+            <h3>Eleição Ipanema Rj</h3>
+            <br>
+            <span class = "title">Numero do candidato</span>
+
+            <input id="voto" name="voto" value="" type="number">
+
+            <div class="NameCandidato"></div>
+
+            <img id ="img-1"src="https://cdn.discordapp.com/attachments/858930582900441128/1044497317656543253/prefeito.png" alt="img-1">
+            <img id ="img-2"src="https://cdn.discordapp.com/attachments/858930582900441128/1044498816709177444/prefeito2.png" alt="img-2">
+            <br>
+
+            <button class="botao"><span>Comfirmar</span></button>
+            <button class="apuracao"><span>Apuração</span></button>
+        </div>
+    </div>    
+
+</body>
+<script>
+    document.onkeyup = data => {
+		if (data["key"] === "Escape"){
+			$.post("http://urna/Close");
+	    }
+	};
+
+    var index = undefined;
+    var hidden = undefined
+
+    $(() => {
+
+        $("body").hide()
+        window.addEventListener("message", function(event){
+            if (event.data.teste != undefined) {
+                let status = event.data.teste
+                if (status) {
+                    $("body").show()
+                    var NameCandidato1 = event.data.candidato1 //obtendo nome do candidato1 do meu client.lua
+                    var NameCandidato2 = event.data.candidato2 //obtendo nome do candidato2 do meu client.lua
+
+                    NumberCandidato1 = event.data.NumberCandidato1 //obtendo numero do candidato1 do meu client.lua
+                    NumberCandidato2 = event.data.NumberCandidato2 //obtendo numero do candidato2 do meu client.lua
+
+
+
+                    index = `<h4 id="candidato1">${NameCandidato1} </h4>` // declarando html <h4>Nome do candidato1</h4>
+                    index2 = `<h4 id="candidato2">${NameCandidato2} </h4>`// declarando html <h4>Nome do candidato2</h4>
+                } else {
+                    $("body").hide()
+                }
+            }
+        })
+
+
+        var voto = undefined
+        $(".botao").click(function(){
+            voto = document.querySelector("#voto").value
+            $.post("http://urna/botao", JSON.stringify({ teste: voto }))
+        })
+        $(".apuracao").click(function(){
+            $.post("http://urna/apuracao", JSON.stringify({ data: " " }))
+        })
+    })
+    function removeClass(){
+        try {
+            document.getElementById('candidato1').remove()   
+        } catch(e) {
+            try{
+                document.getElementById('candidato2').remove()  
+            }catch(e) {
+                res = false;//variavel inutil, apenas para aparecer o error no console caso a class não tenha sido criada ainda
+            }
+        }        
+
+    }
+    $('#voto').keyup(function(){ //atualizando input
+        var text = $(this).val();//pegando o valor do input atualizado
+        if (text == NumberCandidato1){
+            try {removeClass()
+            }catch(e) {
+                res = false;//variavel inutil, apenas para aparecer o error no console caso a class não tenha sido criada ainda
+            }
+            $("head").append("<style>#img-1{display:block}</style>");
+            $("head").append("<style>#candidato-1{display:block}</style>");
+
+            $("head").append("<style>.NameCandidato{display:flex}</style>");
+            $(".NameCandidato").append(index);
+
+            $("head").append("<style>.title{display:none}</style>");
+            
+        }
+        else if (text == NumberCandidato2){
+           try {removeClass()
+            }catch(e) {
+                res = false;//variavel inutil, apenas para aparecer o error no console caso a class não tenha sido criada ainda
+            }
+            $("head").append("<style>#img-2{display:block}</style>");
+            $("head").append("<style>#candidato-2{display:block}</style>");
+
+            $("head").append("<style>.NameCandidato{display:flex}</style>");
+            $(".NameCandidato").append(index2);
+
+
+            $("head").append("<style>.title{display:none}</style>");
+            
+        }
+        else{
+            $("head").append("<style>#candidato-1{display:none}</style>");
+            $("head").append("<style>#candidato-2{display:none}</style>");
+
+            $("head").append("<style>.NameCandidato{display:none}</style>");
+
+            $("head").append("<style>#img-1{display:none}</style>");
+            $("head").append("<style>#img-2{display:none}</style>");
+
+            $("head").append("<style>.title{display:flex}</style>");
+            removeClass()
+        }
+
+    });
+
+    
+</script>
+</html>

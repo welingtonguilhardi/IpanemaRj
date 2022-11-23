@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            display: flex;
+            user-select: none;
+        }
+
+        .main-box {
+            margin: auto;
+            color: rgb(224, 159, 39);
+            font-weight: bold;
+            font-family: sans-serif;
+            display: flex;
+            flex-flow: column;
+            background: rgba(233, 227, 233, 0.747);
+            align-items: center;
+            padding: 50px;
+        }
+        #img-1 {
+            display: none;
+            max-width: 50%;
+            margin: 10px;
+        }
+        #img-2 {
+            display: none;
+            max-width: 50%;
+            margin: 10px;
+        }
+        #candidato-1{
+            display: none;
+        }
+        #candidato-2{
+            display: none;
+        }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button
+        {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+        #Erroridade{
+            color: rgb(202, 33, 33);
+            font-family: cursive;
+            display:none
+        }
+        input{
+            text-align: center;
+            margin-bottom: 5px;
+            margin: 0 auto; /* adição de margem automática */
+            max-width: 10%; /* valor de exemplo */
+        }
+        button{
+            appearance: none;
+            -webkit-appearance: none;
+            font-family: sans-serif;
+            cursor: pointer;
+            padding: 12px;
+            min-width: 100px;
+            border: 0px;
+            -webkit-transition: background-color 100ms linear;
+            -ms-transition: background-color 100ms linear;
+            transition: background-color 100ms linear;
+            border-radius: 10px;
+            background: #2ecc71;
+            color: #ffffff;
+        }
+        button:hover{
+            outline: 0;
+            border-radius: 20px;
+            background: #27ae60;
+            color: #ffffff;
+        }
+        h3{
+            font-weight: bold;
+            font-family: sans-serif;
+            text-shadow: 0.1em 0.1em 0.2em black
+        }
+    </style>
+</head>
+<body>
+    <div class="main-box">
+        <h1>Verificação de Idade</h1>
+        <br>
+        <h3>Digite a idade do seu personagem</h3>
+        <h6 id ="Erroridade">Seu personagem deve ter mais de 18 anos</h6>
+        <input id="valor" name="valor" value="" type="number">
+        <br>
+        <button class="botao">Confirmar</button>
+    </div>
+</body>
+<script>
+    $('#valor').keyup(function(){ //atualizando input
+
+        var text = $(this).val();//pegando o valor do input atualizado
+        if (text < 18 ){
+            $("head").append("<style>#Erroridade{display:block}</style>");
+        }else{
+            $("head").append("<style>#Erroridade{display:none}</style>");
+        }
+
+    });
+    $(() => {
+
+        $("body").hide()
+        window.addEventListener("message", function(event){
+            if (event.data.idade != undefined) {
+                let status = event.data.idade
+                if (status) {
+                    $("body").show()
+                } else {
+                    $("body").hide()
+                }
+            }
+        })
+
+
+        var valor = undefined
+        $(".botao").click(function(){
+            valor = document.querySelector("#valor").value
+            $.post("http://creative/botao", JSON.stringify({ idade: valor }))
+        })
+    })
+</script>
+</html>

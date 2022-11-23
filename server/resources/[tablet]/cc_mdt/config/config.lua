@@ -13,13 +13,13 @@ Config.logo = 'sua-img'
 
 --[ WEBHOOKS ]--------------------------------------------------------------------------------------------------------------------
 
-Config.webhookCriarBoletim = '' -- Webhook para criação de boletins;
+Config.webhookCriarBoletim = 'https://discord.com/api/webhooks/1009178315824832582/ch0Yi5luGFWhYJR52A9XEbUPmDLf8aAGAUoNWmTdOYfQ5mr4gTkl5yYJKOEKFhBWe4ur' -- Webhook para criação de boletins;
 
-Config.webhookDelBoletim = '' -- Webhook para o deletamento de boletins de ocorrência;
+Config.webhookDelBoletim = 'https://discord.com/api/webhooks/1009178210619101336/84i84HCkKpbveguTJBEwSwz5PiHZd9ClPmdwPw1k3OOmOuIXKTfWJmUUoh3LxWk6GqiB' -- Webhook para o deletamento de boletins de ocorrência;
 
-Config.webhookPrender = '' -- Webhook quando um boletim for finalizado e o criminoso preso;
+Config.webhookPrender = 'https://discord.com/api/webhooks/1009177982700617808/j1psCsxvgAyPSJ36nuvnv-ekab65kdNViaL--9gU1DTI8t_LjtKI97oStCMsGTA4b5E_' -- Webhook quando um boletim for finalizado e o criminoso preso;
 
-Config.webhookDelCadastro = '' -- Webhook quando um administrador, deletar um cadastro;
+Config.webhookDelCadastro = 'https://discord.com/api/webhooks/1009177886764310659/VFq5uA8_sgsY8W1dnGO5I-x9O65PczrlqMieXnRfZEVYt9sf3NtpZ5EteRiF64CKJdV7' -- Webhook quando um administrador, deletar um cadastro;
 
 --[ COMANDO ]--------------------------------------------------------------------------------------------------------------------
 
@@ -27,9 +27,9 @@ Config.comandoAbrir = 'mdt' -- Comando para abrir o Tablet;
 
 --[ PERMISSOES ]--------------------------------------------------------------------------------------------------------------------
 
-Config.permissaoPolicial = 'nc.permissao' -- Permissão para abrir o MDT;
+Config.permissaoPolicial = 'policia.permissao' -- Permissão para abrir o MDT;
 
-Config.permissaoAdministrativa = 'nc.permissao' -- Permissão que consiguirá acessar a pagina Gerenciar Oficiais;
+Config.permissaoAdministrativa = 'Coronel.permissao' -- Permissão que consiguirá acessar a pagina Gerenciar Oficiais;
 
 --[ PRENDER SOMENTE DENTRO DE ZONA ]-------------------------------------------------------------------------------------------------
 
