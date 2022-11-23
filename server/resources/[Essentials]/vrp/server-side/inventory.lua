@@ -42,6 +42,16 @@ local itemlist = {
 		type = "use",
 		weight = 0.10
 	},
+	["fichacassino"] = {
+		index = "ficha",
+		name = "Ficha Cassino",
+		desc = "",
+		tipo = "Usável",
+		unity = "Não",
+		economy = "225",
+		type = "use",
+		weight = 0.10
+	},
 	["warfarin"] = {
 		index = "medkit",
 		name = "Kit Médico",

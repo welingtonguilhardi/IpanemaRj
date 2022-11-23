@@ -1,6 +1,7 @@
 local Tunnel = module("vrp", "lib/Tunnel")
 local Proxy = module("vrp", "lib/Proxy")
-
+cRP = {}
+Tunnel.bindInterface("casino_blackjack",cRP)
 vRP = Proxy.getInterface("vRP")
 vRPclient = Tunnel.getInterface("vRP")
 
@@ -27,11 +28,32 @@ local blackjackTables = {
 local blackjackGameInProgress = {}
 local blackjackGameData = {}
 
+RegisterNetEvent("Blackjack:requestfichas")
+AddEventHandler("Blackjack:requestfichas", function(source)
+    local source = source
+	local user_id = vRP.getUserId(source)
+    if user_id then
+        return vRP.getInventoryItemAmount(user_id,"fichacassino")
+    else
+        return 0
+    end
+end)
+
+function cRP.fichasNumber()
+    local source = source
+	local user_id = vRP.getUserId(source)
+    if user_id then
+        return vRP.getInventoryItemAmount(user_id,"fichacassino")
+    else
+        return 0
+    end
+end    
+
 function getPlayerChips(source)
     local source = source
 	local user_id = vRP.getUserId(source)
     if user_id then
-        return vRP.getInventoryItemAmount(user_id,"dollars")
+        return vRP.getInventoryItemAmount(user_id,"fichacassino")
     else
         return 0
     end
@@ -44,7 +66,7 @@ end
 function tryTakeChips(source,amount)
     local thePlayer = source
 	local user_id = vRP.getUserId(thePlayer)
-		if vRP.tryGetInventoryItem(user_id,"dollars",amount,false) then
+		if vRP.tryGetInventoryItem(user_id,"fichacassino",amount,false) then
 		updatePlayerChips(source)
     return true
 	end
@@ -53,7 +75,7 @@ end
 function giveChips(source,amount)
     local thePlayer = source
 	local user_id = vRP.getUserId(thePlayer)
-	vRP.giveInventoryItem(user_id,"dollars",amount,false)
+	vRP.giveInventoryItem(user_id,"fichacassino",amount,false)
     updatePlayerChips(source)
 end
 

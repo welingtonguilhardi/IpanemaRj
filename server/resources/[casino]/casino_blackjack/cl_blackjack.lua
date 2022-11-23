@@ -2,6 +2,11 @@ local Tunnel = module("vrp","lib/Tunnel")
 local Proxy = module("vrp","lib/Proxy")
 vRP = Proxy.getInterface("vRP")
 
+cRP = {}
+Tunnel.bindInterface("casino_blackjack",cRP)
+vSERVER = Tunnel.getInterface("casino_blackjack")
+
+local on = false
 local closeToCasino = false
 local closestChair = -1
 local closestChairDist = 1000 
@@ -104,10 +109,17 @@ RegisterNetEvent('blackjack:updatePlayerChips')
 AddEventHandler(
     'blackjack:updatePlayerChips',
     function(amount)
-        PlayerOwnedChips = amount
+        PlayerOwnedChips = vSERVER.fichasNumber()
     end
 )
-
+Citizen.CreateThread(function() -- loop para atualizar fichas em tempo real
+    while true do
+        if on then
+            PlayerOwnedChips = vSERVER.fichasNumber()
+        end    
+        Citizen.Wait(2000)
+    end    
+end)
 Citizen.CreateThread(function()
 	TriggerServerEvent("Blackjack:requestBlackjackTableData")
 end)
@@ -331,6 +343,7 @@ Citizen.CreateThread(function()
         if sittingAtBlackjackTable and canExitBlackjack then
             SetPedCapsule(PlayerPedId(),0.2) 
             if IsControlJustPressed(0, 202) and not waitingForSitDownState then  --Leave seat [backspace]
+                on = false
                 shouldForceIdleCardGames = false
                 Wait(0)
                 blackjackAnimDictToLoad = "anim_casino_b@amb@casino@games@shared@player@"
@@ -514,6 +527,7 @@ end)
 
 RegisterNetEvent("Blackjack:beginBetsBlackjack")
 AddEventHandler("Blackjack:beginBetsBlackjack",function(gameID,tableId)
+    on = true
     globalGameId = gameID
     blackjackInstructional = setupBlackjackInstructionalScaleform("instructional_buttons")
     --print("made blackjackInstructional true cause its intro time bet")
