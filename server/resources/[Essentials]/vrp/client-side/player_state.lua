@@ -20,7 +20,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- GETPOSITIONS
 -----------------------------------------------------------------------------------------------------------------------------------------
-function tvRP.getPositions()
+function tvRP.getPositions() --pega a posição do player
 	local ped = PlayerPedId()
 	local coords = GetEntityCoords(ped)
 	return vRPserver.mathLegth(coords.x),vRPserver.mathLegth(coords.y),vRPserver.mathLegth(coords.z),vRPserver.mathLegth(GetEntityHeading(ped))

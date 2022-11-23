@@ -25,7 +25,7 @@ local creatingCharacter = false
 local skinData = {
 	["pants"] = { item = 0, texture = 0, defaultItem = 0, defaultTexture = 0 },
 	["arms"] = { item = 0, texture = 0, defaultItem = 0, defaultTexture = 0 },
-	["t-shirt"] = { item = 1, texture = 0, defaultItem = 1, defaultTexture = 0 },
+	["t-shirt"] = { item = -1, texture = 0, defaultItem = -1, defaultTexture = 0 },
 	["torso2"] = { item = 0, texture = 0, defaultItem = 0, defaultTexture = 0 },
 	["vest"] = { item = 0, texture = 0, defaultItem = 0, defaultTexture = 0 },
 	["bag"] = { item = 0, texture = 0, defaultItem = 0, defaultTexture = 0 },
