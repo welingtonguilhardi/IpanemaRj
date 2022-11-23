@@ -40,6 +40,8 @@ body {
 }
 
 .invLeft, .invRight {
+	min-width: 580px;
+	max-width: 580px;
 	row-gap: 5px;
 	display: grid;
 	column-gap: 5px;
