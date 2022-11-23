@@ -113,36 +113,64 @@ RegisterServerEvent("police:runArrest")
 AddEventHandler("police:runArrest",function()
 	local source = source
 	local user_id = vRP.getUserId(source)
-	--print ('chamado')
+
 	if user_id then
-		print(user_id.."user id ok")
+		--print(user_id.."user id ok")
 		if vRP.hasPermission(user_id, "policia.permissao") then
-			print('permission ok')
+
 			if vRPC.getHealth(source) > 101 and not vCPLAYER.getHandcuff(source) then
-				print('verificação ok')
+
 				local vehicle,vehNet,vehPlate,vehName = vRPC.vehList(source,7)
 				if vehicle then
-					print('vehicle ok')
 					local plateUser = vRP.getVehiclePlate(vehPlate)
 					local inVehicle = vRP.query("vRP/get_vehicles",{ user_id = parseInt(plateUser), vehicle = vehName })
 					if inVehicle[1] then
-						print("invehicle ok")
 						if inVehicle[1].arrest <= 0 then
-							print("sucess")
 							local players = {}
-							players = vRP.getUsersByPermission("nc.permissao")
+							local answered = false
 
-							local ok = vRP.request(source,"Reboque",30)
-							if ok then
-								print("ok")
+							players = vRP.getUsersByPermission("mecanico.permissao")
+							local x,y,z = vRPC.getPositions(source)
+							local identity = vRP.getUserIdentity(user_id)
+							if not players then -- verificação se tem mecanico em serviço 
+								TriggerClientEvent("Notify",source,"amarelo","Nenhum mecanico em serviço para rebocar o veiculo.",5000)
 							end	
-							vRP.execute("vRP/set_arrest",{ user_id = parseInt(plateUser), vehicle = vehName, arrest = 1, time = parseInt(os.time()) })
-							TriggerClientEvent("Notify",source,"verde","Veículo <b>apreendido</b>.",3000)
+							local i = 0 -- variavel de contagem de requisições não aceitas 
+							local MecsOn = 0 -- variavel de contagem de players que estão setados de mec
+							for k,v in pairs(players) do --para cada mecanico
+								
+								local nuser_id = vRP.getUserId(v) --filtra id do mec
+								local identitys = vRP.getUserIdentity(nuser_id) --filtra nome do mec
+								MecsOn = MecsOn + 1 --contagem de quantos players que estão setados de mec
+									async(function()
+										TriggerClientEvent("NotifyPush",v,{ code = 20, title = "Chamado", x = x, y = y, z = z, name = identity.name.." "..identity.name2, phone = identity.phone, rgba = {69,115,41} })
+										local request = vRP.request(v,"Aceitar o chamado de REBOQUE <b>"..identity.name.." "..identity.name2.."</b>?",30)
+										if request then
+											if not answered then
+												answered = true
+												vRPC.playSound(source,"Event_Message_Purple","GTAO_FM_Events_Soundset")
+												TriggerClientEvent("Notify",source,"amarelo","Chamado atendido por <b>"..identitys.name.." "..identitys.name2.."</b>, aguarde no local.",10000)
+												vRP.execute("vRP/set_arrest",{ user_id = parseInt(plateUser), vehicle = vehName, arrest = 1, time = parseInt(os.time()) })
+												TriggerClientEvent("Notify",source,"verde","Veículo <b>apreendido</b>.",3000)
+											else
+												TriggerClientEvent("Notify",v,"vermelho","Chamado já foi atendido por outra pessoa.",5000)
+												vRPC.playSound(v,"CHECKPOINT_MISSED","HUD_MINI_GAME_SOUNDSET")
+											end
+										else
+											i = i + 1 --variavel de contagem de requisições não aceitas 
+											if i == MecsOn then -- se numero de rejeições var (i) for igual ao numero de players que estão setados de mec var (MecsOn)
+												TriggerClientEvent("Notify",v,"vermelho","Chamado recusado.",5000)
+											end	
+										end
+									end)
+							end
 							--TriggerClientEvent("Notify",plateUser,"aviso","Veículo <b>"..vRP.vehicleName(vehName).."</b> foi conduzido para o <b>DMV</b>.",7000)
 						else
-							print("já estava preso")
+							--print("já estava preso")
 							TriggerClientEvent("Notify",source,"amarelo","O veículo está no galpão da polícia.",5000)
 						end
+					else
+						TriggerClientEvent("Notify",source,"amarelo","O veículo não tem registro.",5000)	
 					end
 				end
 			end
