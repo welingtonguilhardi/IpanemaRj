@@ -26,10 +26,22 @@ function cRP.Open()
     end
 end    
 RegisterNUICallback("botao", function(data)
+    local check = data.checkbox
     local idade = tonumber(data.idade)
+    local successAge = false 
+    local successCheck = false
     if idade > 17 then
-        vSERVER.UpIdade(idade)
+       successAge = true
     else
         TriggerEvent("Notify","amarelo","Seu personagem deve ter mais de 17 anos.",8000)
+    end    
+    if check ~= nil then
+        successCheck = true
+    else
+        TriggerEvent("Notify","amarelo","Marque alguma opção.",8000)
+    end   
+
+    if successAge and successCheck then --verifica se algum campo foi marcado e a idade e maior de 17
+        vSERVER.UpIdade(idade)
     end    
 end)

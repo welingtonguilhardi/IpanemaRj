@@ -18,6 +18,7 @@ cfg.groups = {
 		"nc.permissao",
 		"god.permissao",
 		"godall.permissao",
+		"staff.permissao",
 		"tp.permissao",
 		"tpall.permissao",
 		"kickall.permissao",

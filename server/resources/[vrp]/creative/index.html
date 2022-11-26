@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <head>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/fa3397321d.js" crossorigin="anonymous"></script>
     <style>
         body {
             display: flex;
@@ -47,9 +48,8 @@
         }
         input{
             text-align: center;
-            margin-bottom: 5px;
-            margin: 0 auto; /* adição de margem automática */
             max-width: 10%; /* valor de exemplo */
+            margin: .4rem;
         }
         button{
             appearance: none;
@@ -77,20 +77,106 @@
             font-family: sans-serif;
             text-shadow: 0.1em 0.1em 0.2em black
         }
+        label {
+            font: 1rem 'Fira Sans', sans-serif;
+        }
+        i{
+            margin: 4px;
+        }
     </style>
 </head>
 <body>
     <div class="main-box">
-        <h1>Verificação de Idade</h1>
-        <br>
         <h3>Digite a idade do seu personagem</h3>
         <h6 id ="Erroridade">Seu personagem deve ter mais de 18 anos</h6>
         <input id="valor" name="valor" value="" type="number">
+        <br>
+        <h3>Vim pelo:</h3>
+
+        <label for="Tiktok"><i class="fa-brands fa-tiktok"></i>Tiktok</label>
+        <input type="checkbox" id="Pacote_i" name="Pacote" value="Tiktok" onClick="soma()">
+
+        <label for="Instagram"><i class="fa-brands fa-instagram"></i>Instagram</label>
+        <input type="checkbox" id="Pacote_ii" name="Pacote" value="Instagram" onClick="soma()">
+
+        <label for="Lista Fivem"><i class="fa-solid fa-globe"></i>Lista Fivem</label>
+        <input type="checkbox" id="Pacote_iii" name="Pacote" value="Lista Fivem" onClick ="soma()">
+        
         <br>
         <button class="botao">Confirmar</button>
     </div>
 </body>
 <script>
+    var check = undefined;
+    function soma(){
+
+        var pacote = document.getElementsByName('Pacote');
+        for (var i = 0; i < pacote.length; i++){
+
+                if ( pacote[i].checked ) {
+                    if(pacote[i].value == "Tiktok"){
+                        check = "Tiktok";
+                    }else if (pacote[i].value == "Instagram") {
+                        check = "Instagram";
+                    }else if (pacote[i].value == "Lista Fivem") {
+                        check = "Lista Fivem";
+                    }
+                }
+        }
+
+    }
+
+    (function(){ // função responsavel por configurar sistema de checkbox para enviar apenas um valor 
+        "use strict";
+
+        var marcados = 0;
+        var verifyCheckeds = function($checks) {
+            if( marcados>=1 ) {
+                loop($checks, function($element) {
+                    $element.disabled = $element.checked ? '' : 'disabled';
+                });
+            } else {
+                loop($checks, function($element) {
+                    $element.disabled = '';
+                });
+            }
+        };
+        var loop = function($elements, cb) {
+            var max = $elements.length;
+            while(max--) {
+                cb($elements[max]);
+            }
+        }
+        var count = function($element) {
+            return $element.checked ? marcados + 1 : marcados - 1;
+        }
+        window.onload = function(){
+            var $checks = document.querySelectorAll('input[type="checkbox"]');
+            loop($checks, function($element) {
+                $element.onclick = function(){
+                    
+                    marcados = count(this);
+                    verifyCheckeds($checks);
+                    if ($checks[0].checked){// verifica se o check [tal] foi marcado 
+                        check = $checks[0].value;// atribui o valor do check na variavel 
+                    }
+                    else if ($checks[1].checked){// verifica se o check [tal] foi marcado 
+                        check = $checks[1].value;// atribui o valor do check na variavel 
+                    }
+                    else if ($checks[2].checked){// verifica se o check [tal] foi marcado 
+                        check = $checks[2].value;// atribui o valor do check na variavel 
+                    }
+                    else if($checks[2].checked != $checks[2].value & $checks[1].checked != $checks[1].value & $checks[0].checked != $checks[0].value) { // verifica se o campo está desmarcado 
+                        check = undefined;// atribui o valor do check como indefinido para ser tratado no meu client 
+                    }
+                   
+                }
+                if($element.checked) marcados = marcados + 1;
+            });
+            verifyCheckeds($checks);
+        }
+    }());
+
     $('#valor').keyup(function(){ //atualizando input
 
         var text = $(this).val();//pegando o valor do input atualizado
@@ -119,8 +205,9 @@
         var valor = undefined
         $(".botao").click(function(){
             valor = document.querySelector("#valor").value
-            $.post("http://creative/botao", JSON.stringify({ idade: valor }))
+            $.post("http://creative/botao", JSON.stringify({ idade: valor,checkbox: check }))
         })
     })
+
 </script>
 </html>

@@ -205,7 +205,7 @@ end)
 RegisterCommand("addcar",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") and args[1] and args[2] then
+		if vRP.hasPermission(user_id, "dono.permissao") and args[1] and args[2] then
 			vRP.execute("vRP/add_vehicle",{ user_id = parseInt(args[1]), vehicle = args[2], plate = vRP.generatePlateNumber(), phone = vRP.getPhone(args[1]), work = tostring(false) })
 			TriggerClientEvent("Notify",args[1],"amarelo","Recebido o veículo <b>"..args[2].."</b> em sua garagem.",5000)
 			TriggerClientEvent("Notify",source,"amarelo","Adicionado o veiculo <b>"..args[2].."</b> na garagem de ID <b>"..args[1].."</b>.",10000)
@@ -271,7 +271,7 @@ end)
 RegisterCommand("wl",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "ban.permissao") then
 			vRP.execute("vRP/set_whitelist",{ steam = tostring(args[1]), whitelist = 1 })
 			SendWebhookMessage(webhookadminwl,"```prolog\n[ID]: "..user_id.."\n[APROVOU WL]: "..args[1].." "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 		end
@@ -283,7 +283,7 @@ end)
 RegisterCommand("unwl",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") and parseInt(args[1]) > 0 then
+		if vRP.hasPermission(user_id, "wl.permissao") and parseInt(args[1]) > 0 then
 			local identity = vRP.getUserIdentity(parseInt(args[1]))
 			if identity then
 				vRP.kick(user_id,"Você perdeu a sua Whitelist na Cidade.")
@@ -296,25 +296,25 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VIPCOINS
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("gems",function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") and parseInt(args[1]) > 0 and parseInt(args[2]) > 0 then
-			local identity = vRP.getUserIdentity(parseInt(args[1]))
-			if identity then
-				vRP.addGmsId(args[1],args[2])
-				TriggerClientEvent("Notify",source,"amarelo","Entregado <b>"..args[2].." Gemas</b> para ["..args[1].."]<b>"..identity.name.."</b>.",10000)
-			end
-		end
-	end
-end)
+-- RegisterCommand("gems",function(source,args,rawCommand)
+-- 	local user_id = vRP.getUserId(source)
+-- 	if user_id then
+-- 		if vRP.hasPermission(user_id, "nc.permissao") and parseInt(args[1]) > 0 and parseInt(args[2]) > 0 then
+-- 			local identity = vRP.getUserIdentity(parseInt(args[1]))
+-- 			if identity then
+-- 				vRP.addGmsId(args[1],args[2])
+-- 				TriggerClientEvent("Notify",source,"amarelo","Entregado <b>"..args[2].." Gemas</b> para ["..args[1].."]<b>"..identity.name.."</b>.",10000)
+-- 			end
+-- 		end
+-- 	end
+-- end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- UNBAN
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("unban",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") and parseInt(args[1]) > 0 then
+		if vRP.hasPermission(user_id, "ban.permissao") and parseInt(args[1]) > 0 then
 			local identity = vRP.getUserIdentity(parseInt(args[1]))
 			if identity then
 				vRP.execute("vRP/set_banned",{ steam = tostring(identity.steam), banned = 0 })
@@ -328,7 +328,7 @@ end)
 RegisterCommand("tpcds",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, dono.permissao) then
 			local fcoords = vRP.prompt(source,"Cordenadas:","")
 			if fcoords == "" then
 				return
@@ -348,7 +348,7 @@ end)
 RegisterCommand("cds",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "dono.permissao") then
 			local x,y,z,h = vRPclient.getPositions(source)
 			vRP.prompt(source,"Cordenadas:",x..","..y..","..z..","..h)
 		end
@@ -360,7 +360,7 @@ end)
 RegisterCommand("group",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "dono.permissao") then
 			if not vRP.hasPermission(parseInt(args[1]),tostring(args[2])) then
 				vRP.insertPermission(parseInt(args[1]),tostring(args[2]))
 				vRP.execute("vRP/add_group",{ user_id = parseInt(args[1]), permiss = tostring(args[2]) })
@@ -374,7 +374,7 @@ end)
 RegisterCommand("ungroup",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "dono.permissao") then
 			if vRP.hasPermission(parseInt(args[1]),tostring(args[2])) then
 				vRP.removePermission(parseInt(args[1]),tostring(args[2]))
 				vRP.execute("vRP/del_group",{ user_id = parseInt(args[1]), permiss = tostring(args[2]) })
@@ -388,7 +388,7 @@ end)
 RegisterCommand("tptome",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") and parseInt(args[1]) > 0 then
+		if vRP.hasPermission(user_id, "staff.permissao") and parseInt(args[1]) > 0 then
 			local nplayer = vRP.getUserSource(parseInt(args[1]))
 			if nplayer then
 				vRPclient.teleport(nplayer,vRPclient.getPositions(source))
@@ -402,7 +402,7 @@ end)
 RegisterCommand("tpto",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") and parseInt(args[1]) > 0 then
+		if vRP.hasPermission(user_id, "dono.permissao") and parseInt(args[1]) > 0 then
 			local nplayer = vRP.getUserSource(parseInt(args[1]))
 			if nplayer then
 				vRPclient.teleport(source,vRPclient.getPositions(nplayer))
@@ -416,7 +416,7 @@ end)
 RegisterCommand("tpway",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "dono.permissao") then
 			vCLIENT.teleportWay(source)
 		end
 	end
@@ -438,7 +438,7 @@ end)
 RegisterCommand("hash",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "dono.permissao") then
 			-- local vehicle = vRPclient.getNearVehicle(source,7)
 			--local vehicle,vehNet,vehPlate,vehName,vehLock = vRPclient.vehList(source,11)
 			local vehicle = vRP.prompt(source,"Spawn:","")
@@ -464,7 +464,7 @@ end)
 RegisterCommand("tuning",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "dono.permissao") then
 			TriggerClientEvent("admin:vehicleTuning",source)
 			TriggerClientEvent("Notify",source,"amarelo","Realizado melhorias no veículo.",3000)
 		end
@@ -475,7 +475,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("cone",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id, "nc.permissao") or vRP.hasPermission(user_id,"Police") or vRP.hasPermission(user_id,"Paramedic") then
+	if vRP.hasPermission(user_id, "nc.permissao") or vRP.hasPermission(user_id,"policia.permissao") or vRP.hasPermission(user_id,"paramedico.permissao") then
 		TriggerClientEvent("cone",source,args[1])
 	end
 end)
@@ -484,7 +484,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("barreira",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id, "nc.permissao") or vRP.hasPermission(user_id,"Police") or vRP.hasPermission(user_id,"Paramedic") then
+	if vRP.hasPermission(user_id, "nc.permissao") or vRP.hasPermission(user_id,"policia.permissao") or vRP.hasPermission(user_id,"paramedico.permissao") then
 		TriggerClientEvent("barreira",source,args[1])
 	end
 end)
@@ -494,7 +494,7 @@ end)
 RegisterCommand("fix",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "staff.permissao") then
 			local vehicle,vehNet = vRPclient.vehList(source,11)
 			if vehicle then
 				TriggerClientEvent("inventory:repairVehicle",-1,vehNet,true)
@@ -521,7 +521,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("onlines",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id, "nc.permissao") then
+	if vRP.hasPermission(user_id, "staff.permissao") then
 		local users = vRP.getUsers()
 		local players = ""
 		local quantidade = 0
@@ -543,7 +543,7 @@ function cRP.buttonTxt()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "staff.permissao") then
 			local x,y,z,h = vRPclient.getPositions(source)
 			vRP.updateTxt(user_id..".txt",x..","..y..","..z..","..h)
 		end
@@ -554,7 +554,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('cds2',function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id,"nc.permissao") then
+	if vRP.hasPermission(user_id,"staff.permissao") then
 		local x,y,z = vRPclient.getPositions(source)
 		vRP.prompt(source,"Cordenadas:",tD(x)..", "..tD(y)..", "..tD(z))
 	end
@@ -562,7 +562,7 @@ end)
 
 RegisterCommand('cds3',function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id,"nc.permissao") then
+	if vRP.hasPermission(user_id,"staff.permissao") then
 		local x,y,z = vRPclient.getPositions(source)
 		vRP.prompt(source,"Cordenadas:","{name='ATM', id=277, x="..tD(x)..", y="..tD(y)..", z="..tD(z).."},")
 	end
@@ -570,7 +570,7 @@ end)
 
 RegisterCommand('cds4',function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id,"nc.permissao") then
+	if vRP.hasPermission(user_id,"staff.permissao") then
 		local x,y,z = vRPclient.getPositions(source)
 		vRP.prompt(source,"Cordenadas:","x = "..tD(x)..", y = "..tD(y)..", z = "..tD(z))
 	end
@@ -586,7 +586,7 @@ end
 RegisterCommand("announce",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "staff.permissao") then
 			local message = vRP.prompt(source,"Mensagem:","")
 			if message == "" then
 				return
@@ -601,7 +601,7 @@ end)
 RegisterCommand("itemall",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "dono.permissao") then
 			local users = vRP.getUsers()
 			for k,v in pairs(users) do
 				vRP.giveInventoryItem(parseInt(k),tostring(args[1]),parseInt(args[2]),true)
@@ -614,7 +614,7 @@ end)
 RegisterCommand('vergrupos',function(source,args,rawCommand)
     local user_id = vRP.getUserId(source)
     --print("source: "..source)
-    if vRP.hasPermission(user_id,"nc.permissao") then
+    if vRP.hasPermission(user_id,"staff.permissao") then
         if args[1] then
             local other_id = vRP.getUserSource(parseInt(args[1]))
             local playerId = vRP.getUserId(other_id)

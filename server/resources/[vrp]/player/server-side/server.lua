@@ -129,36 +129,6 @@ function cRP.checkRoupas()
 		end
 	end
 end
-
------------------------------------------------------------------------------------------------------------------------------------------
--- VIP INICIAL
------------------------------------------------------------------------------------------------------------------------------------------
-vRP.prepare("vRP/vip_inicial","SELECT iniciante FROM vrp_users WHERE id = @id")
-vRP.prepare("vRP/veiculoinicial","INSERT IGNORE INTO vrp_vehicles(user_id,vehicle,plate,phone,premiumtime,predays,work) VALUES(@user_id,@vehicle,@plate,@phone,@premiumtime,@predays,@work)")
-vRP.prepare("vRP/setIdVip","UPDATE vrp_users SET iniciante = @iniciante WHERE id = @id")
-AddEventHandler("vRP:playerSpawn",function(user_id,source)
-	source = source
-	local user_id = vRP.getUserId(source)
-	local rows = vRP.query("vRP/vip_inicial",{ id = user_id })
-	var = math.random(1,2)
-	veiculo = nil
-	if var == 1 then veiculo = 'nissangtr' end
-	if var == 2 then veiculo = 'akuma' end
-	if rows[1].iniciante == 1 then
-		vRP.execute("vRP/setIdVip",{ iniciante = 0, id = user_id})
-		vRP.execute("vRP/veiculoinicial",{ user_id = parseInt(user_id), vehicle = veiculo, plate = vRP.generatePlateNumber(), phone = vRP.getPhone(user_id), premiumtime = premiumtime,predays = 7,work = tostring(false) })
-		vRP.giveInventoryItem(user_id,"backpack",1,true)
-		vRP.giveInventoryItem(user_id,"cellphone",1,true)
-		vRP.giveInventoryItem(user_id,"cellbattery",1,true)
-		vRP.giveInventoryItem(user_id,"radio",1,true)
-		vRP.giveInventoryItem(user_id,"roupas",1,true)
-		vRP.giveInventoryItem(user_id,"toolbox",1,true)
-		vRP.giveInventoryItem(user_id,"water",5,true)
-		vRP.giveInventoryItem(user_id,"chocolate",1,true)
-		vRP.giveInventoryItem(user_id,"lockpick",1,true)	
-	end	
-end)
-
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PREMIUM
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -252,7 +222,7 @@ AddEventHandler("player:identityFunctions",function(identityFunctions)
 		local identity = vRP.getUserIdentity(user_id)
 		if identity then
 		local infos = vRP.query("vRP/get_vrp_infos",{ steam = identity.steam })		
-			TriggerClientEvent("Notify",source,"default","<b>Passaporte:</b> "..vRP.format(parseInt(identity.id)).."<br><b>RG:</b> "..identity.registration.."<br><b>Nome:</b> "..identity.name.." "..identity.name2.."<br><b>Gemas:</b> "..infos[1].gems.."<br><b>Máximo de Veículos:</b> "..identity.garage.."<br><b>Telefone:</b> "..identity.phone.."<br><b>Premium:</b> "..infos[1].predays.." Dias",10000)
+			TriggerClientEvent("Notify",source,"default","<b>Passaporte:</b> "..vRP.format(parseInt(identity.id)).."<br><b>RG:</b> "..identity.registration.."<br><b>Nome:</b> "..identity.name.." "..identity.name2.."<br><b>Idade:</b> "..identity.age.."<br><b>Máximo de Veículos:</b> "..identity.garage.."<br><b>Telefone:</b> "..identity.phone.."<br><b>Premium:</b> "..infos[1].predays.." Dias",10000)
 		end
 	end
 end)

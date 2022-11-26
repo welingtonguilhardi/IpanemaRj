@@ -2065,9 +2065,9 @@ AddEventHandler("inventory:useItem",function(slot,rAmount)
 					-- 		end
 					-- 	end
 					-- end
-
-					vCLIENT.weaponItem(source,tostring(itemName))
 					vCLIENT.closeInventory(source)
+					vCLIENT.weaponItem(source,tostring(itemName))
+					
 					if vCLIENT.getItem(source) then
 						--local vehicle = vRPclient.getNearVehicle(source,15)
 						local vehicle,vehNet,vehPlate,vehName,vehLock,vehBlock,vehHealth,vehModel,vehClass = vRPclient.vehList(source,3)
