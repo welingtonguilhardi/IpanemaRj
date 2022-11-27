@@ -30,13 +30,22 @@ RegisterCommand("radio",function(source,args)
 	if GetEntityHealth(PlayerPedId()) > 101 and vSERVER.checkRadio() and not vRP.isHandcuffed() then
 		if args[1] == "s" then
 			TriggerEvent("radio:outServers")
-			TriggerEvent("Notify","aviso","Você saiu de todas as frequências.",8000)
+			TriggerEvent("Notify","amarelo","Você saiu de todas as frequências.",8000)
+
 		else
 			SetNuiFocus(true,true)
 			SendNUIMessage({ action = "showMenu" })
 		end
 	end
 end)
+
+function src.Close()
+	SetNuiFocus(false,false)
+	SendNUIMessage({ action = "hideMenu" })
+end
+
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /TOGGLENUI
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -70,7 +79,8 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNUICallback("inativeFrequency",function(data)
 	TriggerEvent("radio:outServers")
-	TriggerEvent("Notify","aviso","Você saiu de todas as frequências.",8000)
+	TriggerEvent("Notify","amarelo","Você saiu de todas as frequências.",8000)
+	src.Close()
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- STARTFREQUENCY

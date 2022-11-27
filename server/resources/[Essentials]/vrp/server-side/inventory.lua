@@ -2601,6 +2601,40 @@ local itemlist = {
 		weight = 0.50
 	},
  -- END OTHERS
+	--Chaves ORGS
+
+	["keyBarragem"] = {
+		index = "key",
+		name = "Chave aluguel barragem",
+		desc = "Chave aluguel barragem",
+		tipo = "",
+		unity = "",
+		economy = "",
+		type = "use",
+		weight = 1.50
+	},
+	["keyGrove"] = {
+		index = "key",
+		name = "Chave aluguel Grove",
+		desc = "Chave aluguel Grove",
+		tipo = "",
+		unity = "",
+		economy = "",
+		type = "use",
+		weight = 1.50
+	},
+	["keyMafia"] = {
+		index = "key",
+		name = "Chave aluguel Mafia",
+		desc = "Chave aluguel Mafia",
+		tipo = "",
+		unity = "",
+		economy = "",
+		type = "use",
+		weight = 1.50
+	},
+
+	--
 
 	["lubrificante"] = {
 		index = "lubrificante",
@@ -2613,7 +2647,7 @@ local itemlist = {
 		weight = 1.50
 	},
 	["solvente"] = {
-		index = "solventedepolvora",
+		index = "soap",
 		name = "Solvente",
 		desc = "Solvente de polvora",
 		tipo = "Usável",

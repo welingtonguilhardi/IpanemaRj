@@ -610,15 +610,23 @@ local homes = {
 	["Middle109"] = { "Middle",500000,2,100,23.18,-1896.66,22.97 },
 	["Middle110"] = { "Middle",500000,2,100,38.98,-1911.5,21.96 },
 	["Middle111"] = { "Middle",500000,2,100,56.54,-1922.75,21.92 },
-	["Middle112"] = { "Middle",500000,2,100,72.1,-1939.13,21.37 },
-	["Middle113"] = { "Middle",500000,2,100,76.29,-1948.07,21.18 },
+
+
+	--casa grove
+
+	["Middle112"] = { "Middle","org",2,100,72.1,-1939.13,21.37,"grove" },
+	["Middle113"] = { "Middle","org",2,100,76.29,-1948.07,21.18,"grove" },
 	-- ["Middle114"] = { "Middle",500000,2,100,85.85,-1959.7,21.13 },
-	["Middle115"] = { "Middle",500000,2,100,114.29,-1961.23,21.34 },
-	["Middle116"] = { "Middle",500000,2,100,126.82,-1930.06,21.39 },
-	["Middle117"] = { "Middle",500000,2,100,118.42,-1921.14,21.33 },
-	["Middle118"] = { "Middle",500000,2,100,101.05,-1912.2,21.41 },
+	["Middle115"] = { "Middle","org",2,100,114.29,-1961.23,21.34,"grove" },
+	["Middle116"] = { "Middle","org",2,100,126.82,-1930.06,21.39,"grove" },
+	["Middle117"] = { "Middle","org",2,100,118.42,-1921.14,21.33,"grove" },
+	["Middle118"] = { "Middle","org",2,100,101.05,-1912.2,21.41,"grove" },
+
+
+
 	["Middle119"] = { "Middle",500000,2,100,54.46,-1873.06,22.81 },
 	["Middle120"] = { "Middle",500000,2,100,46.08,-1864.22,23.28 },
+
 	["Middle121"] = { "Middle",500000,2,100,29.98,-1854.77,24.07 },
 	["Middle122"] = { "Middle",500000,2,100,21.39,-1844.71,24.61 },
 	["Middle123"] = { "Middle",500000,2,100,103.98,-1885.34,24.32 },
@@ -758,53 +766,72 @@ local homes = {
 	["Middle257"] = { "Middle",500000,2,100,1354.91,-1690.57,60.5 },
 	["Middle258"] = { "Middle",500000,2,100,1351.09,-1747.44,64.28 },
 -------------------------------------------------------------------------------------------------------
--- FAVELA BARRAGEM
+-- CASA BARRAGEM
 -------------------------------------------------------------------------------------------------------	
 ------------------------LADO DIREITO------------------------------------------------------------------
-	["Middle259"] = { "Middle",500000,2,100,1219.67, -279.91, 69.53 },
-	["Middle260"] = { "Middle",500000,2,100,1229.09, -278.05, 71.12 },
-	["Middle261"] = { "Middle",500000,2,100,1233.1, -277.58, 72.38 },
-	["Middle262"] = { "Middle",500000,2,100,1243.73, -277.8, 75.5 },
-	["Middle263"] = { "Middle",500000,2,100,1255.3, -276.98, 77.71 },
-	["Middle264"] = { "Middle",500000,2,100,1267.86, -275.38, 80.32 },
-	["Middle265"] = { "Middle",500000,2,100,1278.86, -276.42, 82.5 },
-	["Middle266"] = { "Middle",500000,2,100,1282.48, -276.3, 83.36 },
-	["Middle267"] = { "Middle",500000,2,100,1288.85, -276.22, 86.51 },
-	["Middle268"] = { "Middle",500000,2,100,1285.0, -247.15, 97.16 },
-	["Middle269"] = { "Middle",500000,2,100,1275.45, -236.75, 97.97 },
-	["Middle270"] = { "Middle",500000,2,100,1274.9, -207.24, 100.39 },
-	["Middle271"] = { "Middle",500000,2,100,1276.48, -204.15, 100.81 },
-	["Middle272"] = { "Middle",500000,2,100,1286.76, -191.86, 103.39 },
-	["Middle273"] = { "Middle",500000,2,100,1299.92, -186.25, 105.85 },
-	["Middle274"] = { "Middle",500000,2,100,1301.81, -183.61, 107.11 },
-	["Middle275"] = { "Middle",500000,2,100,1309.31, -181.8, 107.32 },
-	["Middle276"] = { "Middle",500000,2,100,1315.91, -175.28, 108.39 },
-	["Middle277"] = { "Middle",500000,2,100,1320.6, -168.96, 109.39 },
+	["Middle259"] = { "Middle","org",2,100,1219.67, -279.91, 69.53,"barragem" },
+	["Middle260"] = { "Middle","org",2,100,1229.09, -278.05, 71.12,"barragem"  },
+	["Middle261"] = { "Middle","org",2,100,1233.1, -277.58, 72.38,"barragem"  },
+	["Middle262"] = { "Middle","org",2,100,1243.73, -277.8, 75.5,"barragem"  },
+	["Middle263"] = { "Middle","org",2,100,1255.3, -276.98, 77.71,"barragem"  },
+	["Middle264"] = { "Middle","org",2,100,1267.86, -275.38, 80.32,"barragem"  },
+	["Middle265"] = { "Middle","org",2,100,1278.86, -276.42, 82.5,"barragem"  },
+	["Middle266"] = { "Middle","org",2,100,1282.48, -276.3, 83.36,"barragem"  },
+	["Middle267"] = { "Middle","org",2,100,1288.85, -276.22, 86.51,"barragem"  },
+	["Middle268"] = { "Middle","org",2,100,1285.0, -247.15, 97.16,"barragem"  },
+	["Middle269"] = { "Middle","org",2,100,1275.45, -236.75, 97.97,"barragem"  },
+	["Middle270"] = { "Middle","org",2,100,1274.9, -207.24, 100.39,"barragem"  },
+	["Middle271"] = { "Middle","org",2,100,1276.48, -204.15, 100.81,"barragem"  },
+	["Middle272"] = { "Middle","org",2,100,1286.76, -191.86, 103.39,"barragem"  },
+	["Middle273"] = { "Middle","org",2,100,1299.92, -186.25, 105.85,"barragem"  },
+	["Middle274"] = { "Middle","org",2,100,1301.81, -183.61, 107.11,"barragem"  },
+	["Middle275"] = { "Middle","org",2,100,1309.31, -181.8, 107.32,"barragem"  },
+	["Middle276"] = { "Middle","org",2,100,1315.91, -175.28, 108.39,"barragem"  },
+	["Middle277"] = { "Middle","org",2,100,1320.6, -168.96, 109.39,"barragem"  },
 ------------------------LADO ESQUERDO------------------------------------------------------------------
 
-	["Middle278"] = { "Middle",500000,2,100,1244.46, -287.68, 75.96 },
-	["Middle279"] = { "Middle",500000,2,100,1258.31, -288.16, 78.32 },
-	["Middle280"] = { "Middle",500000,2,100,1263.92, -287.35, 79.16 },
-	["Middle281"] = { "Middle",500000,2,100,1273.45, -288.45, 81.24 },
-	["Middle282"] = { "Middle",500000,2,100,1281.69, -288.7, 83.5 },
-	["Middle283"] = { "Middle",500000,2,100,1290.89, -286.57, 86.3 },
-	["Middle284"] = { "Middle",500000,2,100,1296.06, -285.77, 88.45 },
+	["Middle278"] = { "Middle","org",2,100,1244.46, -287.68, 75.96,"barragem"  },
+	["Middle279"] = { "Middle","org",2,100,1258.31, -288.16, 78.32,"barragem"  },
+	["Middle280"] = { "Middle","org",2,100,1263.92, -287.35, 79.16,"barragem"  },
+	["Middle281"] = { "Middle","org",2,100,1273.45, -288.45, 81.24,"barragem"  },
+	["Middle282"] = { "Middle","org",2,100,1281.69, -288.7, 83.5,"barragem"  },
+	["Middle283"] = { "Middle","org",2,100,1290.89, -286.57, 86.3,"barragem"  },
+	["Middle284"] = { "Middle","org",2,100,1296.06, -285.77, 88.45,"barragem"  },
 
-	["Middle285"] = { "Middle",500000,2,100,1304.85, -283.2, 90.77 },
-	["Middle286"] = { "Middle",500000,2,100,1309.61, -279.91, 91.99 },
-	["Middle287"] = { "Middle",500000,2,100,1310.5, -259.13, 95.11 },
-	["Middle288"] = { "Middle",500000,2,100,1295.16, -245.57, 96.68 },
-	["Middle289"] = { "Middle",500000,2,100,1289.91, -237.8, 97.67 },
-	["Middle290"] = { "Middle",500000,2,100,1285.75, -236.37, 97.61 },
-	["Middle291"] = { "Middle",500000,2,100,1282.1, -216.49, 99.86 },
-	["Middle292"] = { "Middle",500000,2,100,1284.0, -207.55, 101.11 },
-	["Middle293"] = { "Middle",500000,2,100,1287.86, -200.79, 102.92 },
-	["Middle294"] = { "Middle",500000,2,100,1292.89, -197.27, 104.41 },
-	["Middle295"] = { "Middle",500000,2,100,1304.02, -193.54, 106.41 },
-	["Middle296"] = { "Middle",500000,2,100,1318.53, -184.05, 108.38 },
-	["Middle297"] = { "Middle",500000,2,100,1324.94, -180.57, 108.78 },
-	["Middle298"] = { "Middle",500000,2,100,1326.58, -175.79, 109.62 },
-	["Middle299"] = { "Middle",500000,2,100,1334.81, -153.76, 112.23 },
+	["Middle285"] = { "Middle","org",2,100,1304.85, -283.2, 90.77,"barragem"  },
+	["Middle286"] = { "Middle","org",2,100,1309.61, -279.91, 91.99,"barragem"  },
+	["Middle287"] = { "Middle","org",2,100,1310.5, -259.13, 95.11,"barragem"  },
+	["Middle288"] = { "Middle","org",2,100,1295.16, -245.57, 96.68,"barragem"  },
+	["Middle289"] = { "Middle","org",2,100,1289.91, -237.8, 97.67,"barragem"  },
+	["Middle290"] = { "Middle","org",2,100,1285.75, -236.37, 97.61,"barragem"  },
+	["Middle291"] = { "Middle","org",2,100,1282.1, -216.49, 99.86,"barragem"  },
+	["Middle292"] = { "Middle","org",2,100,1284.0, -207.55, 101.11,"barragem"  },
+	["Middle293"] = { "Middle","org",2,100,1287.86, -200.79, 102.92,"barragem"  },
+	["Middle294"] = { "Middle","org",2,100,1292.89, -197.27, 104.41,"barragem"  },
+	["Middle295"] = { "Middle","org",2,100,1304.02, -193.54, 106.41,"barragem"  },
+	["Middle296"] = { "Middle","org",2,100,1318.53, -184.05, 108.38,"barragem"  },
+	["Middle297"] = { "Middle","org",2,100,1324.94, -180.57, 108.78,"barragem"  },
+	["Middle298"] = { "Middle","org",2,100,1326.58, -175.79, 109.62,"barragem"  },
+	["Middle299"] = { "Middle","org",2,100,1334.81, -153.76, 112.23,"barragem"  },
+
+	-------------------------------------------------------------------------------------------------------
+	-- CASA MAFIA
+	-------------------------------------------------------------------------------------------------------	
+	
+
+	["HotelMafia1"] = { "HotelMafia","org",2,100,405.29, 0.05, 99.65,"mafia"  },
+	["HotelMafia2"] = { "HotelMafia","org",2,100,427.09, -1.3, 99.65,"mafia"  },
+	["HotelMafia3"] = { "HotelMafia","org",2,100,420.87, 2.23, 99.65,"mafia"  },
+	["HotelMafia4"] = { "HotelMafia","org",2,100,411.17, 7.87, 99.65,"mafia"  },
+	["HotelMafia5"] = { "HotelMafia","org",2,100,429.44, -7.3, 99.65,"mafia"  },
+	["HotelMafia6"] = { "HotelMafia","org",2,100,425.77, -13.83, 99.65,"mafia"  },
+	["HotelMafia7"] = { "HotelMafia","org",2,100,422.23, -19.88, 99.65,"mafia"  },
+	["HotelMafia8"] = { "HotelMafia","org",2,100,416.7, -29.55, 99.65,"mafia"  },
+	["HotelMafia9"] = { "HotelMafia","org",2,100,411.98, -30.49, 99.65,"mafia"  },
+	["HotelMafia10"] = { "HotelMafia","org",2,100,402.2, -24.71, 99.65,"mafia"  },
+	["HotelMafia11"] = { "HotelMafia","org",2,100,396.13, -21.23, 99.65,"mafia"  },
+	["HotelMafia12"] = { "HotelMafia","org",2,100,396.19, -15.88, 99.65,"mafia"  },
+	["HotelMafia13"] = { "HotelMafia","org",2,100,401.74, -6.1, 99.65,"mafia"  },
 
 --------------------------------CASAS VIPS-----------------------------------------------------------------------
 	["vip01"] = { "vip01",vip,2,100,-2588.42, 1910.99, 167.5 },
@@ -1289,6 +1316,7 @@ AddEventHandler("homes:vender",function()
 	if homes[tostring(casa)] then
 		local myHomes = vRP.query("vRP/get_homeuserowner",{ user_id = parseInt(user_id), home = tostring(casa) })
 		if myHomes[1] then
+		if homes[tostring(casa)][2] =="org" then TriggerClientEvent("Notify",source,"vermelho","Venda de casa de org não são liberados.",5000) end 
 			local valor = homes[tostring(casa)][2]*0.7
 			local request = vRP.request(source,"Deseja vender sua casa: "..casa.." por "..valor.." ?",30)
 			if request then
@@ -1461,8 +1489,36 @@ function cRP.checkPermissions(homeName)
 							return false
 						end
 					end
-					if homes[tostring(homeName)][2] == nil then
+					if homes[tostring(homeName)][2] == nil then --casas especias
 						TriggerClientEvent("Notify",source,"vermelho","Esta casa é vip.",3000)
+
+					elseif homes[tostring(homeName)][2] == "org" then
+						local ItemBarragem = "keyBarragem"
+						local ItemMafia = "keyMafia"
+						local ItemGrove = "keyGrove"
+						if homes[tostring(homeName)][8] == "barragem" then
+							if vRP.tryGetInventoryItem(user_id,ItemBarragem,1,false) then
+								vRP.execute("vRP/buy_permissions",{ home = tostring(homeName), user_id = parseInt(user_id), vault = parseInt(homes[tostring(homeName)][4]) })
+								TriggerClientEvent("Notify",source,"verde","Casa comprada com sucesso.",3000)
+							else	
+								TriggerClientEvent("Notify",source,"vermelho","Você não tem a chave para a comprar está casa, entre em contato com o dono da org para adquirir.",5000)
+							end	
+						elseif homes[tostring(homeName)][8] == "mafia" then
+							if vRP.tryGetInventoryItem(user_id,ItemMafia,1,false) then
+								vRP.execute("vRP/buy_permissions",{ home = tostring(homeName), user_id = parseInt(user_id), vault = parseInt(homes[tostring(homeName)][4]) })
+								TriggerClientEvent("Notify",source,"verde","Casa comprada com sucesso.",3000)
+							else	
+								TriggerClientEvent("Notify",source,"vermelho","Você não tem a chave para a comprar está casa, entre em contato com o dono da org para adquirir.",5000)
+							end	
+						elseif homes[tostring(homeName)][8] == "grove" then
+							if vRP.tryGetInventoryItem(user_id,ItemGrove,1,false) then
+								vRP.execute("vRP/buy_permissions",{ home = tostring(homeName), user_id = parseInt(user_id), vault = parseInt(homes[tostring(homeName)][4]) })
+								TriggerClientEvent("Notify",source,"verde","Casa comprada com sucesso.",3000)
+							else	
+								TriggerClientEvent("Notify",source,"vermelho","Você não tem a chave para a comprar está casa, entre em contato com o dono da org para adquirir.",5000)
+							end		
+						end	
+
 					else	
 						local ok = vRP.request(source,"Deseja comprar essa casa por <b>$"..vRP.format(parseInt(homes[tostring(homeName)][2])).." dólares</b>?",30)
 						if ok then

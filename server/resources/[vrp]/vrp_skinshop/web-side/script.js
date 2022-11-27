@@ -19,6 +19,11 @@ $(document).on('click', '.clothing-menu-header-btn', function(e){
 
 	$(".clothing-menu-"+category+"-container").css({"display": "block"});
 })
+document.onkeyup = data => {
+	if (data["key"] === "Escape"){
+		$.post("http://vrp_skinshop/Close");
+	}
+};
 
 QBClothing.ResetItemTexture = function(obj, category) {
 	var itemTexture = $(obj).parent().parent().find('[data-type="texture"]');

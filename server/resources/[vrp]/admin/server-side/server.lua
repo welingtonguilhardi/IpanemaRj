@@ -328,7 +328,7 @@ end)
 RegisterCommand("tpcds",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, dono.permissao) then
+		if vRP.hasPermission(user_id, "dono.permissao") then
 			local fcoords = vRP.prompt(source,"Cordenadas:","")
 			if fcoords == "" then
 				return

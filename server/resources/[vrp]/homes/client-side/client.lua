@@ -241,6 +241,7 @@ AddEventHandler("homes:visitar",function()
 				createMiddle(ped,v[5],v[6],1500.0)
 			end
 
+
 			SetTimecycleModifier("AmbientPUSH")
 
 			if v[1] == "Hotel" then
@@ -275,6 +276,13 @@ AddEventHandler("homes:visitar",function()
 				table.insert(internHouses,{ -3236.14, 817.22, 14.11,"vault","ABRIR" })
 			end
 
+			if v[1] == "HotelMafia" then
+					SetEntityCoords(ped,v[5]+1.65,v[6],v[7])
+					table.insert(internHouses,{ v[5]+0.65,v[6],v[7],"exit","SAIR" })
+					table.insert(internHouses,{ v[5]+2.98,v[6]+2.79,v[7],"vault","ABRIR" })
+			end	
+			
+
 			TriggerEvent("homes:Hours",true)
 			FreezeEntityPosition(ped,true)
 			SetEntityInvincible(ped,true)
@@ -292,14 +300,13 @@ AddEventHandler("homes:visitar",function()
 	removeObjectHomes()
 	ClearTimecycleModifier()
 	internHouses = {}
-	TriggerEvent("Notify","aviso","Seu tempo de visita acabou.",5000)
+	TriggerEvent("Notify","amarelo","Seu tempo de visita acabou.",5000)
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ENTRAR
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("homes:entrar")
 AddEventHandler("homes:entrar",function(source,args)
-	print(args)
 	local ped = PlayerPedId()
 	local coords = GetEntityCoords(ped)
 	for k,v in pairs(homesList) do
@@ -351,6 +358,11 @@ AddEventHandler("homes:entrar",function(source,args)
 				table.insert(internHouses,{ -1987.06, -503.72, 12.18,"exit","SAIR" })
 				table.insert(internHouses,{ -1986.23, -498.1, 20.74,"vault","ABRIR" })
 			end
+			if v[1] == "HotelMafia" then
+				SetEntityCoords(ped,v[5]+1.65,v[6],v[7])
+				table.insert(internHouses,{ v[5]+0.65,v[6],v[7],"exit","SAIR" })
+				table.insert(internHouses,{ v[5]+2.98,v[6]+2.79,v[7],"vault","ABRIR" })
+			end	
 
 			TriggerEvent("homes:Hours",true)
 			FreezeEntityPosition(ped,true)

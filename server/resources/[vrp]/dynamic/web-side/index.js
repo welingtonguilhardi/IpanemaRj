@@ -53,7 +53,7 @@ $(document).ready(function (){
 	});
 
 	function goback(){
-		var gobackbutton = (`<button style="height:10px; background: #05e0e8;" id="goback"class ="btn"><div class="title" style="margin-top:-3.8%">Voltar</div><i class="fas fa-chevron-left" style="float: right; margin-top:-3.5%"></i></button>`);
+		var gobackbutton = (`<button style="height:10px; background: #e21c1c80;" id="goback"class ="btn"><div class="title" style="margin-top:-3.8%">Voltar</div><i class="fas fa-chevron-left" style="float: right; margin-top:-3.5%"></i></button>`);
 		$(".container").append(gobackbutton).show();
 	}
 

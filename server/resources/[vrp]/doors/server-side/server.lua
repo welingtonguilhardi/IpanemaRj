@@ -46,30 +46,30 @@ local doors = {
 	[30] = { ["x"] = 1852.24, ["y"] = 3695.2, ["z"] = 34.22, ["hash"] = -1491332605, ["lock"] = true, ["text"] = true, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "Police" },
 	[31] = { ["x"] = 1849.29, ["y"] = 3693.52, ["z"] = 34.22, ["hash"] = -1491332605, ["lock"] = true, ["text"] = true, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "Police" },
 	[32] = { ["x"] = 1856.53, ["y"] = 3696.43, ["z"] = 34.22, ["hash"] = -1491332605, ["lock"] = true, ["text"] = true, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "Police" },
-	[33] = { ["x"] = -2588.32, ["y"] = 1910.89, ["z"] = 167.5, ["hash"] = 308207762, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- -2588.32, 1910.89, 167.5 westonsmansion
-	[34] = { ["x"] = -2600.23, ["y"] = 1917.75, ["z"] = 167.34, ["hash"] = 224975209, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- -2600.23, 1917.75, 167.34 westonsmansion
-	[35] = { ["x"] = -1987.77, ["y"] = -511.89, ["z"] = 12.18, ["hash"] = 308207762, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- -1987.77, -511.89, 12.18 casabigode
-	[36] = { ["x"] = -1987.13, ["y"] = -502.9, ["z"] = 12.18, ["hash"] = 1980513646, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- -1987.13, -502.9, 12.18 casabigode
-	[37] = { ["x"] = -3216.89, ["y"] = 816.58, ["z"] = 8.93, ["hash"] = 308207762, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- -3216.89, 816.58, 8.93 manssão malibu
-	[38] = { ["x"] = -3217.93, ["y"] = 775.8, ["z"] = 14.09, ["hash"] = 270936785, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- -3217.93, 775.8, 14.09 manssão malibu
-	[39] = { ["x"] = 407.22, ["y"] = -17.88, ["z"] = 91.94, ["hash"] = -973354389, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 407.22,-17.88,91.94 Mafia ORG
+	[33] = { ["x"] = -2588.32, ["y"] = 1910.89, ["z"] = 167.5, ["hash"] = 308207762, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- -2588.32, 1910.89, 167.5 westonsmansion
+	[34] = { ["x"] = -2600.23, ["y"] = 1917.75, ["z"] = 167.34, ["hash"] = 224975209, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- -2600.23, 1917.75, 167.34 westonsmansion
+	[35] = { ["x"] = -1987.77, ["y"] = -511.89, ["z"] = 12.18, ["hash"] = 308207762, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- -1987.77, -511.89, 12.18 casabigode
+	[36] = { ["x"] = -1987.13, ["y"] = -502.9, ["z"] = 12.18, ["hash"] = 1980513646, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- -1987.13, -502.9, 12.18 casabigode
+	[37] = { ["x"] = -3216.89, ["y"] = 816.58, ["z"] = 8.93, ["hash"] = 308207762, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- -3216.89, 816.58, 8.93 manssão malibu
+	[38] = { ["x"] = -3217.93, ["y"] = 775.8, ["z"] = 14.09, ["hash"] = 270936785, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- -3217.93, 775.8, 14.09 manssão malibu
+	[39] = { ["x"] = 407.22, ["y"] = -17.88, ["z"] = 91.94, ["hash"] = -973354389, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 407.22,-17.88,91.94 Mafia ORG
 	
-	[40] = { ["x"] = 427.09, ["y"] = -1.3, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 427.09, -1.3, 99.65 Mafia CASA
-	[41] = { ["x"] = 420.87, ["y"] = 2.23, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 420.87, 2.23, 99.65 Mafia CASA
-	[42] = { ["x"] = 411.17, ["y"] = 7.87, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 411.17, 7.87, 99.65 Mafia CASA
-	[43] = { ["x"] = 429.44, ["y"] = -7.3, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 429.44, -7.3, 99.65 Mafia CASA
-	[44] = { ["x"] = 425.77, ["y"] = -13.83, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 425.77, -13.83, 99.65 Mafia CASA
-	[45] = { ["x"] = 422.23, ["y"] = -19.88, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 422.23, -19.88, 99.65 Mafia CASA
-	[46] = { ["x"] = 416.7, ["y"] = -29.55, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 416.7, -29.55, 99.65 Mafia CASA
-	[47] = { ["x"] = 411.98, ["y"] = -30.49, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 411.98, -30.49, 99.65 Mafia CASA
-	[48] = { ["x"] = 402.2, ["y"] = -24.71, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 402.2, -24.71, 99.65 Mafia CASA
-	[49] = { ["x"] = 396.13, ["y"] = -21.23, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 396.13, -21.23, 99.65 Mafia CASA
-	[50] = { ["x"] = 396.19, ["y"] = -15.88, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 396.19, -15.88, 99.65 Mafia CASA
-	[51] = { ["x"] = 401.74, ["y"] = -6.1, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 401.74, -6.1, 99.65 Mafia CASA
-	[52] = { ["x"] = 405.29, ["y"] = 0.05, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 405.29, 0.05, 99.65 Mafia CASA
+	[40] = { ["x"] = 427.09, ["y"] = -1.3, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 427.09, -1.3, 99.65 Mafia CASA
+	[41] = { ["x"] = 420.87, ["y"] = 2.23, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 420.87, 2.23, 99.65 Mafia CASA
+	[42] = { ["x"] = 411.17, ["y"] = 7.87, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 411.17, 7.87, 99.65 Mafia CASA
+	[43] = { ["x"] = 429.44, ["y"] = -7.3, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 429.44, -7.3, 99.65 Mafia CASA
+	[44] = { ["x"] = 425.77, ["y"] = -13.83, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 425.77, -13.83, 99.65 Mafia CASA
+	[45] = { ["x"] = 422.23, ["y"] = -19.88, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 422.23, -19.88, 99.65 Mafia CASA
+	[46] = { ["x"] = 416.7, ["y"] = -29.55, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 416.7, -29.55, 99.65 Mafia CASA
+	[47] = { ["x"] = 411.98, ["y"] = -30.49, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 411.98, -30.49, 99.65 Mafia CASA
+	[48] = { ["x"] = 402.2, ["y"] = -24.71, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 402.2, -24.71, 99.65 Mafia CASA
+	[49] = { ["x"] = 396.13, ["y"] = -21.23, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 396.13, -21.23, 99.65 Mafia CASA
+	[50] = { ["x"] = 396.19, ["y"] = -15.88, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 396.19, -15.88, 99.65 Mafia CASA
+	[51] = { ["x"] = 401.74, ["y"] = -6.1, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 401.74, -6.1, 99.65 Mafia CASA
+	[52] = { ["x"] = 405.29, ["y"] = 0.05, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 405.29, 0.05, 99.65 Mafia CASA
 	
-	[53] = { ["x"] = 85.64, ["y"] = -1959.61, ["z"] = 21.13, ["hash"] = 1436076651, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 85.64, -1959.61, 21.13 Ballas ORG
-	[54] = { ["x"] = 84.45, ["y"] = -1966.88, ["z"] = 20.94, ["hash"] = -1563640173, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "nc.permissao" }, -- 84.45, -1966.88, 20.94 BALAS ORG
+	[53] = { ["x"] = 85.64, ["y"] = -1959.61, ["z"] = 21.13, ["hash"] = 1436076651, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 85.64, -1959.61, 21.13 Ballas ORG
+	[54] = { ["x"] = 84.45, ["y"] = -1966.88, ["z"] = 20.94, ["hash"] = -1563640173, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 84.45, -1966.88, 20.94 BALAS ORG
 
 
 }

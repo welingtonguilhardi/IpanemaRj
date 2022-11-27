@@ -26,15 +26,15 @@ img { border:none; }
 .ativar {
 	background: transparent;
 	width: 53px;
-	height: 50px;
+	height: 60px;
 	float: left;
-	margin: 200px 0 0 45px;
+	margin: 210px 0 0 45px;
 }
 
 .desativar {
 	background: transparent;
 	width: 53px;
-	height: 50px;
+	height: 60px;
 	float: left;
 	margin: 180px 0 0 100px;
 }

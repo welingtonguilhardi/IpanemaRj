@@ -20,7 +20,7 @@ html,body {
 	min-height: 100%;
 	max-height: 100%;
 	position: absolute;
-	background: #323644;
+	background: #00000000;
 }
 
 #buttons {
@@ -39,30 +39,32 @@ html,body {
 	width: 120px;
 	padding: 15px;
 	color: #95c5ab;
-	border-radius: 4px;
+	border-radius: 10%;
 	margin-bottom: 5px;
-	background: #2e6e4c;
+	background: #03fe7885;
 	letter-spacing: .3px;
 }
 
 #spawnVehicle:hover {
-	background: #39875e;
+	background: #02fc76d8;
+	border-radius: 14%;
 }
 
 #storeVehicle {
 	float: left;
 	width: 120px;
 	padding: 15px;
-	color: #d898ae;
+	color: #d89898;
 	margin-left: 10px;
-	border-radius: 4px;
+	border-radius: 10%;
 	margin-bottom: 5px;
-	background: #7c344d;
+	background: #ff000098;
 	letter-spacing: .3px;
 }
 
 #storeVehicle:hover {
-	background: #913e5b;
+	background: #ff0101c2;
+	border-radius: 14%;
 }
 
 #spawnVehicle b, #storeVehicle b {
@@ -79,22 +81,26 @@ html,body {
 	padding: 15px;
 	color: #cacaca;
 	font-size: 11px;
-	background: #393f51;
+	background: #fea900;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
+	margin-top: 8%
 }
 
 .vehicle {
 	float: left;
 	width: 270px;
-	color: #3f3f3f;
+	color: #ffffff;
 	margin-bottom: 15px;
-	background: #9b9a9a;
+	background: #ffa60063;
 	padding: 10px 20px 20px;
 	border-bottom-left-radius: 4px;
 	border-bottom-right-radius: 4px;
+}
+.vehicle:hover{
+	border-radius: 5%;
 }
 
 .vehicle:last-child {
@@ -102,7 +108,9 @@ html,body {
 }
 
 .vehicle.active {
-	background: #c1bebe;
+	background: #fb8f0376;
+	color: #000000;
+	text-shadow: 1px 1px #ffffff
 }
 
 #vehicleLegend {
@@ -110,6 +118,8 @@ html,body {
 	float: left;
 	margin-top: 10px;
 	letter-spacing: .9px;
+	font-weight: 300;
+	text-shadow: 1px 1px #000;
 }
 
 #vehicleBack {
@@ -126,6 +136,6 @@ html,body {
 	float: left;
 	height: 8px;
 	width: 100px;
-	border-radius: 4px;
-	background: #464e66;
+	border-radius: 10%;
+	background: #2ff004b6;
 }

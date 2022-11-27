@@ -623,9 +623,8 @@ local craftList = {
 				["amount"] = 1,
 				["destroy"] = true,
 				["require"] = {
-					["radio"] = 1,
-					["radio"] = 1,
-					["radio"] = 1
+					["aluminum"] = 250,
+					["copper"] = 150
 				}
 			},
 			["WEAPON_PISTOL_MK2"] = {
@@ -1061,6 +1060,43 @@ local craftList = {
 				["require"] = {
 					["emptybottle"] = 1,
 					["tomato"] = 6
+				}
+			}
+		}
+	},
+
+	["keyBarragem"] = {
+		["perm"] = "lidercv.permissao",
+		["list"] = {
+			["keyBarragem"] = {
+				["amount"] = 1,
+				["destroy"] = true,
+				["require"] = {
+					["dollars"] = 65000,
+				}
+			}
+		}
+	},
+	["keyGrove"] = {
+		["perm"] = "lidergrove.permissao",
+		["list"] = {
+			["keyGrove"] = {
+				["amount"] = 1,
+				["destroy"] = true,
+				["require"] = {
+					["dollars"] = 65000,
+				}
+			}
+		}
+	},
+	["keyMafia"] = {
+		["perm"] = "liderelcartelmedellin.permissao",
+		["list"] = {
+			["keyMafia"] = {
+				["amount"] = 1,
+				["destroy"] = true,
+				["require"] = {
+					["dollars"] = 65000,
 				}
 			}
 		}

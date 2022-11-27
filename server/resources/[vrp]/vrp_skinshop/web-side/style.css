@@ -17,8 +17,8 @@
 	position: absolute;
 	height: 100vh;
 	width: 42vh;
-	background-color: #d0efef;
-	right: -25vw;
+	background-color: #00000000;
+	margin-right: 5%;
 }
 
 .clothing-menu-header {
@@ -32,7 +32,7 @@
 	position: relative;
 	height: 55%;
 	top: 2.3vh;
-	background-color: #0c3f61;
+	background-color: #fd9902a1;
 	float: left;
 	color: white;
 	text-align: center;
@@ -42,12 +42,13 @@
 }
 
 .clothing-menu-header-btn:hover {
-	background: rgb(37, 181, 203);
+	background: #fd9902;
 }
 
 .selected {
-	background: #299bb7;
-	border-bottom: 2px solid #02e0fd;
+	background: #fd9902;
+	border-bottom: 2px solid #fbfbfb;
+	border-radius:5%;
 }
 
 .clothing-menu-header-btn > p {
@@ -69,23 +70,23 @@
 	position: relative;
 	height: 55%;
 	top: 2.3vh;
-	background-color: #0c3f61;
+	background-color: #fd99029d;
 	width: 33.33%;
 	float: left;
 	color: white;
 	text-align: center;
 	line-height: 3.4vh;
-	border-bottom: 2px solid #299bb7;
+	border-bottom: 2px solid white;
 	transition: all 0.1s linear;
 }
 
 .selected-cam {
-	background: #299bb7;
+	background: #fd9902;
 	border-bottom: 2px solid rgb(255, 255, 255);
 }
 
 .clothing-menu-header-camera-btn:hover {
-	background: rgb(37, 181, 203);
+	background: #fd9902
 }
 
 .clothing-menu-header-camera-btn > i {
@@ -100,7 +101,7 @@
 	right: 0;
 	top: 10vh;
 	height: 85vh;
-	width: 92%;
+	width: 100%;
 	overflow-y: scroll !important;
 }
 
@@ -108,7 +109,7 @@
 	position: relative;
 	width: 100%;
 	height: 14%;
-	background: #02e0fd;
+	background: #fd9902;
 	margin-bottom: 1.5vh;
 }
 
@@ -147,11 +148,12 @@
 	padding-top: 14px;
 	transition: all 0.1s linear;
 	background: #f9feff;
-	border-radius: 8px;
+	border-radius: 30%;
 }
 
 .clothing-menu-option-item-left:hover {
-	background: #2faabb;
+	background: #fd9902;
+	border-radius:20%;
 }
 
 .clothing-menu-option-item-right {
@@ -165,11 +167,12 @@
 	padding-top: 14px;
 	transition: all 0.1s linear;
 	background: #f2f0f0;
-	border-radius: 8px;
+	border-radius: 30%;
 }
 
 .clothing-menu-option-item-right:hover {
-	background:#2faabb;
+	background: #fd9902;
+	border-radius:20%;
 }
 
 .item-number {
@@ -203,7 +206,7 @@
 	font-weight: bold;
 	font-size: 0.8vh;
 	letter-spacing: 0.15vh;
-	color: #02e0fd;
+	color: #fd9902;
 }
 
 .clothing-menu-option-item-header > p {
@@ -224,12 +227,13 @@
 	width: 50%;
 	height: 100%;
 	position: relative;
-	background: #2faabb;
+	background: #fd99028b;
 	transition: all 0.1s linear;
 }
 
 .clothing-menu-option-button:hover {
-	background: #299bb7;
+	background: #fd9902;
+	border-radius: 10%;
 }
 
 .clothing-menu-option-button > p {

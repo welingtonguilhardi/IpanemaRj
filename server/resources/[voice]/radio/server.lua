@@ -21,30 +21,34 @@ function src.activeFrequency(freq)
 			if parseInt(freq) == 911 then
 				if vRP.hasPermission(user_id,"policia.permissao") then
 					vCLIENT.startFrequency(source,parseInt(freq))
-					TriggerClientEvent("Notify",source,"sucesso","Entrou na frequência <b>"..parseInt(freq).."</b>.",8000)
+					TriggerClientEvent("Notify",source,"verde","Entrou na frequência <b>"..parseInt(freq).."</b>.",8000)
+					vCLIENT.Close(source)
 				else
-					TriggerClientEvent("Notify",source,"aviso","Você não tem permissão para entrar nesta frequência.",8000)
+					TriggerClientEvent("Notify",source,"amarelo","Você não tem permissão para entrar nesta frequência.",8000)
 				end
 			elseif parseInt(freq) == 112 then
 				if vRP.hasPermission(user_id,"paramedico.permissao") then
 					vCLIENT.startFrequency(source,parseInt(freq))
-					TriggerClientEvent("Notify",source,"sucesso","Entrou na frequência <b>"..parseInt(freq).."</b>.",8000)
+					TriggerClientEvent("Notify",source,"verde","Entrou na frequência <b>"..parseInt(freq).."</b>.",8000)
+					vCLIENT.Close(source)
 				else
-					TriggerClientEvent("Notify",source,"aviso","Você não tem permissão para entrar nesta frequência.",8000)
+					TriggerClientEvent("Notify",source,"amarelo","Você não tem permissão para entrar nesta frequência.",8000)
 				end
 			elseif parseInt(freq) == 443 then
 				if vRP.hasPermission(user_id,"mecanico.permissao") then
 					vCLIENT.startFrequency(source,parseInt(freq))
-					TriggerClientEvent("Notify",source,"sucesso","Entrou na frequência <b>"..parseInt(freq).."</b>.",8000)
+					TriggerClientEvent("Notify",source,"verde","Entrou na frequência <b>"..parseInt(freq).."</b>.",8000)
+					vCLIENT.Close(source)
 				else
-					TriggerClientEvent("Notify",source,"aviso","Você não tem permissão para entrar nesta frequência.",8000)
+					TriggerClientEvent("Notify",source,"amarelo","Você não tem permissão para entrar nesta frequência.",8000)
 				end
 			else
 				vCLIENT.startFrequency(source,parseInt(freq))
-				TriggerClientEvent("Notify",source,"sucesso","Entrou na frequência <b>"..parseInt(freq).."</b>.",8000)
+				TriggerClientEvent("Notify",source,"verde","Entrou na frequência <b>"..parseInt(freq).."</b>.",8000)
+				vCLIENT.Close(source)
 			end
 		else
-			TriggerClientEvent("Notify",source,"aviso","Frequência não encontrada.",8000)
+			TriggerClientEvent("Notify",source,"amarelo","Frequência não encontrada.",8000)
 		end
 	end
 end

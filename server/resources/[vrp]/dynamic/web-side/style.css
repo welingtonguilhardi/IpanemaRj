@@ -21,14 +21,15 @@
 	max-height: 58px;
 	min-width: 280px;
 	border-radius: 4px;
-	background: #05e0e8;
+	background: #e28c1ca8;
 	transition: all 0.5s;
 	padding: 20px 20px 20px 12px;
-	border-left: 5px solid #96b8c7;
+	border-left: 5px solid #e9c831a0;
 }
 
 .btn:hover {
-	background: #3c6482;
+	background: #e28c1cd6;
+	border-radius: 10%;
 	transition: all 0.5s;
 }
 
