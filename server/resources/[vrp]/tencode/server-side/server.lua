@@ -47,20 +47,26 @@ function cRP.IsPolice()
 	local user_id = vRP.getUserId(source)
 	if vRP.hasPermission(user_id, "policia.permissao") then
 		return true	
+	else
+		return false	
 	end
-	return false	
 end	
 ----------------------------------------------------
 --NotifyDisparos
 ----------------------------------------------------
 function cRP.notifyDisparo()
-	local source = source
+
 	local x,y,z = vRPclient.getPositions(source)
 	--print(x,y,z)
 	local copAmount = vRP.getUsersByPermission("policia.permissao")
+
 	for k,v in pairs(copAmount) do
-		async(function()
-			TriggerClientEvent("NotifyPush",v,{ time = os.date("%H:%M:%S - %d/%m/%Y"), code = 20, title = "Disparos de arma de fogo", x = x, y = y, z = z, rgba = {41,76,119} })
-		end)
+		
+		local player = vRP.getUserSource(v)
+		if player then
+			async(function()
+				TriggerClientEvent("NotifyPush",player,{ time = os.date("%H:%M:%S - %d/%m/%Y"), code = 20, title = "Disparos de arma de fogo", x = x, y = y, z = z, rgba = {41,76,119} })
+			end)
+		end	
 	end
 end	

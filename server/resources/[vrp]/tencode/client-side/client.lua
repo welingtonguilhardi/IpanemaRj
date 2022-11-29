@@ -165,7 +165,7 @@ function IsVehiclePolice(veh)
 	end
 	return false
 end
-
+local sprayTimers = GetGameTimer()
 ---------------------------------------------------------------------------------------------
 -- ThreadDisparos notify
 ----------------------------------------------------------------------------------------------
@@ -174,11 +174,16 @@ Citizen.CreateThread(function()
 	while true do
 		local ped = PlayerPedId()
 		local player = GetPlayerPed(-1)
-		if IsPedShooting(player) then
-			if not vSERVER.IsPolice() then
-				vSERVER.notifyDisparo()
-			end	
-		end	
-		Citizen.Wait(1)
+		if IsPedArmed(ped,6) and GetGameTimer() >= sprayTimers then
+			
+			if IsPedShooting(player) then
+				sprayTimers = GetGameTimer() + 60000
+				if not vSERVER.IsPolice() then
+
+					vSERVER.notifyDisparo()
+				end 	
+			end
+		end		
+		Citizen.Wait(10)
 	end	
 end)

@@ -864,81 +864,81 @@ Citizen.CreateThread(function()
 		Citizen.Wait(timeDistance)
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- SHOTDISTANCE
------------------------------------------------------------------------------------------------------------------------------------------
-local losSantos = PolyZone:Create({
-	vector2(-2153.08,-3131.33),
-	vector2(-1581.58,-2092.38),
-	vector2(-3271.05,275.85),
-	vector2(-3460.83,967.42),
-	vector2(-3202.39,1555.39),
-	vector2(-1642.50,993.32),
-	vector2(312.95,1054.66),
-	vector2(1313.70,341.94),
-	vector2(1739.01,-1280.58),
-	vector2(1427.42,-3440.38),
-	vector2(-737.90,-3773.97)
-},{ name="santos" })
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- -- SHOTDISTANCE
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- local losSantos = PolyZone:Create({
+-- 	vector2(-2153.08,-3131.33),
+-- 	vector2(-1581.58,-2092.38),
+-- 	vector2(-3271.05,275.85),
+-- 	vector2(-3460.83,967.42),
+-- 	vector2(-3202.39,1555.39),
+-- 	vector2(-1642.50,993.32),
+-- 	vector2(312.95,1054.66),
+-- 	vector2(1313.70,341.94),
+-- 	vector2(1739.01,-1280.58),
+-- 	vector2(1427.42,-3440.38),
+-- 	vector2(-737.90,-3773.97)
+-- },{ name="santos" })
 
-local sandyShores = PolyZone:Create({
-	vector2(-375.38,2910.14),
-	vector2(307.66,3664.47),
-	vector2(2329.64,4128.52),
-	vector2(2349.93,4578.50),
-	vector2(1680.57,4462.48),
-	vector2(1570.01,4961.27),
-	vector2(1967.55,5203.67),
-	vector2(2387.14,5273.98),
-	vector2(2735.26,4392.21),
-	vector2(2512.33,3711.16),
-	vector2(1681.79,3387.82),
-	vector2(258.85,2920.16)
-},{ name="sandy" })
+-- local sandyShores = PolyZone:Create({
+-- 	vector2(-375.38,2910.14),
+-- 	vector2(307.66,3664.47),
+-- 	vector2(2329.64,4128.52),
+-- 	vector2(2349.93,4578.50),
+-- 	vector2(1680.57,4462.48),
+-- 	vector2(1570.01,4961.27),
+-- 	vector2(1967.55,5203.67),
+-- 	vector2(2387.14,5273.98),
+-- 	vector2(2735.26,4392.21),
+-- 	vector2(2512.33,3711.16),
+-- 	vector2(1681.79,3387.82),
+-- 	vector2(258.85,2920.16)
+-- },{ name="sandy" })
 
-local paletoBay = PolyZone:Create({
-	vector2(-529.40,5755.14),
-	vector2(-234.39,5978.46),
-	vector2(278.16,6381.84),
-	vector2(672.67,6434.39),
-	vector2(699.56,6877.77),
-	vector2(256.59,7058.49),
-	vector2(17.64,7054.53),
-	vector2(-489.45,6449.50),
-	vector2(-717.59,6030.94)
-},{ name="paleto" })
------------------------------------------------------------------------------------------------------------------------------------------
--- THREADSHOTSFIRED
------------------------------------------------------------------------------------------------------------------------------------------
-local coolTimers = 0
-local residual = false
-local policeService = false
-local sprayTimers = GetGameTimer()
------------------------------------------------------------------------------------------------------------------------------------------
--- THREADSHOT
------------------------------------------------------------------------------------------------------------------------------------------
-Citizen.CreateThread(function()
-	while true do
-		local timeDistance = 500
-		local ped = PlayerPedId()
-		if IsPedArmed(ped,6) and GetGameTimer() >= (sprayTimers + 60000) and GetSelectedPedWeapon(ped) ~= GetHashKey("WEAPON_MUSKET") then
-			timeDistance = 4
+-- local paletoBay = PolyZone:Create({
+-- 	vector2(-529.40,5755.14),
+-- 	vector2(-234.39,5978.46),
+-- 	vector2(278.16,6381.84),
+-- 	vector2(672.67,6434.39),
+-- 	vector2(699.56,6877.77),
+-- 	vector2(256.59,7058.49),
+-- 	vector2(17.64,7054.53),
+-- 	vector2(-489.45,6449.50),
+-- 	vector2(-717.59,6030.94)
+-- },{ name="paleto" })
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- -- THREADSHOTSFIRED
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- local coolTimers = 0
+-- local residual = false
+-- local policeService = false
+-- local sprayTimers = GetGameTimer()
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- -- THREADSHOT
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- Citizen.CreateThread(function()
+-- 	while true do
+-- 		local timeDistance = 500
+-- 		local ped = PlayerPedId()
+-- 		if IsPedArmed(ped,6) and GetGameTimer() >= (sprayTimers + 60000) and GetSelectedPedWeapon(ped) ~= GetHashKey("WEAPON_MUSKET") then
+-- 			timeDistance = 4
 
-			if IsPedShooting(ped) then
-				sprayTimers = GetGameTimer()
-				residual = true
-				coolTimers = 3
+-- 			if IsPedShooting(ped) then
+-- 				sprayTimers = GetGameTimer()
+-- 				residual = true
+-- 				coolTimers = 3
 
-				local coords = GetEntityCoords(ped)
-				if (losSantos:isPointInside(coords) or sandyShores:isPointInside(coords) or paletoBay:isPointInside(coords)) and not policeService then
-					vSERVER.shotsFired()
-				end
-			end
-		end
+-- 				local coords = GetEntityCoords(ped)
+-- 				if (losSantos:isPointInside(coords) or sandyShores:isPointInside(coords) or paletoBay:isPointInside(coords)) and not policeService then
+-- 					vSERVER.shotsFired()
+-- 				end
+-- 			end
+-- 		end
 
-		Citizen.Wait(timeDistance)
-	end
-end)
+-- 		Citizen.Wait(timeDistance)
+-- 	end
+-- end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- THREADDISABLECTRL
 -----------------------------------------------------------------------------------------------------------------------------------------
