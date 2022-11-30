@@ -535,6 +535,12 @@ local pedList = {
 		model = { 0x625D6958,"s_m_m_ciasec_01" },
 		anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
 	},
+	{ -- PoliciaPMERJ
+	distance = 10,
+	coords = {628.34, 7.53, 82.73,226.38 },
+	model = { 0x625D6958,"s_m_m_ciasec_01" },
+	anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
+},
 	{ -- fishing
 	distance = 10,
 	coords = { -1842.15, -1199.14, 14.31,237.9 },

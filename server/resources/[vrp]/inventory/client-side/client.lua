@@ -11,6 +11,7 @@ vRPclient = Tunnel.getInterface("vRP")
 func = {}
 Tunnel.bindInterface("inventory",func)
 vSERVER = Tunnel.getInterface("inventory")
+vPLAYER = Tunnel.getInterface("player")
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- VARIABLES
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -64,11 +65,17 @@ end)
 -- CLOSEINVENTORY
 -----------------------------------------------------------------------------------------------------------------------------------------
 function func.closeInventory()
+	vPLAYER.cuffToggle()
 	SetNuiFocus(false,false)
 	SetCursorLocation(0.5,0.5)
 	SendNUIMessage({ action = "hideMenu" })
 	vRP._removeObjects(source)
 	
+end
+
+
+function func.AlgemarInv() --chama a função de algemar
+	vPLAYER.cuffToggle()	
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- THREADFOCUS

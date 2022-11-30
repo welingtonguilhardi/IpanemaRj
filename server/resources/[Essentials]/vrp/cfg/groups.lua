@@ -757,6 +757,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"paisanaSoldado.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["PaisanaCabo"] = {
@@ -765,6 +766,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"paisanaCabo.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["PaisanaSargento"] = {
@@ -773,6 +775,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"paisanaSargento.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["PaisanaSubTenente"] = {
@@ -781,6 +784,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"paisanaSubTenente.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["PaisanaAspirante"] = {
@@ -789,6 +793,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"paisanaAspirante.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["PaisanaTenente"] = {
@@ -797,6 +802,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"paisanaTenente.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["PaisanaCapitao"] = {
@@ -805,6 +811,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"paisanaCapitao.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["PaisanaMajor"] = {
@@ -813,6 +820,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"paisanaMajor.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["PaisanaTenenteCoronel"] = {
@@ -821,6 +829,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"paisanaTenenteCoronel.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["PaisanaCoronel"] = {
@@ -829,6 +838,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"paisanaCoronel.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 ------------Paisanabope----------
@@ -838,6 +848,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"BopepaisanaSoldado.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["BopePaisanaCabo"] = {
@@ -846,6 +857,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"BopepaisanaCabo.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["BopePaisanaSargento"] = {
@@ -854,6 +866,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"BopepaisanaSargento.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["BopePaisanaSubTenente"] = {
@@ -862,6 +875,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"BopepaisanaSubTenente.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["BopePaisanaAspirante"] = {
@@ -870,6 +884,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"BopepaisanaAspirante.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["BopePaisanaTenente"] = {
@@ -878,6 +893,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"BopepaisanaTenente.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["BopePaisanaCapitao"] = {
@@ -886,6 +902,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"BopepaisanaCapitao.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["BopePaisanaMajor"] = {
@@ -894,6 +911,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"BopepaisanaMajor.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["BopePaisanaTenenteCoronel"] = {
@@ -902,6 +920,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"BopepaisanaTenenteCoronel.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["BopePaisanaCoronel"] = {
@@ -910,6 +929,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"BopepaisanaCoronel.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 ------------PaisanaSpeed----------
@@ -919,6 +939,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"SpeedpaisanaSoldado.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["SpeedPaisanaCabo"] = {
@@ -927,6 +948,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"SpeedpaisanaCabo.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["SpeedPaisanaSargento"] = {
@@ -935,6 +957,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"SpeedpaisanaSargento.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["SpeedPaisanaSubTenente"] = {
@@ -943,6 +966,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"SpeedpaisanaSubTenente.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["SpeedPaisanaAspirante"] = {
@@ -951,6 +975,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"SpeedpaisanaAspirante.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["SpeedPaisanaTenente"] = {
@@ -959,6 +984,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"SpeedpaisanaTenente.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["SpeedPaisanaCapitao"] = {
@@ -967,6 +993,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"SpeedpaisanaCapitao.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["SpeedPaisanaMajor"] = {
@@ -975,6 +1002,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"SpeedpaisanaMajor.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["SpeedPaisanaTenenteCoronel"] = {
@@ -983,6 +1011,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"SpeedpaisanaTenenteCoronel.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["SpeedPaisanaCoronel"] = {
@@ -991,6 +1020,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"SpeedpaisanaCoronel.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	------------Paisana Gam----------
@@ -1000,6 +1030,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"GampaisanaSoldado.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["GamPaisanaCabo"] = {
@@ -1008,6 +1039,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"GampaisanaCabo.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["GamPaisanaSargento"] = {
@@ -1016,6 +1048,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"GampaisanaSargento.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["GamPaisanaSubTenente"] = {
@@ -1024,6 +1057,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"GampaisanaSubTenente.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["GamPaisanaAspirante"] = {
@@ -1032,6 +1066,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"GampaisanaAspirante.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["GamPaisanaTenente"] = {
@@ -1040,6 +1075,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"GampaisanaTenente.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["GamPaisanaCapitao"] = {
@@ -1048,6 +1084,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"GampaisanaCapitao.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["GamPaisanaMajor"] = {
@@ -1056,6 +1093,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"GampaisanaMajor.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["GamPaisanaTenenteCoronel"] = {
@@ -1064,6 +1102,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"GampaisanaTenenteCoronel.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},
 	["GamPaisanaCoronel"] = {
@@ -1072,6 +1111,7 @@ cfg.groups = {
 			gtype = "job"
 		},
 		"GampaisanaCoronel.permissao",
+		"policiapaisana.permissao",
 		"sem.permissao"
 	},			
 -------------------------------------------------------------------------	

@@ -770,9 +770,9 @@ local vehglobal = {
 	["dusterpmerj"] = { "Duster PMERJ",30,60000,"work" },
 	["av-amarok"] = { "Amarok PMERJ",30,60000,"work" },
 	["samurev"] = { "Ambulância Samu",30,60000,"work" },
-	["amarokbopefechada"] = { "Amarok Bope",30,60000,"cars" },
-	["caveiraopmerj"] = { "Caveirão PMERJ",30,60000,"cars" },
-	["amarokbopeaberta"] = { "Amarok Bope",30,60000,"cars" },
+	["amarokbopefechada"] = { "Amarok Bope",30,60000,"work" },
+	["caveiraopmerj"] = { "Caveirão PMERJ",30,60000,"work" },
+	["amarokbopeaberta"] = { "Amarok Bope",30,60000,"work" },
 ------------------------------------------------------------------	
 	-- ["youga"] = { "Youga",30,60000,"cars" },
 	-- ["youga"] = { "Youga",30,60000,"cars" },

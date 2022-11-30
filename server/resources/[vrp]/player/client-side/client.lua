@@ -939,32 +939,32 @@ end)
 -- 		Citizen.Wait(timeDistance)
 -- 	end
 -- end)
------------------------------------------------------------------------------------------------------------------------------------------
--- THREADDISABLECTRL
------------------------------------------------------------------------------------------------------------------------------------------
-Citizen.CreateThread(function()
-	while true do
-		local timeDistance = 500
-		if coolTimers > 0 then
-			timeDistance = 4
-			DisableControlAction(1,36,true)
-		end
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- -- THREADDISABLECTRL
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- Citizen.CreateThread(function()
+-- 	while true do
+-- 		local timeDistance = 500
+-- 		if coolTimers > 0 then
+-- 			timeDistance = 4
+-- 			DisableControlAction(1,36,true)
+-- 		end
 
-		Citizen.Wait(timeDistance)
-	end
-end)
------------------------------------------------------------------------------------------------------------------------------------------
--- COOLTIMERS
------------------------------------------------------------------------------------------------------------------------------------------
-Citizen.CreateThread(function()
-	while true do
-		if coolTimers > 0 then
-			coolTimers = coolTimers - 1
-		end
+-- 		Citizen.Wait(timeDistance)
+-- 	end
+-- end)
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- -- COOLTIMERS
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- Citizen.CreateThread(function()
+-- 	while true do
+-- 		if coolTimers > 0 then
+-- 			coolTimers = coolTimers - 1
+-- 		end
 
-		Citizen.Wait(1000)
-	end
-end)
+-- 		Citizen.Wait(1000)
+-- 	end
+-- end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SHAKESHOTTING
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -1169,6 +1169,36 @@ function cRP.toggleCarry(source)
 		end
 	end	
 end
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- CARRYCUFF
+-----------------------------------------------------------------------------------------------------------------------------------------
+local sCarry = nil
+local eCarry = false
+local bCarry = false
+function cRP.CarryCuff(source)
+	sCarry = source
+	eCarry = not eCarry
+
+	local ped = PlayerPedId()
+	if eCarry and sCarry then
+		AttachEntityToEntity(ped,GetPlayerPed(GetPlayerFromServerId(sCarry)),4103,11816,0.48,0.0,0.0,0.0,0.0,0.0,false,false,false,false,2,true)
+		bCarry = true
+	else
+		if bCarry then
+			DetachEntity(ped,false,false)
+			bCarry = false
+		end
+	end	
+end
+
+
+
+
+
+
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- REMOVEVEHICLE
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -2264,33 +2294,33 @@ end)
 
 
 ---------------------------------------PMERJ------------------------------------------------
-function cRP.tooglePMERJ(source)
-	local zones = {
-		{ ['x'] = 624.9, ['y'] = -6.34, ['z'] = 82.73}, -- 624.9, -6.34, 82.73 PMERJ
+-- function cRP.tooglePMERJ(source)
+-- 	local zones = {
+-- 		{ ['x'] = 624.9, ['y'] = -6.34, ['z'] = 82.73}, -- 624.9, -6.34, 82.73 PMERJ
 
-	}
-			local playerPed = GetPlayerPed(-1)
-			local x, y, z = table.unpack(GetEntityCoords(playerPed, true))
-			local minDistance = 100000
-			for i = 1, #zones, 1 do
-				dist = Vdist(zones[i].x, zones[i].y, zones[i].z, x, y, z)
-				if dist < minDistance then
-					minDistance = dist
-					closestZone = i
-				end
-			end
-	local player = GetPlayerPed(-1)
-	local x,y,z = table.unpack(GetEntityCoords(player, true))
-	local dist = Vdist(zones[closestZone].x, zones[closestZone].y, zones[closestZone].z, x, y, z)
+-- 	}
+-- 			local playerPed = GetPlayerPed(-1)
+-- 			local x, y, z = table.unpack(GetEntityCoords(playerPed, true))
+-- 			local minDistance = 100000
+-- 			for i = 1, #zones, 1 do
+-- 				dist = Vdist(zones[i].x, zones[i].y, zones[i].z, x, y, z)
+-- 				if dist < minDistance then
+-- 					minDistance = dist
+-- 					closestZone = i
+-- 				end
+-- 			end
+-- 	local player = GetPlayerPed(-1)
+-- 	local x,y,z = table.unpack(GetEntityCoords(player, true))
+-- 	local dist = Vdist(zones[closestZone].x, zones[closestZone].y, zones[closestZone].z, x, y, z)
 
-	if dist <= 2.0 then
-		--TriggerEvent("Notify","amarelo","Voce esta na base.",3000)
-		return true
-	else
-		TriggerEvent("Notify","amarelo","Voce esta longe da base.",3000)
-		return false	
-	end
-end
+-- 	if dist <= 2.0 then
+-- 		--TriggerEvent("Notify","amarelo","Voce esta na base.",3000)
+-- 		return true
+-- 	else
+-- 		TriggerEvent("Notify","amarelo","Voce esta longe da base.",3000)
+-- 		return false	
+-- 	end
+-- end
 
 -----------------------------------------------MEC------------------------------------------------------------
 function cRP.toogleMEC(source)

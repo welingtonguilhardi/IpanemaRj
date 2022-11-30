@@ -249,6 +249,41 @@ local weapon_ammos = {
 -- 	end
 -- 	return ""
 -- end
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- WEAPON_AMMOS
+-----------------------------------------------------------------------------------------------------------------------------------------
+local _weapon = {
+	-- START PISTOLS
+			"WEAPON_PISTOL",
+			"WEAPON_PISTOL_MK2",
+			"WEAPON_APPISTOL",
+			"WEAPON_HEAVYPISTOL",
+			"WEAPON_SNSPISTOL",
+			"WEAPON_SNSPISTOL_MK2",
+			"WEAPON_VINTAGEPISTOL",
+			"WEAPON_PISTOL50",
+			"WEAPON_REVOLVER",
+			"WEAPON_COMBATPISTOL",
+			"WEAPON_COMPACTRIFLE",
+			"WEAPON_MICROSMG",
+			"WEAPON_MINISMG",
+			"WEAPON_SMG",
+			"WEAPON_ASSAULTSMG",
+			"WEAPON_GUSENBERG",
+			"WEAPON_MACHINEPISTOL",
+			"WEAPON_CARBINERIFLE",
+			"WEAPON_ASSAULTRIFLE",
+			"WEAPON_ASSAULTRIFLE_MK2",
+			"WEAPON_SPECIALCARBINE",
+			"WEAPON_SPECIALCARBINE_MK2",
+			"WEAPON_PUMPSHOTGUN",
+			"WEAPON_SAWNOFFSHOTGUN",
+			"WEAPON_RPG",
+			"WEAPON_PETROLCAN",
+	-- END OTHERS
+	}
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- POPULATESLOT
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -1806,39 +1841,8 @@ AddEventHandler("inventory:useItem",function(slot,rAmount)
 						end
 
 						if itemName == "handcuff" then
-							if not vPLAYER.getHandcuff(source) then
-								local test = 0 
-								if not vRPclient.inVehicle(source) then
-									local nplayer = vRPclient.nearestPlayer(source,1)
-									if nplayer then
-										if vPLAYER.checkcuff(nplayer) then -- checkar se o player está rendido ou está algemado
-
-											if vPLAYER.getHandcuff(nplayer) then
-												vPLAYER.toggleHandcuff(nplayer)
-												vRPclient._stopAnim(nplayer,false)
-												TriggerClientEvent("sounds:source",source,"uncuff",0.5)
-												TriggerClientEvent("sounds:source",nplayer,"uncuff",0.5)
-											else
-												active[user_id] = 30
-												local taskResult = vTASKBAR.taskHandcuff(nplayer)
-												if not taskResult then
-													vPLAYER.toggleHandcuff(nplayer)
-													TriggerClientEvent("sounds:source",source,"cuff",0.5)
-													TriggerClientEvent("sounds:source",nplayer,"cuff",0.5)
-													vRPclient._playAnim(nplayer,true,{"mp_arresting","idle"},true)
-												else
-													TriggerClientEvent("Notify",source,"amarelo","O cidadão resistiu ao ser algemado.",5000)
-												end
-												active[user_id] = nil
-											end
-										else	
-											TriggerClientEvent("Notify",source,"vermelho","Jogador proximo deve estar com as mãos para cima.",5000)
-										end	
-									end
-								end
-							else
-								TriggerClientEvent("Notify",source,"amarelo","Você não pode algemar estando algemado.",5000)
-							end	
+							
+							vCLIENT.AlgemarInv(source)
 						end
 
 						if itemName == "hood" then
@@ -2147,6 +2151,18 @@ RegisterNetEvent("inventory:sendItem")
 AddEventHandler("inventory:sendItem",function(itemName,amount)
 	local source = source
 	local user_id = vRP.getUserId(source)
+	if vRP.hasPermission(user_id,"policia.permissao") or vRP.hasPermission(user_id,"policiapaisana.permissao") then
+
+		for k,v in pairs(_weapon) do 
+			if v == itemName then
+				vCLIENT.closeInventory(source)
+				TriggerClientEvent("Notify",source,"vermelho","Policias não podem enviar armas.",5000)
+
+				return 
+			end	
+			
+		end	
+	end
 	if user_id then
 		if active[user_id] == nil and not vPLAYER.getHandcuff(source) then
 			if amount == nil then amount = 1 end
@@ -2292,6 +2308,18 @@ RegisterNetEvent("inventory:dropItem")
 AddEventHandler("inventory:dropItem",function(itemName,amount,bole)
 	local source = source
 	local user_id = vRP.getUserId(source)
+	if vRP.hasPermission(user_id,"policia.permissao") or vRP.hasPermission(user_id,"policiapaisana.permissao") then
+
+		for k,v in pairs(_weapon) do 
+			if v == itemName then
+				vCLIENT.closeInventory(source)
+				TriggerClientEvent("Notify",source,"vermelho","Policias não podem dropar armas.",5000)
+
+				return 
+			end	
+			
+		end	
+	end
 	weaponrechenger[itemName] = false
 
 	--if user_id then
