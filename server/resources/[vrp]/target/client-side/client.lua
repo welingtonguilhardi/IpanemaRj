@@ -296,16 +296,16 @@ Citizen.CreateThread(function()
 		},
 		distance = 1.50
 	})
-	-- AddTargetModel({ 0x467415E9 },{ -- premium Store 
-	-- options = {
-	-- 	{
-	-- 		event = "shops:premiumStore",
-	-- 		label = "Comprar",
-	-- 		tunnel = "client"
-	-- 	}
-	-- },
-	-- distance = 2.50
-	-- })
+	AddTargetModel({ 0x467415E9 },{ -- premium Store 
+	options = {
+		{
+			event = "shops:premiumStore",
+			label = "Comprar",
+			tunnel = "client"
+		}
+	},
+	distance = 2.50
+	})
 
 	AddTargetModel({ 0x5244247D },{ -- Pharmacy Store
 		options = {

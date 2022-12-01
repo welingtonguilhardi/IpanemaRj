@@ -18,16 +18,14 @@ local shops = {
 		["mode"] = "Buy",
 		["type"] = "Cash",
 		["list"] = {
-		    ["absolut"] = 215,
 			["notepad"] = 10,
-			["coffee"] = 195,
-			["chandon"] = 215,
 			["cigarette"] = 75,
 			["dewars"] = 215,
-			["energetic"] = 3150,
 			["emptybottle"] = 650,
 			["hennessy"] = 215,
-			["lighter"] = 175,
+			["roupas"] = 5000,
+			["tires"] = 5000,
+			["toolbox"] = 7000
 		}
 	},
 	["ammunationStore"] = {
@@ -74,21 +72,15 @@ local shops = {
 			["sinkalmy"] = 120
 		}
 	},
-	-- ["premiumStore"] = {
-	-- 	["mode"] = "Buy",
-	-- 	["type"] = "Premium",
-	-- 	["list"] = {
-	-- 		["premium01"] = 15,
-	-- 		["premium02"] = 25,
-	-- 		["premium03"] = 35,
-	-- 		["premium04"] = 45,
-	-- 		["premiumplate"] = 25,
-	-- 		["premiumname"] = 25,
-	-- 		["premiumgarage"] = 25,
-	-- 		["premiumpersonagem"] = 25,
-	-- 		["gemstone"] = 1
-	-- 	}
-	-- },
+	["premiumStore"] = {
+		["mode"] = "Buy",
+		["type"] = "Buy",
+		["list"] = {
+			["backpack"] = 15000,
+			["cellphone"] = 3000,
+			["radio"] = 2500,
+		}
+	},
 	["jewelryStore"] = {
 		["mode"] = "Sell",
 		["type"] = "Cash",
@@ -189,21 +181,13 @@ local shops = {
 			["emptybottle"] = 40,
 			["cigarette"] = 20,
 			["lighter"] = 600,
-			["sandwich"] = 18,
-			["cola"] = 18,
 			["teddy"] = 500,
 			["rose"] = 50,
 			["bucket"] = 200,
 			["compost"] = 10,
 			["cannabisseed"] = 10,
 			["silk"] = 3,
-			["plastic"] = 80,
-			["glass"] = 80,
-			["rubber"] = 80,
-			["aluminum"] = 120,
-			["copper"] = 120,
 			["paperbag"] = 50,
-			["raceticket"] = 500,
 			["firecracker"] = 1000
 		}
 	},
@@ -212,12 +196,12 @@ local shops = {
 		["type"] = "Cash",
 		["list"] = {
 			["energetic"] = 3250,
-			["cola"] = 515,
-			["soda"] = 515,
+			["lighter"] = 175,
 			["absolut"] = 200,
 			["chandon"] = 200,
 			["dewars"] = 200,
-			["hennessy"] = 200
+			["hennessy"] = 200,
+			["coffee"] = 195,
 		}
 	},
 	["coffeeMachine"] = {
