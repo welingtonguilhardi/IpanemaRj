@@ -12,6 +12,7 @@ vRP = Proxy.getInterface("vRP")
 cRP = {}
 Tunnel.bindInterface("login",cRP)
 vSERVER = Tunnel.getInterface("login")
+local vCREATIVE = Tunnel.getInterface("creative")
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -76,7 +77,7 @@ RegisterNUICallback("spawn",function(data,cb)
 		if select then
 			SetNuiFocus(false)
 			SendNUIMessage({ display = false })
-
+			vCREATIVE.verificar(source)
 			DoScreenFadeOut(1000)
 			Citizen.Wait(1000)
 
@@ -96,7 +97,7 @@ RegisterNUICallback("spawn",function(data,cb)
 	elseif data.choice == 'ultimalocalizacao' then
 		SetNuiFocus(false)
 		SendNUIMessage({ display = false })
-
+		vCREATIVE.verificar(source)
 		DoScreenFadeOut(1000)
 		Citizen.Wait(1000)
 

@@ -42,6 +42,10 @@ RegisterNUICallback("botao", function(data)
     end   
 
     if successAge and successCheck then --verifica se algum campo foi marcado e a idade e maior de 17
+        SetNuiFocus(false,false)
+        SendNUIMessage({
+            idade = false
+        })
         vSERVER.UpIdade(idade)
     end    
 end)
