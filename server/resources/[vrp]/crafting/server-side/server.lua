@@ -915,45 +915,45 @@ local craftList = {
 			}
 		}
 	},
-	-- ["lixeiroShop"] = {
-	-- 	["list"] = {
-	-- 		["aluminum"] = {
-	-- 			["amount"] = 3,
-	-- 			["destroy"] = true,
-	-- 			["require"] = {
-	-- 				["metalcan"] = 1
-	-- 			}
-	-- 		},
-	-- 		["rubber"] = {
-	-- 			["amount"] = 3,
-	-- 			["destroy"] = true,
-	-- 			["require"] = {
-	-- 				["elastic"] = 1
-	-- 			}
-	-- 		},
-	-- 		["copper"] = {
-	-- 			["amount"] = 3,
-	-- 			["destroy"] = true,
-	-- 			["require"] = {
-	-- 				["battery"] = 1
-	-- 			}
-	-- 		},
-	-- 		["plastic"] = {
-	-- 			["amount"] = 3,
-	-- 			["destroy"] = true,
-	-- 			["require"] = {
-	-- 				["plasticbottle"] = 1
-	-- 			}
-	-- 		},
-	-- 		["glass"] = {
-	-- 			["amount"] = 3,
-	-- 			["destroy"] = true,
-	-- 			["require"] = {
-	-- 				["glassbottle"] = 1
-	-- 			}
-	-- 		}
-	-- 	}
-	-- },
+	["lixeiroShop"] = {
+		["list"] = {
+			["aluminum"] = {
+				["amount"] = 3,
+				["destroy"] = true,
+				["require"] = {
+					["metalcan"] = 1
+				}
+			},
+			["rubber"] = {
+				["amount"] = 3,
+				["destroy"] = true,
+				["require"] = {
+					["elastic"] = 1
+				}
+			},
+			["copper"] = {
+				["amount"] = 3,
+				["destroy"] = true,
+				["require"] = {
+					["battery"] = 1
+				}
+			},
+			["plastic"] = {
+				["amount"] = 3,
+				["destroy"] = true,
+				["require"] = {
+					["plasticbottle"] = 1
+				}
+			},
+			["glass"] = {
+				["amount"] = 3,
+				["destroy"] = true,
+				["require"] = {
+					["glassbottle"] = 1
+				}
+			}
+		}
+	},
 	["dressMaker"] = {
 		["list"] = {
 			["credential"] = {
