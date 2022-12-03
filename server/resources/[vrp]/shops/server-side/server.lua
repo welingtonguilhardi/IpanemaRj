@@ -118,8 +118,8 @@ local shops = {
 		["mode"] = "Buy",
 		["type"] = "Cash",
 		["list"] = {
-			["cola"] = 300,
-			["hamburger"] = 400
+			["cola"] = 20,
+			["hamburger"] = 40
 		}
 	},
 	["fishingStore"] = {
