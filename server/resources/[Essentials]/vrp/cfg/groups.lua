@@ -333,7 +333,7 @@ cfg.groups = {
 			title = "Coronel",
 			gtype = "job"
 		},
-		"policia.permissao",
+		"policiaComando.permissao",
 		"policia.permissao",
 		'policiacontratos.permissao',
 		'speedcontratos.permissao',
@@ -751,6 +751,15 @@ cfg.groups = {
 
 
 ------------PaisanaPolicia----------
+	["PaisanaComandante"] = {
+		_config = {
+			title = "Policia | F.Serviço",
+			gtype = "job"
+		},
+		"paisanaComandante.permissao",
+		"policiapaisana.permissao",
+		"sem.permissao"
+	},
 	["PaisanaSoldado"] = {
 		_config = {
 			title = "Policia | F.Serviço",
