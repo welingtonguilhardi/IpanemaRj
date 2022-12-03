@@ -844,7 +844,7 @@ function isVehicleTooFar(veh)
 			local distance = #(playercoords - vehcoords)
 			if distance > 7 then
 				fclient.closeNui()
-				TriggerEvent("Notify","aviso","Você se afastou muito do veículo.",7000)
+				TriggerEvent("Notify","amarelo","Você se afastou muito do veículo.",7000)
 			end
 			Citizen.Wait(500)
 		end

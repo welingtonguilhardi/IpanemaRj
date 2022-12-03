@@ -137,34 +137,49 @@ function spawnVehicles()
 		vehIds[k] = id
 	end
 end
+
+local use = false
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SWAPVEHICLE
 -----------------------------------------------------------------------------------------------------------------------------------------
 function swapVehicle(veh,slot)
-	if slot > 0 and slot < 5 then
-		if vehIds[slot] then
-			if DoesEntityExist(vehIds[slot]) then
-				DeleteEntity(vehIds[slot])
+	--print(veh)
+	
+
+	if use then
+		TriggerEvent("Notify","amarelo","Aguarde pra spawnar denovo.",5000)
+		Citizen.Wait(10)
+		use = false
+	else
+		use = true
+		
+		if slot > 0 and slot < 5 then
+			local use = true
+			if vehIds[slot] then
+				if DoesEntityExist(vehIds[slot]) then
+					DeleteEntity(vehIds[slot])
+				end
 			end
-		end
 
-		local hash = GetHashKey(veh)
+			local hash = GetHashKey(veh)
 
-		RequestModel(hash)
-		while not HasModelLoaded(hash) do
 			RequestModel(hash)
-			Citizen.Wait(10)
+			while not HasModelLoaded(hash) do
+				RequestModel(hash)
+				Citizen.Wait(10)
+			end
+
+			local id = CreateVehicle(hash,coords[slot].cds.x,coords[slot].cds.y,coords[slot].cds.z,coords[slot].h,false,false)
+			SetVehicleDoorsLocked(id,2)
+			SetVehicleDirtLevel(id,0.0)
+			FreezeEntityPosition(id,true)
+			SetEntityAsMissionEntity(id,true,true)
+			SetVehicleNumberPlateText(id,"PDMSALE"..slot)
+			vehIds[slot] = id
+			vehicles[slot].model = veh
 		end
 
-		local id = CreateVehicle(hash,coords[slot].cds.x,coords[slot].cds.y,coords[slot].cds.z,coords[slot].h,false,false)
-		SetVehicleDoorsLocked(id,2)
-		SetVehicleDirtLevel(id,0.0)
-		FreezeEntityPosition(id,true)
-		SetEntityAsMissionEntity(id,true,true)
-		SetVehicleNumberPlateText(id,"PDMSALE"..slot)
-		vehIds[slot] = id
-		vehicles[slot].model = veh
-	end
+	end	
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- DESPAWNVEHICLES

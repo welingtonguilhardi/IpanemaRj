@@ -203,7 +203,16 @@ local blips = {
 	{ -893.97,5687.78,3.29,266,62,"Embarcações",0.5 },
 	{ 452.99,-607.74,28.59,513,62,"Motorista",0.5 },
 	{ 356.42,274.61,103.14,67,62,"Transportador",0.5 },
-	{ -840.21,5399.25,34.61,285,62,"Lenhador",0.5 },
+	{ -558.29,5362.55,70.22,285,62,"Lenhador",0.5 },
+
+
+	{ -815.12,-184.15,37.57,71,62,"Barbearia",0.5 },
+	{ 138.13,-1706.46,29.3,71,62,"Barbearia",0.5 },
+	{ -1280.92,-1117.07,7.0,71,62,"Barbearia",0.5 },
+	{ 1930.54,3732.06,32.85,71,62,"Barbearia",0.5 },
+	{ 1214.2,-473.18,66.21,71,62,"Barbearia",0.5 },
+	{ -33.61,-154.52,57.08,71,62,"Barbearia",0.5 },
+	{ -276.65,6226.76,31.7,71,62,"Barbearia",0.5 },
 
 	{ -172.21,6385.85,31.49,403,5,"Farmácia",0.7 },
 	{ 1690.07,3581.68,35.62,403,5,"Farmácia",0.7 },
@@ -212,7 +221,7 @@ local blips = {
 	{ 46.66,-1749.79,29.64,78,11,"Mercado Central",0.5 },
 	{ 67.67,-1568.61,29.59,318,62,"Lixeiro",0.6 },
 
-	{ -168.26,293.8,93.77,124,7,"Ipanema Food",0.6 },
+	{ -168.26,293.8,93.77,124,7,"Ipanema lanches",0.6 },
 	{ 385.1, 4.51, 91.27,475,7,"Hotel Callisto",0.6 },
 	{ 70.62, -1911.07, 21.65,677,7,"Condomínio Ballas",0.6 },
 	{ -1082.22,-247.54,37.77,86,3,"Facebook",0.6 },
@@ -254,7 +263,7 @@ local blips = {
 
 --	{ 2768.92,1391.1,24.53,597,62,"Mergulhador",0.7 },
 	{ 405.92,6526.12,27.73,89,62,"Colheita",0.4 },
-	{ 1239.91,-3257.19,7.09,67,62,"Caminhoneiro",0.5 },
+	-- { 1239.91,-3257.19,7.09,67,62,"Caminhoneiro",0.5 },
 	-- { 895.36,-179.36,74.7,198,62,"Taxista",0.5 },
 	{ -680.9,5832.41,17.32,141,62,"Caçador",0.7 },
 --	{ 562.36,2741.56,42.87,273,11,"Animal Park",0.5 },
@@ -716,32 +725,32 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TASERTIME
 -----------------------------------------------------------------------------------------------------------------------------------------
-local tasertime = false
-Citizen.CreateThread(function()
-	while true do
-		local timeDistance = 500
-		local ped = PlayerPedId()
+-- local tasertime = false
+-- Citizen.CreateThread(function()
+-- 	while true do
+-- 		local timeDistance = 500
+-- 		local ped = PlayerPedId()
 
-		if IsPedBeingStunned(ped) then
-			timeDistance = 4
-			SetPedToRagdoll(ped,7500,7500,0,0,0,0)
-		end
+-- 		if IsPedBeingStunned(ped) then
+-- 			timeDistance = 4
+-- 			SetPedToRagdoll(ped,7500,7500,0,0,0,0)
+-- 		end
 
-		if IsPedBeingStunned(ped) and not tasertime then
-			tasertime = true
-			timeDistance = 4
-			TriggerEvent("cancelando",true)
-			ShakeGameplayCam("FAMILY5_DRUG_TRIP_SHAKE",1.0)
-		elseif not IsPedBeingStunned(ped) and tasertime then
-			tasertime = false
-			Citizen.Wait(7500)
-			StopGameplayCamShaking()
-			TriggerEvent("cancelando",false)
-		end
+-- 		if IsPedBeingStunned(ped) and not tasertime then
+-- 			tasertime = true
+-- 			timeDistance = 4
+-- 			TriggerEvent("cancelando",true)
+-- 			ShakeGameplayCam("FAMILY5_DRUG_TRIP_SHAKE",1.0)
+-- 		elseif not IsPedBeingStunned(ped) and tasertime then
+-- 			tasertime = false
+-- 			Citizen.Wait(7500)
+-- 			StopGameplayCamShaking()
+-- 			TriggerEvent("cancelando",false)
+-- 		end
 
-		Citizen.Wait(timeDistance)
-	end
-end)
+-- 		Citizen.Wait(timeDistance)
+-- 	end
+-- end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TELEPORT
 -----------------------------------------------------------------------------------------------------------------------------------------
@@ -1027,8 +1036,8 @@ Citizen.CreateThread(function()
 
      SetDiscordRichPresenceAssetText("Ipanema")
      SetDiscordRichPresenceAssetSmall("Ipanema")
-     SetDiscordRichPresenceAssetSmallText("Melhor base para sua Cidade!")
-     SetDiscordRichPresenceAction(1, "DISCORD", "https://discord.gg/yEBPrRZM8m ")
+     SetDiscordRichPresenceAssetSmallText("Melhor Cidade!")
+     SetDiscordRichPresenceAction(1, "DISCORD", "https://discord.gg/PV4DWsbzu7 ")
         Citizen.Wait(60000)
     end
 end)
@@ -1227,7 +1236,7 @@ function()
 	loadHangar()
 	while true do
 			nearIsland()
-		Wait(2500)
+		Wait(500)
 	end
 end)
 

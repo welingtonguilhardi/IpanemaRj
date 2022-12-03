@@ -307,18 +307,18 @@ local pedList = {
 		model = { 0xE0FA2554,"ig_casey" },
 		anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
 	},
-	{ -- Lenhador
-		distance = 30,
-		coords = { -840.64,5398.94,34.61,303.31 },
-		model = { 0x1536D95A,"a_m_o_ktown_01" },
-		anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
-	},
-	{ -- Lenhador
-		distance = 30,
-		coords = { -842.92,5403.49,34.61,300.48 },
-		model = { 0x1C95CB0B,"u_m_m_markfost" },
-		anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
-	},
+	-- { -- Lenhador
+	-- 	distance = 30,
+	-- 	coords = { -840.64,5398.94,34.61,303.31 },
+	-- 	model = { 0x1536D95A,"a_m_o_ktown_01" },
+	-- 	anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
+	-- },
+	-- { -- Lenhador
+	-- 	distance = 30,
+	-- 	coords = { -842.92,5403.49,34.61,300.48 },
+	-- 	model = { 0x1C95CB0B,"u_m_m_markfost" },
+	-- 	anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
+	-- },
 	{ -- Minerador 2
 		distance = 30,
 		coords = { 2832.97,2797.6,57.46,99.22 },
@@ -487,12 +487,12 @@ local pedList = {
 		model = { 0x1475B827,"a_f_y_hippie_01" },
 		anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
 	},
-	{ -- Caminhoneiro
-		distance = 30,
-		coords = { 1239.87,-3257.2,7.09,274.97 },
-		model = { 0x59511A6C,"s_m_m_trucker_01" },
-		anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
-	},
+	-- { -- Caminhoneiro
+	-- 	distance = 30,
+	-- 	coords = { 1239.87,-3257.2,7.09,274.97 },
+	-- 	model = { 0x59511A6C,"s_m_m_trucker_01" },
+	-- 	anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
+	-- },
 	{ -- Restocador
 		distance = 30,
 		coords = { 920.04,-1256.84,25.51,36.86 },

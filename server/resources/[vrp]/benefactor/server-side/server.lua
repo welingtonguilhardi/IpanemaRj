@@ -69,15 +69,22 @@ async(function()
 	task_save_datatables()
 end)
 
+-- local hasVehicleStock = function(veh)
+-- 	if stockVeh and veh then
+-- 		veh = tostring(veh)
+-- 		if stockVeh[veh] then
+-- 			local temp_stock = stockVeh[veh]
+-- 			if temp_stock > 0 then return true else return false end
+-- 		end
+-- 	end
+-- 	return false
+-- end
+vRP.prepare("vRP/get_CheckEstoquee","SELECT * FROM vrp_benefactor WHERE vehicle = @vehicle AND estoque = -1 OR vehicle = @vehicle AND estoque > 0")
 local hasVehicleStock = function(veh)
-	if stockVeh and veh then
-		veh = tostring(veh)
-		if stockVeh[veh] then
-			local temp_stock = stockVeh[veh]
-			if temp_stock > 0 then return true else return false end
-		end
+	local temp_stock = vRP.query("vRP/get_CheckEstoquee",{vehicle = tostring(veh)})
+	for k,v in pairs(temp_stock) do
+		return true
 	end
-	return false
 end
 
 local tryAddVehicleInStock = function(veh)
@@ -122,7 +129,7 @@ RegisterCommand("conce",function(source,args,rawCommand)
 					-- vRP.execute("vRP/insert_ConceStock",{ estoque = tonumber(qtd), vehicle = vehModel })
 					stockVeh[vehModel] = qtd
 				end
-				TriggerClientEvent("Notify", source, "sucesso","Você adicionou <b>"..tonumber(qtd).."</b> de estoque para <b>"..string.upper(vehModel).."</b>.")
+				TriggerClientEvent("Notify", source, "verde","Você adicionou <b>"..tonumber(qtd).."</b> de estoque para <b>"..string.upper(vehModel).."</b>.",5000)
 			end
 
 		end
@@ -168,7 +175,7 @@ function cnVRP.requestBuy(name,form)
 	if user_id then
 		local getInvoice = vRP.getInvoice(user_id)
 		if getInvoice[1] ~= nil then
-			TriggerClientEvent("Notify",source,"negado","Encontramos faturas pendentes.",3000)
+			TriggerClientEvent("Notify",source,"vermelho","Encontramos faturas pendentes.",3000)
 			return
 		end
 
@@ -196,17 +203,17 @@ function cnVRP.requestBuy(name,form)
 				else
 					if vRP.paymentBank(user_id,parseInt(vRP.vehiclePrice(vehName))) then
 						vRP.execute("vRP/add_vehicle",{ user_id = parseInt(user_id), vehicle = vehName, plate = vRP.generatePlateNumber(), phone = vRP.getPhone(user_id), work = tostring(false) })
-						TriggerClientEvent("Notify",source,"sucesso","A compra foi concluída com sucesso.",5000)
+						TriggerClientEvent("Notify",source,"verde","A compra foi concluída com sucesso.",5000)
 					else
-						TriggerClientEvent("Notify",source,"negado","Dinheiro insuficiente na sua conta bancária.",5000)
+						TriggerClientEvent("Notify",source,"vermelho","Dinheiro insuficiente na sua conta bancária.",5000)
 					end
 				end
 			else
-				TriggerClientEvent("Notify",source,"negado","Parece que nosso último estoque foi vendido recentemente",3000)
+				TriggerClientEvent("Notify",source,"vermelho","Parece que nosso último estoque foi vendido recentemente",3000)
 				return
 			end
 		else
-			TriggerClientEvent("Notify",source,"negado","Não temos estoque suficiente desse veiculo.",3000)
+			TriggerClientEvent("Notify",source,"vermelho","Não temos estoque suficiente desse veiculo.",3000)
 			return
 		end
 	end
@@ -224,7 +231,7 @@ function cnVRP.requestSell(name)
 				local vehName = tostring(name)
 				local getInvoice = vRP.getInvoice(user_id)
 				if getInvoice[1] ~= nil then
-					TriggerClientEvent("Notify",source,"negado","Encontramos faturas pendentes.",3000)
+					TriggerClientEvent("Notify",source,"vermelho","Encontramos faturas pendentes.",3000)
 					return
 				end
 				tryAddVehicleInStock(vehName)
@@ -232,12 +239,12 @@ function cnVRP.requestSell(name)
 				vRP.execute("vRP/rem_srv_data",{ dkey = "chest:"..parseInt(user_id)..":"..vehName })
 				vRP.execute("vRP/rem_vehicle",{ user_id = parseInt(user_id), vehicle = vehName })
 				vRP.addBank(user_id,parseInt(vRP.vehiclePrice(name)*0.75))
-				TriggerClientEvent("Notify",source,"sucesso","Venda concluida com sucesso.",7000)
+				TriggerClientEvent("Notify",source,"verde","Venda concluida com sucesso.",7000)
 			else
-				TriggerClientEvent("Notify",source,"negado","Aguarde 5 minutos para vender novamente.",7000)
+				TriggerClientEvent("Notify",source,"vermelho","Aguarde 5 minutos para vender novamente.",7000)
 			end
 		else
-			TriggerClientEvent("Notify",source,"negado","Voce nao pode vender este veiculo.",7000)
+			TriggerClientEvent("Notify",source,"vermelho","Voce nao pode vender este veiculo.",7000)
 		end
 	end
 end

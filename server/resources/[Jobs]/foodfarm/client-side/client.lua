@@ -60,7 +60,7 @@ function cnVRP.toggleService()
 		TriggerEvent("sounds:source","quite",0.5)
 	else
 		inService = false
-		TriggerEvent("Notify","aviso","Você parou de trabalhar de <b>Motorista de Ônibus</b>.",5000)
+		TriggerEvent("Notify","amarelo","Você parou de trabalhar de <b>Motorista de Ônibus</b>.",5000)
 		TriggerEvent("sounds:source","juntos",0.5)
 		if DoesBlipExist(blip) then
 			RemoveBlip(blip)
