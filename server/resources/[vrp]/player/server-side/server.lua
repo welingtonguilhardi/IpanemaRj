@@ -576,8 +576,62 @@ end)
 -- 	end
 -- end)
 
+local _weapons = {
+	"WEAPON_PISTOL",
+	"WEAPON_PISTOL_MK2",
+	"WEAPON_APPISTOL",
+	"WEAPON_HEAVYPISTOL",
+	"WEAPON_SNSPISTOL",
+	"WEAPON_SNSPISTOL_MK2",
+	"WEAPON_VINTAGEPISTOL",
+	"WEAPON_PISTOL50",
+	"WEAPON_REVOLVER",
+	"WEAPON_COMBATPISTOL",
+	"WEAPON_COMPACTRIFLE",
+	"WEAPON_MICROSMG",
+	"WEAPON_MINISMG",
+	"WEAPON_SMG",
+	"WEAPON_ASSAULTSMG",
+	"WEAPON_GUSENBERG",
+	"WEAPON_MACHINEPISTOL",
+	"WEAPON_CARBINERIFLE",
+	"WEAPON_ASSAULTRIFLE",
+	"WEAPON_ASSAULTRIFLE_MK2",
+	"WEAPON_SPECIALCARBINE",
+	"WEAPON_SPECIALCARBINE_MK2",
+	"WEAPON_PUMPSHOTGUN",
+	"WEAPON_SAWNOFFSHOTGUN",
+	"WEAPON_RPG",
+	"WEAPON_PETROLCAN",
+}
+function removeWeapon(source)
+	local user_id = vRP.getUserId(source)
+	local inv = vRP.getInventory(user_id)
+	
+	for k,v in pairs(inv) do
+		for w,i in pairs(_weapons) do
+			vitem = json.encode(v["item"])
+			kqntd = json.encode(v["amount"])
+			iItem = json.encode(i)
+			--print("item: "..i.." outro item: "..vitem)
+			if vitem == tostring(iItem) then
+					print(user_id,tostring(iItem),parseInt(kqntd))
+				if vRP.tryGetInventoryItem(user_id,i,kqntd) then
 
+					if i == "WEAPON_COMBATPISTOL" then
+						vRP.giveInventoryItem(user_id,"dollars",2500,true)
+					elseif i == "WEAPON_CARBINERIFLE" then	
+						vRP.giveInventoryItem(user_id,"dollars",12000,true)
+					elseif i == "WEAPON_SMG" then	
+						vRP.giveInventoryItem(user_id,"dollars",7000,true)	
+					end	
+					
+				end	
+	 		end	
+		end	
+	end	
 
+end	
 
 
 
@@ -614,7 +668,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"aviso","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 		TriggerEvent('eblips:remove',player)
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"paisanaSoldado.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -622,7 +677,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Cabo
@@ -635,7 +690,8 @@ AddEventHandler("player:servicePolice",function()
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 		TriggerEvent('eblips:remove',player)
 	elseif vRP.hasPermission(user_id,"paisanaCabo.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
@@ -644,7 +700,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Sargento
@@ -658,7 +714,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"paisanaSargento.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -666,7 +723,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- SubTenente
@@ -680,7 +737,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"paisanaSubTenente.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -688,7 +746,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Aspirante
@@ -702,7 +760,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"paisanaAspirante.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -710,7 +769,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Tenente
@@ -724,7 +783,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"paisanaTenente.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -732,7 +792,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Capitao
@@ -746,7 +806,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"paisanaCapitao.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -754,7 +815,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Major
@@ -768,7 +829,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"paisanaMajor.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -776,7 +838,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- TenenteCoronel
@@ -790,7 +852,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"TenenteCoronel.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -798,7 +861,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Coronel
@@ -812,7 +875,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"Coronel.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -820,7 +884,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 
 
@@ -840,7 +904,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"aviso","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 		TriggerEvent('eblips:remove',player)
-
+		removeWeapon(source)
 	elseif vRP.hasPermission(user_id,"BopepaisanaSoldado.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -862,7 +926,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"BopepaisanaCabo.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -870,7 +935,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Sargento
@@ -884,7 +949,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"BopepaisanaSargento.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -892,7 +958,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- SubTenente
@@ -906,7 +972,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"BopepaisanaSubTenente.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -914,7 +981,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Aspirante
@@ -928,7 +995,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"BopepaisanaAspirante.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -936,7 +1004,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Tenente
@@ -950,7 +1018,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"paisanaTenente.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -958,7 +1027,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Capitao
@@ -972,7 +1041,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"BopepaisanaCapitao.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -980,7 +1050,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Major
@@ -994,7 +1064,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"BopepaisanaMajor.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1002,7 +1073,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- TenenteCoronel
@@ -1016,7 +1087,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"TenenteCoronel.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1024,7 +1096,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Coronel
@@ -1038,7 +1110,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"Coronel.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1046,7 +1119,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 ----------------------------------------------------------------SPEED------------------------------------------------------------------------------------------------------------	
 
@@ -1062,7 +1135,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"aviso","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"SpeedpaisanaSoldado.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1070,7 +1144,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Cabo
@@ -1084,7 +1158,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"SpeedpaisanaCabo.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1092,7 +1167,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Sargento
@@ -1106,7 +1181,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"SpeedpaisanaSargento.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1114,7 +1190,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- SubTenente
@@ -1128,7 +1204,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"SpeedpaisanaSubTenente.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1136,7 +1213,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Aspirante
@@ -1150,7 +1227,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"SpeedpaisanaAspirante.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1158,7 +1236,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Tenente
@@ -1172,7 +1250,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"SpeedpaisanaTenente.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1180,7 +1259,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Capitao
@@ -1194,7 +1273,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"SpeedpaisanaCapitao.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1202,7 +1282,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Major
@@ -1216,7 +1296,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"SpeedpaisanaMajor.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1224,7 +1305,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- TenenteCoronel
@@ -1238,7 +1319,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"SpeedTenenteCoronel.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1246,7 +1328,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Coronel
@@ -1260,7 +1342,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"SpeedCoronel.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1268,7 +1351,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 
 -----------------------------------------------------GAM----------------------------------------------------------------------
@@ -1285,7 +1368,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"aviso","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"GampaisanaSoldado.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1293,7 +1377,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Cabo
@@ -1307,7 +1391,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"GampaisanaCabo.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1315,7 +1400,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Sargento
@@ -1329,7 +1414,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"GampaisanaSargento.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1337,7 +1423,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- SubTenente
@@ -1351,7 +1437,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"GampaisanaSubTenente.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1359,7 +1446,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Aspirante
@@ -1373,7 +1460,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"GampaisanaAspirante.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1381,7 +1469,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Tenente
@@ -1395,7 +1483,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"GampaisanaTenente.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1403,7 +1492,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Capitao
@@ -1417,7 +1506,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"GampaisanaCapitao.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1425,7 +1515,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Major
@@ -1439,7 +1529,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"GampaisanaMajor.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1447,7 +1538,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- TenenteCoronel
@@ -1461,7 +1552,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"GampaisanaTenenteCoronel.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1469,7 +1561,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Coronel
@@ -1483,7 +1575,8 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		TriggerEvent('eblips:remove',player)
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		removeWeapon(source)
+		
 	elseif vRP.hasPermission(user_id,"GampaisanaCoronel.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
@@ -1491,7 +1584,7 @@ AddEventHandler("player:servicePolice",function()
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		TriggerEvent('eblips:add',{ name = "Policial", src = source, color = 47 })
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 end)
 
@@ -1518,14 +1611,14 @@ RegisterCommand('mecanico',function(source,args,rawCommand)
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhookMec,"```prolog\n[MECANICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		
 	elseif vRP.hasPermission(user_id,"paisanamecanicoA.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"MECANICO em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"MecanicoA")
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		SendWebhookMessage(webhookMec,"```prolog\n[MECANICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 
 	--------------------------------
@@ -1539,14 +1632,14 @@ RegisterCommand('mecanico',function(source,args,rawCommand)
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhookMec,"```prolog\n[MECANICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		
 	elseif vRP.hasPermission(user_id,"paisanamecanicoC.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"MECANICO em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"MecanicoC")
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		SendWebhookMessage(webhookMec,"```prolog\n[MECANICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Gerente
@@ -1559,14 +1652,14 @@ RegisterCommand('mecanico',function(source,args,rawCommand)
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhookMec,"```prolog\n[MECANICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		
 	elseif vRP.hasPermission(user_id,"paisanamecanicoG.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"MECANICO em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"MecanicoG")
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		SendWebhookMessage(webhookMec,"```prolog\n[MECANICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Gerente Geral 
@@ -1579,14 +1672,14 @@ RegisterCommand('mecanico',function(source,args,rawCommand)
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhookMec,"```prolog\n[MECANICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		
 	elseif vRP.hasPermission(user_id,"paisanamecanicoGG.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"MECANICO em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"MecanicoGG")
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		SendWebhookMessage(webhookMec,"```prolog\n[MECANICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Lider
@@ -1599,14 +1692,14 @@ RegisterCommand('mecanico',function(source,args,rawCommand)
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhookMec,"```prolog\n[MECANICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		
 	elseif vRP.hasPermission(user_id,"paisanamecanicoL.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"MECANICO em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"MecanicoL")
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		SendWebhookMessage(webhookMec,"```prolog\n[MECANICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 
 end)
@@ -1636,14 +1729,14 @@ RegisterCommand('medico',function(source,args,rawCommand)
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		
 	elseif vRP.hasPermission(user_id,"paisanaparamedico.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"MEDICO em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"Paramedico")
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Enfermeiro
@@ -1656,14 +1749,14 @@ RegisterCommand('medico',function(source,args,rawCommand)
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		
 	elseif vRP.hasPermission(user_id,"paisanaresidente.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"MEDICO em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"Enfermaria")
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Medico
@@ -1676,14 +1769,14 @@ RegisterCommand('medico',function(source,args,rawCommand)
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		
 	elseif vRP.hasPermission(user_id,"paisanamedico.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"MEDICO em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"Medico")
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Medico Supervisor
@@ -1696,14 +1789,14 @@ RegisterCommand('medico',function(source,args,rawCommand)
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		
 	elseif vRP.hasPermission(user_id,"paisanamedicochefe.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"MEDICO em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"MedicoSupervisor")
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Cirurgião
@@ -1716,14 +1809,14 @@ RegisterCommand('medico',function(source,args,rawCommand)
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		
 	elseif vRP.hasPermission(user_id,"paisanasupervisaoala.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"MEDICO em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"Cirurgiao")
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 
 	--------------------------------
@@ -1737,14 +1830,14 @@ RegisterCommand('medico',function(source,args,rawCommand)
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		
 	elseif vRP.hasPermission(user_id,"paisanasubchefe.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"MEDICO em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"SubDiretoria")
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 	--------------------------------
 	-- Diretor
@@ -1757,14 +1850,14 @@ RegisterCommand('medico',function(source,args,rawCommand)
 		vRPclient.setArmour(source,0)
 		TriggerClientEvent("Notify",source,"vermelho","Você saiu de serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = nil
+		
 	elseif vRP.hasPermission(user_id,"paisanadiretora.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"MEDICO em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"Diretoria")
 		TriggerClientEvent("Notify",source,"verde","Você entrou em serviço.",5000)
 		SendWebhookMessage(webhookMed,"```prolog\n[MEDICO]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[==========ENTROU EM SERVICO=========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
-		policework[user_id] = 3600
+		
 	end
 end)		
 

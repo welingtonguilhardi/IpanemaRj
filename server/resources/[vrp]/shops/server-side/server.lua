@@ -74,7 +74,7 @@ local shops = {
 	},
 	["premiumStore"] = {
 		["mode"] = "Buy",
-		["type"] = "Buy",
+		["type"] = "Cash",
 		["list"] = {
 			["backpack"] = 15000,
 			["cellphone"] = 3000,
@@ -283,6 +283,7 @@ local shops = {
 			["WEAPON_SMG_AMMO"] = 10,
 --			["WEAPON_SHOTGUN_AMMO"] = 10,
 			["WEAPON_PISTOL_AMMO"] = 10,
+			["handcuff"] = 1000,
 			["WEAPON_RIFLE_AMMO"] = 10
 		}
 	},
