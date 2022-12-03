@@ -6,7 +6,7 @@ cfg.licenseKey = ""
 
 -- # Comando para abrir o tablet
 cfg.commandName = "fichahp"
-cfg.permissao = "nc.permissao"
+cfg.permissao = "paramedico.permissao"
 
 -- # Usar animação (pegar tablet nas mãos ao abrir) ?
 cfg.useAnim = true
