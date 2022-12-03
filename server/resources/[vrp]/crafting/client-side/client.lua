@@ -95,7 +95,7 @@ local craftList = {
     { 1275.74,-1710.31,54.76,"mafiaCrafting" },
     { 839.78,-975.81,26.49,"mecanicoCrafting" },
     { 1593.14,6455.61,26.02,"avalanchesCrafting" },
-	-- { 84.17,-1552.07,29.6,"lixeiroShop" },
+	 { 84.17,-1552.07,29.6,"lixeiroShop" },
 	{ 713.89,-961.52,30.4,"dressMaker" },
 	{ 169.56,-1634.05,29.28,"foodMarket" }
 }
