@@ -79,6 +79,17 @@ local shops = {
 			["backpack"] = 15000,
 			["cellphone"] = 3000,
 			["radio"] = 2500,
+			["WEAPON_BAT"] = 40000,
+			["WEAPON_MACHETE"] = 40000,
+			["WEAPON_FLASHLIGHT"] = 40000,
+			["WEAPON_HATCHET"] = 10000,
+			["WEAPON_BATTLEAXE"] = 40000,
+			["WEAPON_STONE_HATCHET"] = 40000,
+			["WEAPON_HAMMER"] = 40000,
+			["GADGET_PARACHUTE"] = 40000,
+			["WEAPON_KNUCKLE"] = 40000,
+			["WEAPON_GOLFCLUB"] = 40000,
+			["WEAPON_POOLCUE"] = 40000
 		}
 	},
 	["jewelryStore"] = {
