@@ -834,7 +834,7 @@ local craftList = {
 		}	
 	},
 	["coca"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "pcc.permissao",
 		["list"] = {
 			["cocaine"] = {
 				["amount"] = 100,
