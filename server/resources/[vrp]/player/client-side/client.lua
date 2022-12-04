@@ -190,7 +190,7 @@ function cRP.setDiving()
 	local ped = PlayerPedId()
 	if IsPedSwimming(ped) then
 		if GetEntityModel(ped) == GetHashKey("mp_m_freemode_01") then
-			SetPedComponentVariation(ped,8,123,0,2)
+			SetPedComponentVariation(ped,8,15,0,1)
 			SetPedPropIndex(ped,1,26,0,2)
 		elseif GetEntityModel(ped) == GetHashKey("mp_f_freemode_01") then
 			SetPedComponentVariation(ped,8,153,0,2)
@@ -1886,7 +1886,7 @@ AddEventHandler('setblusa',function(modelo,cor)
 			vRP._playAnim(true,{"clothingshirt","try_shirt_positive_d"},false)
 			Wait(2500)
 			ClearPedTasks(ped)
-			SetPedComponentVariation(ped,8,15,0,2)
+			SetPedComponentVariation(ped,8,15,0,1)
 			return
 		end
 		if GetEntityModel(ped) == GetHashKey("mp_m_freemode_01") then

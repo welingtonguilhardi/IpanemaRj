@@ -314,7 +314,7 @@ function resetClothing(data)
 
 	SetPedComponentVariation(ped,4,data["pants"].item,data["pants"].texture,2)
 	SetPedComponentVariation(ped,3,data["arms"].item,data["arms"].texture,2)
-	SetPedComponentVariation(ped,8,data["t-shirt"].item,data["t-shirt"].texture,2)
+	SetPedComponentVariation(ped,8,15,0,1)
 	SetPedComponentVariation(ped,9,data["vest"].item,data["vest"].texture,2)
 	SetPedComponentVariation(ped,11,data["torso2"].item,data["torso2"].texture,2)
 	SetPedComponentVariation(ped,6,data["shoes"].item,data["shoes"].texture,2)
@@ -340,7 +340,7 @@ function resetClothing(data)
 	else
 		ClearPedProp(ped,2)
 	end
-	if data["t-shirt"].item ~= -1 and data["t-shirt"].item ~= 0 then
+	if data["t-shirt"].item then
 		SetPedPropIndex(ped,8,data["t-shirt"].item,data["t-shirt"].texture,2)
 	else
 		ClearPedProp(ped,8)
@@ -404,15 +404,6 @@ function ChangeVariation(data)
 			local curItem = GetPedDrawableVariation(ped,3)
 			SetPedComponentVariation(ped,3,curItem,item,2)
 			skinData["arms"].texture = item
-		end
-	elseif clothingCategory == "t-shirt" then
-		if type == "item" then
-			SetPedComponentVariation(ped,8,15,0,1)
-			skinData["t-shirt"].item = item
-		elseif type == "texture" then
-			local curItem = GetPedDrawableVariation(ped,8)
-			SetPedComponentVariation(ped,8,15,0,1)
-			skinData["t-shirt"].texture = item
 		end
 	elseif clothingCategory == "vest" then
 		if type == "item" then
