@@ -356,7 +356,8 @@ local garages = {
 --	[761] = { ["name"] = "Garage", ["payment"] = true, ["public"] = true },
 	[762] = { ["name"] = "Goldminer", ["payment"] = true, ["public"] = true },
 	[763] = { ["name"] = "Avalanches", ["payment"] = true, ["perm"] = "Avalanches" },
-	[764] = { ["name"] = "Kart", ["payment"] = true, ["perm"] = false }
+	[764] = { ["name"] = "Kart", ["payment"] = true, ["perm"] = false },
+	[765] = { ["name"] = "Garage", ["payment"] = true, ["public"] = true }
 }
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- GARAGES
