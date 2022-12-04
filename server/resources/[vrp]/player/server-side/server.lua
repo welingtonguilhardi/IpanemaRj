@@ -3333,11 +3333,19 @@ AddEventHandler("eff_smokes", function(entity)
 	TriggerClientEvent("c_eff_smokes", -1, entity)
 end)
 
-RegisterCommand("teste",function(source,rawCommand)
-
-
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- TRATAMENTO
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand('tratar',function(source,args,rawCommand)
 	
-													
-	--vRPclient._playAnim(nplayer,true,{"mp_arresting","idle"},true)
+	local user_id = vRP.getUserId(source)
+	if vRP.hasPermission(user_id,"paramedico.permissao") then
+		local nplayer = vRPclient.nearestPlayer(source,12)
+		if nplayer then
+			TriggerClientEvent('tratamento',nplayer)
+			TriggerClientEvent("Notify",source,"verde","Tratamento iniciado",5000)
+			TriggerClientEvent("Notify",nplayer,"verde","Tratamento iniciado",5000)
 
+		end
+	end
 end)

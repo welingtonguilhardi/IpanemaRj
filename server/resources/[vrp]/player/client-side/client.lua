@@ -2804,3 +2804,15 @@ Citizen.CreateThread(function()
 		Citizen.Wait(timeDistance)
 	end
 end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- BANDAGEM
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterNetEvent('tratamento')
+AddEventHandler('tratamento',function()
+	print("chamada")
+	repeat
+		SetEntityHealth(PlayerPedId(),GetEntityHealth(PlayerPedId())+1)
+		Citizen.Wait(600)
+	until GetEntityHealth(PlayerPedId()) >= 200 or GetEntityHealth(PlayerPedId()) <= 100
+		TriggerEvent("Notify","sucesso","Tratamento concluido.")
+end)
