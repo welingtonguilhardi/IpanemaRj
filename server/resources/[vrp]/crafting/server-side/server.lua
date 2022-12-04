@@ -84,7 +84,6 @@ local craftList = {
 		}
 	},
 	["armaReciclagem"] = {
-		["perm"] = "nc.permissao",
 		["list"] = {
 
 ----------------PISTOL-------------------------------------			
@@ -301,7 +300,7 @@ local craftList = {
 		}
 	},
 	["BahamasCrafting"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "bahamas.permissao",
 		["list"] = {
 			["lockpick"] = {
 				["amount"] = 1,
@@ -746,7 +745,7 @@ local craftList = {
 		}
 	},
 	["mecanicoCrafting"] = {
-		["perm"] = "Mechanic",
+		["perm"] = "mecanico.permissao",
 		["list"] = {
 			["tires"] = {
 				["amount"] = 1,
@@ -783,13 +782,13 @@ local craftList = {
 		}
 	},
 	["metanfetamina"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "cv.permissao",
 		["list"] = {
 			["meth"] = {
 				["amount"] = 100,
 				["destroy"] = true,
 				["require"] = {
-					["methliquid"] = 360,
+					["methliquid"] = 280,
 					["anfetamina"] = 280
 				}
 			},
@@ -802,7 +801,7 @@ local craftList = {
 				["amount"] = 100,
 				["destroy"] = true,
 				["require"] = {
-					["cafeina"] = 360,
+					["cafeina"] = 280,
 					["anfetamina"] = 280
 				}
 			},
@@ -815,7 +814,7 @@ local craftList = {
 				["amount"] = 100,
 				["destroy"] = true,
 				["require"] = {
-					["papelfilme"] = 360,
+					["papelfilme"] = 280,
 				}
 			},
 		}	
@@ -827,20 +826,20 @@ local craftList = {
 				["amount"] = 100,
 				["destroy"] = true,
 				["require"] = {
-					["xaropedecodeina"] = 360,
+					["xaropedecodeina"] = 280,
 					["prometazina"] = 280,
 				}
 			},
 		}	
 	},
 	["coca"] = {
-		["perm"] = "pcc.permissao",
+		["perm"] = "yakuza.permissao", --favela campinho
 		["list"] = {
 			["cocaine"] = {
 				["amount"] = 100,
 				["destroy"] = true,
 				["require"] = {
-					["folhadecoca"] = 360,
+					["folhadecoca"] = 280,
 				}
 			},
 		}	
@@ -1052,7 +1051,7 @@ local craftList = {
 		}
 	},
 	["mechanicCraft"] = {
-		["perm"] = "Mechanic",
+		["perm"] = "mecanico.permissao",
 		["list"] = {
 			["ketchup"] = {
 				["amount"] = 1,

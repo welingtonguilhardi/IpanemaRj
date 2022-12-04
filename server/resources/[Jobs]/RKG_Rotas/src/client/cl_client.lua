@@ -67,7 +67,7 @@ Citizen.CreateThread(function()
                             route_name = k
                             setNextPositionBlip()
                             createBlipsPosition(blip_rotas,position)
-                            TriggerEvent("Notify","sucesso",Config.Notify.StartRoute)
+                            TriggerEvent("Notify","verde",Config.Notify.StartRoute,5000)
                         end
                     end
                 end
@@ -176,7 +176,7 @@ RegisterCommand("RKG_Store:LeaveRoute",function()
     if in_service then
         in_service = false
         route_name = nil
-        TriggerEvent("Notify","sucesso",Config.Notify.StopService,5000)
+        TriggerEvent("Notify","verde",Config.Notify.StopService,5000)
         if DoesBlipExist(blip) then
             RemoveBlip(blip)
             blip = nil
