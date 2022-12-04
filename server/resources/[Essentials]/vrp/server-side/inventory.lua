@@ -350,7 +350,7 @@ local itemlist = {
 		unity = "",
 		economy = "",
 		type = "use",
-		weight = 0.50
+		weight = 0.20
 	},
 	["prometazina"] = {
 		index = "prometazina",
@@ -360,7 +360,7 @@ local itemlist = {
 		unity = "",
 		economy = "",
 		type = "use",
-		weight = 0.50
+		weight = 0.20
 	},
 	["lean"] = {
 		index = "lean",
@@ -380,7 +380,7 @@ local itemlist = {
 		unity = "",
 		economy = "",
 		type = "use",
-		weight = 0.50
+		weight = 0.20
 	},
 	["ecstasy"] = {
 		index = "ecstasy",
@@ -400,7 +400,7 @@ local itemlist = {
 		unity = "",
 		economy = "",
 		type = "use",
-		weight = 0.30
+		weight = 0.20
 	},
 	["cocaine"] = {
 		index = "cocaine",

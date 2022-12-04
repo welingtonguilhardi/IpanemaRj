@@ -119,7 +119,9 @@ local shops = {
 		["type"] = "Cash",
 		["list"] = {
 			["cola"] = 20,
-			["hamburger"] = 40
+			["hamburger"] = 40,
+			["chocolate"] = 50
+
 		}
 	},
 	["fishingStore"] = {
@@ -219,21 +221,21 @@ local shops = {
 		["mode"] = "Buy",
 		["type"] = "Cash",
 		["list"] = {
-			["coffee"] = 205
+			["coffee"] = 80
 		}
 	},
 	["sodaMachine"] = {
 		["mode"] = "Buy",
 		["type"] = "Cash",
 		["list"] = {
-			["soda"] = 515
+			["soda"] = 40
 		}
 	},
 	["colaMachine"] = {
 		["mode"] = "Buy",
 		["type"] = "Cash",
 		["list"] = {
-			["cola"] = 515
+			["cola"] = 40
 		}
 	},
 	["donutMachine"] = {
@@ -241,7 +243,7 @@ local shops = {
 		["type"] = "Cash",
 		["list"] = {
 			["donut"] = 9,
-			["chocolate"] = 315
+			["chocolate"] = 50
 		}
 	},
 	["burgerMachine"] = {
