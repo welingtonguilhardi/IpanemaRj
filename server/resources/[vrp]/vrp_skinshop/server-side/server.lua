@@ -57,6 +57,25 @@ RegisterCommand("skin",function(source,args,rawCommand)
 		end
 	end
 end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- SKIN
+-----------------------------------------------------------------------------------------------------------------------------------------
+RegisterCommand("bug",function(source,args,rawCommand)
+	local user_id = vRP.getUserId(source)
+	if user_id then
+		
+			local nplayer = vRP.getUserSource(parseInt(user_id))
+			if nplayer then
+				local model = vRPclient.getModelPlayer(source)
+				vRPclient.applySkin(nplayer,GetHashKey(model))
+				vRP.updateSelectSkin(parseInt(user_id),GetHashKey(model))
+			end
+	
+	end
+end)
+
+
+
 -- -----------------------------------------------------------------------------------------------------------------------------------------
 -- -- MASCARA
 -- -----------------------------------------------------------------------------------------------------------------------------------------

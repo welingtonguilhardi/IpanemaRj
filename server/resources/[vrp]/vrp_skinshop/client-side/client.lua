@@ -25,7 +25,7 @@ local creatingCharacter = false
 local skinData = {
 	["pants"] = { item = 0, texture = 0, defaultItem = 0, defaultTexture = 0 },
 	["arms"] = { item = 0, texture = 0, defaultItem = 0, defaultTexture = 0 },
-	["t-shirt"] = { item = -1, texture = 0, defaultItem = -1, defaultTexture = 0 },
+	["t-shirt"] = { item = -1, texture = -1, defaultItem = -1, defaultTexture = -1 },
 	["torso2"] = { item = 0, texture = 0, defaultItem = 0, defaultTexture = 0 },
 	["vest"] = { item = 0, texture = 0, defaultItem = 0, defaultTexture = 0 },
 	["bag"] = { item = 0, texture = 0, defaultItem = 0, defaultTexture = 0 },
@@ -177,7 +177,7 @@ local clothingCategorys = {
 function GetMaxValues()
 	maxModelValues = {
 		["arms"] = { type = "character", item = 0, texture = 0 },
-		["t-shirt"] = { type = "character", item = 0, texture = 0 },
+		["t-shirt"] = { type = "character", item = -1, texture = -1 },
 		["torso2"] = { type = "character", item = 0, texture = 0 },
 		["pants"] = { type = "character", item = 0, texture = 0 },
 		["shoes"] = { type = "character", item = 0, texture = 0 },
@@ -339,6 +339,11 @@ function resetClothing(data)
 		SetPedPropIndex(ped,2,data["ear"].item,data["ear"].texture,2)
 	else
 		ClearPedProp(ped,2)
+	end
+	if data["t-shirt"].item ~= -1 and data["t-shirt"].item ~= 0 then
+		SetPedPropIndex(ped,8,data["t-shirt"].item,data["t-shirt"].texture,2)
+	else
+		ClearPedProp(ped,8)
 	end
 
 	if data["watch"].item ~= -1 and data["watch"].item ~= 0 then
@@ -641,6 +646,7 @@ end
 -- GETCUSTOMIZATION
 -----------------------------------------------------------------------------------------------------------------------------------------
 function cnVRP.getCustomization()
+	source = skinData
 	return skinData
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
