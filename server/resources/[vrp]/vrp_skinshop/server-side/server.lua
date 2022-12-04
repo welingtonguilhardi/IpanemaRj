@@ -48,7 +48,7 @@ end
 RegisterCommand("skin",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id,"Admin") and args[1] then
+		if vRP.hasPermission(user_id,"dono.permissao") and args[1] then
 			local nplayer = vRP.getUserSource(parseInt(args[1]))
 			if nplayer then
 				vRPclient.applySkin(nplayer,GetHashKey(args[2]))
