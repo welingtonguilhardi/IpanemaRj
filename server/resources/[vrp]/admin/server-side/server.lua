@@ -157,8 +157,8 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("skin",function(source,args,rawCommand)
     local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id, "nc.permissao") then
-		TriggerClientEvent("skinmenu",args[1],args[2])
+	if vRP.hasPermission(user_id, "dono.permissao") then
+		TriggerClientEvent("skinmenu",source,args[2])
 		TriggerClientEvent("Notify",source,"amarelo","Setada a skin <b>"..args[2].."</b> no passaporte <b>"..parseInt(args[1]).."</b>.",5000)
     end
 end)
