@@ -1,0 +1,8 @@
+# ------------------------------------------------ #
+Suporte: https://www.fluxanticheat.com/
+# ------------------------------------------------ #
+
+Atenção: NÃO ALTERE O NOME DO RESOURCE APÓS O MESMO JÁ ESTAR INSTALADO!!! IRÁ GERAR ERROS!!!
+Se você adquiriu o plano PREMIUM, você deverá instalar os 2 resources premium, discord-screenshot e screenshot-basic, você não poderá mudar o nome dos mesmos.
+
+SOMENTE INSTALE OS MODULOS STANDALONE OU ESX CASO SUA BASE NÃO SEJA VRP OU VRPEX, BASES VRP OU VRPEX NÃO HÁ A NECESSIDADE DE NENHUM DOS 2 MODULOS.
