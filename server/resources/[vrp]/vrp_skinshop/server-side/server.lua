@@ -69,10 +69,11 @@ RegisterCommand("debugar",function(source,args,rawCommand)
 	if user_id then
 		local model = vRPclient.getModelPlayer(source)
 		local data = vRP.getUserDataTable(user_id)
-		vCLIENT.Debug(source,data.skin)
-		vRPclient.applySkin(source,GetHashKey(model))
-		vRP.updateSelectSkin(parseInt(user_id),GetHashKey(data.skin))	
-
+		if data then
+			--vCLIENT.Debug(source,data.skin)
+			vRPclient.applySkin(source,GetHashKey(model))
+			--vRP.updateSelectSkin(parseInt(user_id),GetHashKey(data.skin))	
+		end	
 		local custom = vCLIENT.getCustomization(source)
 		TriggerClientEvent("updateRoupas",source,custom)
 	end
