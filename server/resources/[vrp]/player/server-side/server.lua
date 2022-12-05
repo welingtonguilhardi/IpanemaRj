@@ -3088,8 +3088,11 @@ RegisterCommand('mascara',function(source,args,rawCommand)
 		if not vRPclient.isHandcuffed(source) then
 			if not vRP.searchReturn(source,user_id) then
 				if user_id then
-					TriggerClientEvent("setmascara",source,args[1],args[2])
 					local custom = vSKINSHOP.getCustomization(source)
+					if args[1] == nil then
+						custom["mask"]["item"] = -1
+					end	
+					TriggerClientEvent("setmascara",source,args[1],args[2])
 					if args[1] then
 						custom["mask"]["item"] = tonumber(args[1])
 					end	
@@ -3116,8 +3119,11 @@ RegisterCommand('blusa',function(source,args,rawCommand)
 		if not vRPclient.isHandcuffed(source) then
 			if not vRP.searchReturn(source,user_id) then
 				if user_id then
-					TriggerClientEvent("setblusa",source,args[1],args[2])
 					local custom = vSKINSHOP.getCustomization(source)
+					if args[1] == nil then
+						custom["t-shirt"]["item"] =  -1
+					end	
+					TriggerClientEvent("setblusa",source,args[1],args[2])
 					if args[1] then
 						custom["t-shirt"]["item"] = tonumber(args[1])
 					end	
@@ -3144,8 +3150,12 @@ RegisterCommand('colete',function(source,args,rawCommand)
 		if not vRPclient.isHandcuffed(source) then
 			if not vRP.searchReturn(source,user_id) then
 				if user_id then
-					TriggerClientEvent("setcolete",source,args[1],args[2])
+					
 					local custom = vSKINSHOP.getCustomization(source)
+					if args[1] == nil then
+						custom["vest"]["item"] = -1
+					end	
+					TriggerClientEvent("setcolete",source,args[1],args[2])
 					if args[1] then
 						custom["vest"]["item"] = tonumber(args[1])
 					end	
@@ -3172,8 +3182,12 @@ RegisterCommand('jaqueta',function(source,args,rawCommand)
 		if not vRPclient.isHandcuffed(source) then
 			if not vRP.searchReturn(source,user_id) then
 				if user_id then
-					TriggerClientEvent("setjaqueta",source,args[1],args[2])
 					local custom = vSKINSHOP.getCustomization(source)
+					if args[1] == nil then
+						custom["torso2"]["item"] = -1
+					end	
+					TriggerClientEvent("setjaqueta",source,args[1],args[2])
+					
 					if args[1] then
 						custom["torso2"]["item"] = tonumber(args[1])
 					end	
@@ -3201,14 +3215,19 @@ RegisterCommand('maos',function(source,args,rawCommand)
 		if not vRPclient.isHandcuffed(source) then
 			if not vRP.searchReturn(source,user_id) then
 				if user_id then
-					TriggerClientEvent("setmaos",source,args[1],args[2])
 					local custom = vSKINSHOP.getCustomization(source)
-					if args[1] then
-						custom["torso2"]["item"] = tonumber(args[1])
+					if args[1] == nil then
+						custom["arms"]["item"] = -1
+					end	
+					TriggerClientEvent("setmaos",source,args[1],args[2])
+					
+					if args[1] then	
+						custom["arms"]["item"] = args[1]
 					end	
 					if args[2] then
-						custom["torso2"]["texture"] = tonumber(args[2])
+						custom["arms"]["texture"] = args[2]
 					end	
+
 					local model = vRPclient.getModelPlayer(source)
 					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
 						TriggerClientEvent("updateRoupas",source,custom)
@@ -3229,8 +3248,12 @@ RegisterCommand('calca',function(source,args,rawCommand)
 		if not vRPclient.isHandcuffed(source) then
 			if not vRP.searchReturn(source,user_id) then
 				if user_id then
-					TriggerClientEvent("setcalca",source,args[1],args[2])
 					local custom = vSKINSHOP.getCustomization(source)
+					if args[1] == nil then
+						custom["pants"]["item"] = 0
+					end	
+					TriggerClientEvent("setcalca",source,args[1],args[2])
+
 					if args[1] then
 						custom["pants"]["item"] = tonumber(args[1])
 					end	
@@ -3257,8 +3280,13 @@ RegisterCommand('acessorios',function(source,args,rawCommand)
 		if not vRPclient.isHandcuffed(source) then
 			if not vRP.searchReturn(source,user_id) then
 				if user_id then
-					TriggerClientEvent("setacessorios",source,args[1],args[2])
+					
 					local custom = vSKINSHOP.getCustomization(source)
+					if args[1] == nil then
+						custom["accessory"]["item"] = -1
+					end	
+
+					TriggerClientEvent("setacessorios",source,args[1],args[2])
 					if args[1] then
 						custom["accessory"]["item"] = tonumber(args[1])
 					end	
@@ -3285,8 +3313,13 @@ RegisterCommand('sapatos',function(source,args,rawCommand)
 		if not vRPclient.isHandcuffed(source) then
 			if not vRP.searchReturn(source,user_id) then
 				if user_id then
-					TriggerClientEvent("setsapatos",source,args[1],args[2])
 					local custom = vSKINSHOP.getCustomization(source)
+					if args[1] == nil then
+						custom["shoes"]["item"] = -1
+					end	
+					TriggerClientEvent("setsapatos",source,args[1],args[2])
+
+					
 					if args[1] then
 						custom["shoes"]["item"] = tonumber(args[1])
 					end	
@@ -3313,8 +3346,11 @@ RegisterCommand('chapeu',function(source,args,rawCommand)
 		if not vRPclient.isHandcuffed(source) then
 			if not vRP.searchReturn(source,user_id) then
 				if user_id then
-					TriggerClientEvent("setchapeu",source,args[1],args[2])
 					local custom = vSKINSHOP.getCustomization(source)
+					if args[1] == nil then
+						custom["hat"]["item"] = -1
+					end	
+					TriggerClientEvent("setchapeu",source,args[1],args[2])
 					if args[1] then
 						custom["hat"]["item"] = tonumber(args[1])
 					end	
@@ -3341,8 +3377,12 @@ RegisterCommand('oculos',function(source,args,rawCommand)
 		if not vRPclient.isHandcuffed(source) then
 			if not vRP.searchReturn(source,user_id) then
 				if user_id then
-					TriggerClientEvent("setoculos",source,args[1],args[2])
+					
 					local custom = vSKINSHOP.getCustomization(source)
+					if args[1] == nil then
+						custom["glass"]["item"] = -1
+					end	
+					TriggerClientEvent("setoculos",source,args[1],args[2])
 					if args[1] then
 						custom["glass"]["item"] = tonumber(args[1])
 					end	
@@ -3368,8 +3408,12 @@ RegisterCommand('mochila',function(source,args,rawCommand)
         if not vRPclient.isHandcuffed(source) then
             if not vRP.searchReturn(source,user_id) then
                 if user_id then
-                    TriggerClientEvent("setmochila",source,args[1],args[2])
+                    
 					local custom = vSKINSHOP.getCustomization(source)
+					if args[1] == nil then
+						custom["bag"]["item"] = -1
+					end	
+					TriggerClientEvent("setmochila",source,args[1],args[2])
 					if args[1] then
 						custom["bag"]["item"] = tonumber(args[1])
 					end	
@@ -3465,6 +3509,8 @@ RegisterCommand('tratar',function(source,args,rawCommand)
 		local nplayer = vRPclient.nearestPlayer(source,12)
 		if nplayer then
 			TriggerClientEvent('tratamento',nplayer)
+			TriggerClientEvent("resetBleeding",nplayer)
+			TriggerClientEvent("resetDiagnostic",nplayer)
 			TriggerClientEvent("Notify",source,"verde","Tratamento iniciado",5000)
 			TriggerClientEvent("Notify",nplayer,"verde","Tratamento iniciado",5000)
 

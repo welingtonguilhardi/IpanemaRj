@@ -598,6 +598,9 @@ AddEventHandler("player:EnterTrunk",function()
 
     if not inTrunk then
         local vehicle = vRP.vehList(11)
+		if GetPedInVehicleSeat(vehicle,-1) == ped then
+			return
+		end	
         if DoesEntityExist(vehicle) then
             local trunk = GetEntityBoneIndexByName(vehicle,"boot")
             if trunk ~= -1 then

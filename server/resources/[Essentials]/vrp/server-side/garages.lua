@@ -772,8 +772,8 @@ local vehglobal = {
 	["amarokbopefechada"] = { "Amarok Bope",30,0,"work" },
 	["caveiraopmerj"] = { "Caveirão PMERJ",30,0,"work" },
 	["amarokbopeaberta"] = { "Amarok Bope",30,0,"work" },
-------------------------------------------------------------------	
-	-- ["youga"] = { "Youga",30,60000,"cars" },
+----------------------BABY--------------------------------------------	
+	["R1250BABY"] = { "Mini R1250",30,0,"donate" },
 	-- ["youga"] = { "Youga",30,60000,"cars" },
 	-- ["youga"] = { "Youga",30,60000,"cars" },
 

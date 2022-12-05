@@ -155,14 +155,22 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SKIN
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("skin",function(source,args,rawCommand)
-    local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id, "dono.permissao") then
-		local nplayer = vRP.getUserSource(parseInt(args[1]))
-		TriggerClientEvent("skinmenu",nplayer,args[2])
-		TriggerClientEvent("Notify",source,"amarelo","Setada a skin <b>"..args[2].."</b> no passaporte <b>"..parseInt(args[1]).."</b>.",5000)
-    end
-end)
+-- RegisterCommand("skin",function(source,args,rawCommand)
+--     local user_id = vRP.getUserId(source)
+	
+-- 	if vRP.hasPermission(user_id, "dono.permissao") then
+-- 		print(args[1])
+-- 		local nplayer = vRP.getUserSource(parseInt(args[1]))
+-- 		local data = vRP.getUserDataTable(tonumber(args[1]))
+-- 		TriggerClientEvent("skinmenu",nplayer,args[2])
+-- 			data.skin = args[1]
+-- 			local hash = GetHashKey(data.skin)
+-- 			data.skin = hash
+-- 			dataSkin = json.encode(data)
+-- 			vRP.setUData(parseInt(args[1]),"Datatable",dataSkin)
+-- 		TriggerClientEvent("Notify",nplayer,"amarelo","Setada a skin <b>"..args[2].."</b> no passaporte <b>"..parseInt(args[1]).."</b>.",5000)
+--     end
+-- end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ITEM
 -----------------------------------------------------------------------------------------------------------------------------------------

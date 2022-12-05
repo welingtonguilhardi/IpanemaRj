@@ -53,24 +53,28 @@ RegisterCommand("skin",function(source,args,rawCommand)
 			if nplayer then
 				vRPclient.applySkin(nplayer,GetHashKey(args[2]))
 				vRP.updateSelectSkin(parseInt(args[1]),GetHashKey(args[2]))
+				TriggerClientEvent("Notify",nplayer,"amarelo","Setada a skin <b>"..args[2].."</b> no passaporte <b>"..parseInt(args[1]).."</b>.",5000)
+				TriggerClientEvent("Notify",source,"amarelo","Setada a skin <b>"..args[2].."</b> no passaporte <b>"..parseInt(args[1]).."</b>.",5000)
 			end
 		end
 	end
 end)
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SKIN
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("bug",function(source,args,rawCommand)
+RegisterCommand("debugar",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		
-			local nplayer = vRP.getUserSource(parseInt(user_id))
-			if nplayer then
-				local model = vRPclient.getModelPlayer(source)
-				vRPclient.applySkin(nplayer,GetHashKey(model))
-				vRP.updateSelectSkin(parseInt(user_id),GetHashKey(model))
-			end
-	
+		local model = vRPclient.getModelPlayer(source)
+		local data = vRP.getUserDataTable(user_id)
+		vCLIENT.Debug(source,data.skin)
+		vRPclient.applySkin(source,GetHashKey(model))
+		vRP.updateSelectSkin(parseInt(user_id),GetHashKey(data.skin))	
+
+		local custom = vCLIENT.getCustomization(source)
+		TriggerClientEvent("updateRoupas",source,custom)
 	end
 end)
 

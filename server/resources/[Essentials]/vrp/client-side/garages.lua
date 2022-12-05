@@ -827,8 +827,8 @@ local vehList = {
 	[290667462] = { "amarokbopefechada",true },
 	[-1914655529] = { "caveiraopmerj",true },
 	[-943885832] = { "amarokbopeaberta",true },
------------------------------------------------------
-	-- [519002268] = { "versa",false },
+---------------------BABY--------------------------------
+	[1829259168] = { "R1250BABY",false },
 	-- [519002268] = { "versa",false },
 	-- [519002268] = { "versa",false },
 	-- [519002268] = { "versa",false },

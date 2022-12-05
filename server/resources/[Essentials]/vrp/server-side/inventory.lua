@@ -811,7 +811,7 @@ local itemlist = {
 -- SUBTYPE COMIDA
 -- subtype = "comida",
 -- transform = "comida-estragada",
--- durability = 1500,
+-- durability = 10800,
     ["cola"] = {
 		index = "cola",
 		name = "Cola",
@@ -822,7 +822,7 @@ local itemlist = {
 		type = "use",
 		subtype = "comida",
 		transform = "badcola",
-		durability = 1500,
+		durability = 10800,
 		weight = 0.15
 	},
 	["badcola"] = {
@@ -845,7 +845,7 @@ local itemlist = {
 		type = "use",
 		subtype = "comida",
 		transform = "badsoda",
-		durability = 1500,
+		durability = 10800,
 		weight = 0.15
 	},
 	["badsoda"] = {
@@ -868,7 +868,7 @@ local itemlist = {
 		type = "use",
 		subtype = "comida",
 		transform = "badcoffee",
-		durability = 1500,
+		durability = 10800,
 		weight = 0.15
 	},
 	["badcoffee"] = {
@@ -891,7 +891,7 @@ local itemlist = {
 		type = "use",
 		subtype = "comida",
 		transform = "badhamburger",
-		durability = 1500,
+		durability = 10800,
 		weight = 0.35
 	},
 	["badhamburger"] = {
@@ -937,7 +937,7 @@ local itemlist = {
 		type = "use",
 		subtype = "comida",
 		transform = "badhamburger",
-		durability = 1500,
+		durability = 10800,
 		weight = 0.25
 	},
 	["badsandwich"] = {
@@ -960,7 +960,7 @@ local itemlist = {
 		type = "use",
 		subtype = "comida",
 		transform = "badchocolate",
-		durability = 1500,
+		durability = 10800,
 		weight = 0.10
 	},
 	["badchocolate"] = {
@@ -983,7 +983,7 @@ local itemlist = {
 		type = "use",
 		subtype = "comida",
 		transform = "baddonut",
-		durability = 1500,
+		durability = 10800,
 		weight = 0.20
 	},
 	["baddonut"] = {
@@ -1006,7 +1006,7 @@ local itemlist = {
 		type = "use",
 		subtype = "comida",
 		transform = "badtacos",
-		durability = 1500,
+		durability = 10800,
 		weight = 0.25
 	},
 	["badtacos"] = {

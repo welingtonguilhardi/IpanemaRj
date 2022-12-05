@@ -24,8 +24,8 @@ local shops = {
 			["emptybottle"] = 650,
 			["hennessy"] = 215,
 			["roupas"] = 5000,
-			["tires"] = 5000,
-			["toolbox"] = 7000
+			["tires"] = 2500,
+			["toolbox"] = 3500
 		}
 	},
 	["ammunationStore"] = {
@@ -35,7 +35,7 @@ local shops = {
 			["WEAPON_BAT"] = 40000,
 			["WEAPON_MACHETE"] = 40000,
 			["WEAPON_FLASHLIGHT"] = 40000,
-			["WEAPON_HATCHET"] = 40000,
+			["WEAPON_HATCHET"] = 7000,
 			["WEAPON_BATTLEAXE"] = 40000,
 			["WEAPON_STONE_HATCHET"] = 40000,
 			["WEAPON_HAMMER"] = 40000,
@@ -162,7 +162,7 @@ local shops = {
 			["cellphone"] = 1000,
 			["binoculars"] = 500,
 			["camera"] = 1000,
-			["vape"] = 15000,
+			["vape"] = 5000,
 			["pager"] = 3000,
 			["keyboard"] = 250,
 			["mouse"] = 225,
@@ -215,6 +215,7 @@ local shops = {
 			["dewars"] = 200,
 			["hennessy"] = 200,
 			["coffee"] = 195,
+			["vape"] = 5000,
 		}
 	},
 	["coffeeMachine"] = {
@@ -412,9 +413,11 @@ function cnVRP.functionShops(shopType,shopItem,shopAmount,slot)
 						if shops[shopType]["list"][shopItem] then
 
 							if vRP.itemSubTypeList(shopItem) then
-								if vRP.getInventoryItemAmount(user_id,shopItem) > 0 then
-									TriggerClientEvent("Notify",source,"vermelho","Você já possui esse tipo de item.",5000) return
-								end
+								teste = inv[tostring(slot)]
+								if teste ~= nil then
+									TriggerClientEvent("Notify",source,"vermelho","Você não consegue junta esse item, coloquem em outro slot.",5000)
+									return
+								end	
 							end
 							if vRP.paymentBank(parseInt(user_id),parseInt(shops[shopType]["list"][shopItem]*shopAmount)) then
 								if inv[tostring(slot)] then
@@ -479,6 +482,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterNetEvent("shops:populateSlot")
 AddEventHandler("shops:populateSlot",function(itemName,slot,target,amount)
+	print("shops:populateSlot")
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
@@ -499,6 +503,21 @@ AddEventHandler("shops:updateSlot",function(itemName,slot,target,amount)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
+		local inv = vRP.getInventory(user_id)
+        if inv then	
+			if inv[tostring(slot)] and inv[tostring(target)] and inv[tostring(slot)].item == inv[tostring(target)].item then
+				if vRP.itemSubTypeList(itemName) then 
+					TriggerClientEvent("Notify",source,"vermelho","Você não pode juntar itens deste tipos.",5000)
+					return
+				else	
+					if vRP.tryGetInventoryItem(user_id,itemName,amount,false,slot) then
+						vRP.giveInventoryItem(user_id,itemName,amount,false,target)
+					end
+				end	
+			else
+				vRP.swapSlot(user_id,slot,target)
+			end
+		end	
 		if amount == nil then amount = 1 end
 		if amount <= 0 then amount = 1 end
 

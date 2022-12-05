@@ -52,7 +52,7 @@ local doors = {
 	[36] = { ["x"] = -1987.13, ["y"] = -502.9, ["z"] = 12.18, ["hash"] = 1980513646, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- -1987.13, -502.9, 12.18 casabigode
 	[37] = { ["x"] = -3216.89, ["y"] = 816.58, ["z"] = 8.93, ["hash"] = 308207762, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- -3216.89, 816.58, 8.93 manssão malibu
 	[38] = { ["x"] = -3217.93, ["y"] = 775.8, ["z"] = 14.09, ["hash"] = 270936785, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- -3217.93, 775.8, 14.09 manssão malibu
-	[39] = { ["x"] = 407.22, ["y"] = -17.88, ["z"] = 91.94, ["hash"] = -973354389, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 407.22,-17.88,91.94 Mafia ORG
+	[39] = { ["x"] = 407.22, ["y"] = -17.88, ["z"] = 91.94, ["hash"] = -973354389, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "cosanostra.permissao" }, -- 407.22,-17.88,91.94 Mafia ORG
 	
 	[40] = { ["x"] = 427.09, ["y"] = -1.3, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 427.09, -1.3, 99.65 Mafia CASA
 	[41] = { ["x"] = 420.87, ["y"] = 2.23, ["z"] = 99.65, ["hash"] = -807362247, ["lock"] = true, ["text"] = false, ["distance"] = 30, ["press"] = 7.5, ["perm"] = "dono.permissao" }, -- 420.87, 2.23, 99.65 Mafia CASA

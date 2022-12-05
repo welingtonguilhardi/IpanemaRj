@@ -17,7 +17,7 @@ vCLIENT = Tunnel.getInterface("survival")
 RegisterCommand("god",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id,"nc.permissao") then
+		if vRP.hasPermission(user_id,"dono.permissao") then
 			if args[1] then
 				local nplayer = vRP.getUserSource(parseInt(args[1]))
 				if nplayer then
@@ -46,7 +46,7 @@ end)
 RegisterCommand("god2",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id,"nc.permissao") then
+		if vRP.hasPermission(user_id,"mod.permissao") then
 			if args[1] then
 				local nplayer = vRP.getUserSource(parseInt(args[1]))
 				if nplayer then

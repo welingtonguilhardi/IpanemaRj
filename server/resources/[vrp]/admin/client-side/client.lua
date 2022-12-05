@@ -305,6 +305,17 @@ AddEventHandler("skinmenu",function(mhash)
         SetModelAsNoLongerNeeded(mhash)
     end
 end)
+-- RegisterNetEvent("hashskin")
+-- AddEventHandler("hashskin",function(data,nuser_id)
+--     local ped = PlayerPedId()
+
+--     print(nuser_id)
+--     print(source)
+--     local hash = GetHashKey(data.skin)
+--     data.skin = hash
+--     print(hash)
+--     vRP.setUData(nuser_id,"Datatable",data.skin)
+-- end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- ADMINVEHICLE
 -----------------------------------------------------------------------------------------------------------------------------------------

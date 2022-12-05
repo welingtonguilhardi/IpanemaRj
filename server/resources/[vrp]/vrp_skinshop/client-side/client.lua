@@ -621,6 +621,14 @@ end)
 function cnVRP.getHat()
 	return skinData["hat"].item,skinData["hat"].texture
 end
+
+
+function cnVRP.Debug(data)
+	local ped = PlayerPedId()
+	local model =  GetEntityModel(ped)
+	print(model)
+	
+end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- GETGLASSES
 -----------------------------------------------------------------------------------------------------------------------------------------

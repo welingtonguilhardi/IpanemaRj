@@ -7,7 +7,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- GETMODELPLAYER
 -----------------------------------------------------------------------------------------------------------------------------------------
-function tvRP.getModelPlayer()
+function tvRP.getModelPlayer() --declarar todas skins
 	local ped = PlayerPedId()
 	if GetEntityModel(ped) == GetHashKey("mp_m_freemode_01") then
 		return "mp_m_freemode_01"
@@ -15,6 +15,8 @@ function tvRP.getModelPlayer()
 		return "mp_f_freemode_01"
 	elseif GetEntityModel(ped) == GetHashKey("s_f_y_scrubs_01") then
 		return "s_f_y_scrubs_01"
+	elseif GetEntityModel(ped) == GetHashKey("mp_m_boatstaff_01") then
+		return "mp_m_boatstaff_01"	
 	end
 end
 -----------------------------------------------------------------------------------------------------------------------------------------
