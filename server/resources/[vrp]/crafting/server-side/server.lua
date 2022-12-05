@@ -479,7 +479,7 @@ local craftList = {
 		}
 	},
 	["ilegalCrafting"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "contratoscosanostra.permissao",
 		["list"] = {
 			["WEAPON_ASSAULTRIFLE"] = {
 				["amount"] = 1,
