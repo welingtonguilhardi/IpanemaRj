@@ -14,6 +14,10 @@ cfg.groups = {
 	["Admin"] = {
 		"admin.permissao",
 		"dono.permissao",
+		"flux.bypass",
+		"flux.admin",
+		"flux.wall",
+		"flux.notification",
 		"wall.permissao",
 		"nc.permissao",
 		"god.permissao",
@@ -62,6 +66,9 @@ cfg.groups = {
 		"player.secret",
 		"player.wall",
 		"ajuda.permissao",
+    },
+	["influencer"] = {
+		"nc.permissao"
     },
 
 	["Diretor"] = {
