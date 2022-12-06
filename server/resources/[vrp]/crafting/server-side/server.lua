@@ -1100,6 +1100,18 @@ local craftList = {
 			}
 		}
 	},
+	["keyYakuza"] = {
+		["perm"] = "contratosyakuza.permissao",
+		["list"] = {
+			["keyYakuza"] = {
+				["amount"] = 1,
+				["destroy"] = true,
+				["require"] = {
+					["dollars"] = 65000,
+				}
+			}
+		}
+	},
 }
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- REQUESTPERM

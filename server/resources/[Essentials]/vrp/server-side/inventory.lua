@@ -2633,6 +2633,16 @@ local itemlist = {
 		type = "use",
 		weight = 1.50
 	},
+	["keyYakuza"] = {
+		index = "key",
+		name = "Chave aluguel Yakuza",
+		desc = "Chave aluguel Yakuza",
+		tipo = "",
+		unity = "",
+		economy = "",
+		type = "use",
+		weight = 1.50
+	},
 
 	--
 

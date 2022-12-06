@@ -815,6 +815,23 @@ local homes = {
 	["Middle299"] = { "Middle","org",2,100,1334.81, -153.76, 112.23,"barragem"  },
 
 	-------------------------------------------------------------------------------------------------------
+	-- CASA CAMPINHO(YAKUZA)
+	-------------------------------------------------------------------------------------------------------	
+	["Middle300"] = { "Middle","org",2,100,731.63, -326.89, 52.24,"yakuza"  },
+	["Middle301"] = { "Middle","org",2,100,724.7, -318.17, 54.12,"yakuza"  },
+	["Middle302"] = { "Middle","org",2,100,719.35, -307.73, 59.321,"yakuza"  },
+	["Middle303"] = { "Middle","org",2,100,1295.16, -245.57, 96.68,"yakuza"  },
+	["Middle304"] = { "Middle","org",2,100,723.68, -317.22, 60.04,"yakuza"  },
+	["Middle305"] = { "Middle","org",2,100,696.06, -289.92, 59.27,"yakuza"  },
+	["Middle306"] = { "Middle","org",2,100,696.71, -285.69, 59.32,"yakuza"  },
+	["Middle307"] = { "Middle","org",2,100,700.59, -277.83, 59.32,"yakuza"  },
+	["Middle308"] = { "Middle","org",2,100,710.53, -280.05, 59.24,"yakuza"  },
+	["Middle309"] = { "Middle","org",2,100,716.86, -284.45, 58.76,"yakuza"  },
+	["Middle310"] = { "Middle","org",2,100,724.64, -283.33, 58.54,"yakuza"  },
+	["Middle311"] = { "Middle","org",2,100,732.71, -288.89, 58.21,"yakuza"  },
+	["Middle312"] = { "Middle","org",2,100,727.55, -292.69, 58.09,"yakuza"  },
+	["Middle313"] = { "Middle","org",2,100,710.91, -271.93, 59.41,"yakuza"  },
+	-------------------------------------------------------------------------------------------------------
 	-- CASA MAFIA
 	-------------------------------------------------------------------------------------------------------	
 	
@@ -1496,6 +1513,7 @@ function cRP.checkPermissions(homeName)
 						local ItemBarragem = "keyBarragem"
 						local ItemMafia = "keyMafia"
 						local ItemGrove = "keyGrove"
+						local ItemYakuza = "keyYakuza"
 						if homes[tostring(homeName)][8] == "barragem" then
 							if vRP.tryGetInventoryItem(user_id,ItemBarragem,1,false) then
 								vRP.execute("vRP/buy_permissions",{ home = tostring(homeName), user_id = parseInt(user_id), vault = parseInt(homes[tostring(homeName)][4]) })
@@ -1516,7 +1534,14 @@ function cRP.checkPermissions(homeName)
 								TriggerClientEvent("Notify",source,"verde","Casa comprada com sucesso.",3000)
 							else	
 								TriggerClientEvent("Notify",source,"vermelho","Você não tem a chave para a comprar está casa, entre em contato com o dono da org para adquirir.",5000)
-							end		
+							end
+						elseif homes[tostring(homeName)][8] == "yakuza" then
+							if vRP.tryGetInventoryItem(user_id,ItemYakuza,1,false) then
+								vRP.execute("vRP/buy_permissions",{ home = tostring(homeName), user_id = parseInt(user_id), vault = parseInt(homes[tostring(homeName)][4]) })
+								TriggerClientEvent("Notify",source,"verde","Casa comprada com sucesso.",3000)
+							else	
+								TriggerClientEvent("Notify",source,"vermelho","Você não tem a chave para a comprar está casa, entre em contato com o dono da org para adquirir.",5000)
+							end					
 						end	
 
 					else	
