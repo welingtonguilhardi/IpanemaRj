@@ -3217,7 +3217,7 @@ RegisterCommand('maos',function(source,args,rawCommand)
 				if user_id then
 					local custom = vSKINSHOP.getCustomization(source)
 					if args[1] == nil then
-						custom["arms"]["item"] = -1
+						return
 					end	
 					TriggerClientEvent("setmaos",source,args[1],args[2])
 					
