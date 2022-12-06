@@ -3133,7 +3133,6 @@ RegisterCommand('blusa',function(source,args,rawCommand)
 						custom["t-shirt"]["texture"] = tonumber(args[2])
 					end	
 					local model = vRPclient.getModelPlayer(source)
-					print(model,custom)
 					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
 						TriggerClientEvent("updateRoupas",source,json.encode(custom))
 					end
