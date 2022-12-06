@@ -67,7 +67,7 @@ local dnaResult = "Nenhum"
 RegisterCommand("dna",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vCLIENT.checkDistance(source) and resultTimers <= 0 and vRP.hasPermission(user_id,"nc.permissao") then
+		if vCLIENT.checkDistance(source) and resultTimers <= 0 and vRP.hasPermission(user_id,"dono.permissao") then
 			if vRP.tryGetInventoryItem(user_id,"gsrkit",1,true) then
 				local grid = parseInt(args[1])
 				local tables = parseInt(args[2])

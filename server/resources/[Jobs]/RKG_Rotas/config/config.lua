@@ -266,7 +266,7 @@ Config = {
             Hash = { 0x4F2E038A,"a_m_m_salton_01" }, -- Hash do ped (https://wiki.rage.mp/index.php?title=Peds)
             Text = "~r~[E]~w~ PARA INICIAR A ROTA", -- Texto que aparecerá na cabeça do ped.
         },
-        Perms = { "nc.permissao","Campinho" }, -- Permissões para inicar a rota. (Deixe em tabelas para colocar mais permissões.)
+        Perms = { "dono.permissao","Campinho" }, -- Permissões para inicar a rota. (Deixe em tabelas para colocar mais permissões.)
         RandomItens = false, -- true para pegar apenas UM item aleatório, false para pegar TODOS.
         Itens = {
             { name = "copper", min = 5, max = 7 }, -- name = "nome do item", min = "minimo", max "maximo"
@@ -318,7 +318,7 @@ Config = {
         Hash = { 0x4F2E038A,"a_m_m_salton_01" }, -- Hash do ped (https://wiki.rage.mp/index.php?title=Peds)
         Text = "~r~[E]~w~ PARA INICIAR A ROTA", -- Texto que aparecerá na cabeça do ped.
     },
-    Perms = { "nc.permissao","Campinho" }, -- Permissões para inicar a rota. (Deixe em tabelas para colocar mais permissões.)
+    Perms = { "dono.permissao","Campinho" }, -- Permissões para inicar a rota. (Deixe em tabelas para colocar mais permissões.)
     RandomItens = false, -- true para pegar apenas UM item aleatório, false para pegar TODOS.
     Itens = {
         { name = "copper", min = 5, max = 7 }, -- name = "nome do item", min = "minimo", max "maximo"
@@ -372,7 +372,7 @@ Config = {
             Hash = { 0x4F2E038A,"a_m_m_salton_01" }, -- Hash do ped (https://wiki.rage.mp/index.php?title=Peds)
             Text = "~r~[E]~w~ PARA INICIAR A ROTA DE META", -- Texto que aparecerá na cabeça do ped.
         },
-        Perms = { "nc.permissao","Campinho" }, -- Permissões para inicar a rota. (Deixe em tabelas para colocar mais permissões.)
+        Perms = { "dono.permissao","Campinho" }, -- Permissões para inicar a rota. (Deixe em tabelas para colocar mais permissões.)
         RandomItens = false, -- true para pegar apenas UM item aleatório, false para pegar TODOS.
         Itens = {
             {name = "anfetamina", min = 5, max = 7 }, -- name = "nome do item", min = "minimo", max "maximo"
@@ -422,7 +422,7 @@ Config = {
             Hash = { 0x4F2E038A,"a_m_m_salton_01" }, -- Hash do ped (https://wiki.rage.mp/index.php?title=Peds)
             Text = "~r~[E]~w~ PARA INICIAR A ROTA DE ECSTASY", -- Texto que aparecerá na cabeça do ped.
         },
-        Perms = { "nc.permissao","Campinho" }, -- Permissões para inicar a rota. (Deixe em tabelas para colocar mais permissões.)
+        Perms = { "dono.permissao","Campinho" }, -- Permissões para inicar a rota. (Deixe em tabelas para colocar mais permissões.)
         RandomItens = false, -- true para pegar apenas UM item aleatório, false para pegar TODOS.
         Itens = {
             {name = "anfetamina", min = 5, max = 7 }, -- name = "nome do item", min = "minimo", max "maximo"
@@ -472,7 +472,7 @@ Config = {
             Hash = { 0x4F2E038A,"a_m_m_salton_01" }, -- Hash do ped (https://wiki.rage.mp/index.php?title=Peds)
             Text = "~r~[E]~w~ PARA INICIAR A ROTA DE EMBALAGEM PARA MACONHA", -- Texto que aparecerá na cabeça do ped.
         },
-        Perms = { "nc.permissao","Campinho" }, -- Permissões para inicar a rota. (Deixe em tabelas para colocar mais permissões.)
+        Perms = { "dono.permissao","Campinho" }, -- Permissões para inicar a rota. (Deixe em tabelas para colocar mais permissões.)
         RandomItens = false, -- true para pegar apenas UM item aleatório, false para pegar TODOS.
         Itens = {
             { name = "papelfilme", min = 7, max = 9}, -- name = "nome do item", min = "minimo", max "maximo"
@@ -521,7 +521,7 @@ Config = {
             Hash = { 0x4F2E038A,"a_m_m_salton_01" }, -- Hash do ped (https://wiki.rage.mp/index.php?title=Peds)
             Text = "~r~[E]~w~ PARA INICIAR A ROTA DE LEAN", -- Texto que aparecerá na cabeça do ped.
         },
-        Perms = { "nc.permissao","Campinho" }, -- Permissões para inicar a rota. (Deixe em tabelas para colocar mais permissões.)
+        Perms = { "dono.permissao","Campinho" }, -- Permissões para inicar a rota. (Deixe em tabelas para colocar mais permissões.)
         RandomItens = false, -- true para pegar apenas UM item aleatório, false para pegar TODOS.
         Itens = {
             {name = "prometazina", min = 5, max = 7 }, -- name = "nome do item", min = "minimo", max "maximo"

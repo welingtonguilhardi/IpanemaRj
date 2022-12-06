@@ -26,7 +26,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('createChest',function(source, args, rawCommand)
 	local user_id = vRP.getUserId(source)
-	if user_id and vRP.hasPermission(user_id, "nc.permissao") then
+	if user_id and vRP.hasPermission(user_id, "dono.permissao") then
 		local x,y,z = vRPclient.getPositions(source)
 
 		local nome = vRP.prompt(source,"Nome do chest?","")

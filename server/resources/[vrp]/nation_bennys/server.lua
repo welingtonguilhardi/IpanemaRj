@@ -10,7 +10,7 @@ local using_bennys = {}
 
 function API.checkPermission()
     local source = source
-    return vRP.hasPermission(vRP.getUserId(source), "nc.permissao")
+    return vRP.hasPermission(vRP.getUserId(source), "mecanico.permissao")
 end
 
 function API.getSavedMods(vehicle_name, vehicle_plate)

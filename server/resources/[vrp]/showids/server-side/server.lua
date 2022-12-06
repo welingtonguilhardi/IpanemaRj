@@ -20,7 +20,7 @@ function cRP.isAdmin()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		return  vRP.hasPermission(user_id, "nc.permissao") 
+		return  vRP.hasPermission(user_id, "dono.permissao") 
 	end
 	return false
 end

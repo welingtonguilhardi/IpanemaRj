@@ -15,7 +15,7 @@ vCLIENT = Tunnel.getInterface("crafting")
 -----------------------------------------------------------------------------------------------------------------------------------------
 local craftList = {
 	["mafiaCrafting"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "dono.permissao",
 		["list"] = {
 			["WEAPON_ASSAULTRIFLE"] = {
 				["amount"] = 1,
@@ -387,7 +387,7 @@ local craftList = {
 		}
 	},
 	["generalCrafting"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "dono.permissao",
 		["list"] = {
 			["WEAPON_PISTOL"] = {
 				["amount"] = 1,
@@ -433,7 +433,7 @@ local craftList = {
 		}
 	},
 	["muni"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "dono.permissao",
 		["list"] = {
 			-- ["vest"] = {
 			-- 	["amount"] = 1,
@@ -616,7 +616,7 @@ local craftList = {
 		}
 	},
 	["armasvip"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "dono.permissao",
 		["list"] = {
 			["WEAPON_ASSAULTRIFLE"] = {
 				["amount"] = 1,
@@ -795,7 +795,7 @@ local craftList = {
 		}	
 	},
 	["md"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "dono.permissao",
 		["list"] = {
 			["ecstasy"] = {
 				["amount"] = 100,
@@ -808,7 +808,7 @@ local craftList = {
 		}	
 	},
 	["maconha"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "dono.permissao",
 		["list"] = {
 			["weed"] = {
 				["amount"] = 100,
@@ -820,7 +820,7 @@ local craftList = {
 		}	
 	},
 	["lean"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "dono.permissao",
 		["list"] = {
 			["lean"] = {
 				["amount"] = 100,
@@ -845,7 +845,7 @@ local craftList = {
 		}	
 	},
 	["lavagem"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "dono.permissao",
 		["list"] = {
 			["dollars"] = {
 				["amount"] = 1,
@@ -857,7 +857,7 @@ local craftList = {
 		}	
 	},
 	["MotoclubCrafting"] = {
-		["perm"] = "nc.permissao",
+		["perm"] = "dono.permissao",
 		["list"] = {
 			-- ["fueltech"] = {
 			-- 	["amount"] = 1,

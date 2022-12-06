@@ -71,7 +71,7 @@ local garages = {
 	[20] = { ["name"] = "Heliparamedic", ["payment"] = true, ["perm"] = "paramedico.permissao", },
 	[21] = { ["name"] = "Police", ["payment"] = true, ["perm"] = "policia.permissao" },
 	[22] = { ["name"] = "PoliceS", ["payment"] = true, ["perm"] = "policia.permissao" },
-	-- [23] = { ["name"] = "Police", ["payment"] = true, ["perm"] = "nc.permissao" },
+	-- [23] = { ["name"] = "Police", ["payment"] = true, ["perm"] = "dono.permissao" },
 	[24] = { ["name"] = "Helipolice", ["payment"] = true, ["perm"] = "policia.permissao" },
 	[25] = { ["name"] = "Helipolice", ["payment"] = true, ["perm"] = "policia.permissao" },
 	[26] = { ["name"] = "Helipolice", ["payment"] = true, ["perm"] = "policia.permissao" },
@@ -85,7 +85,7 @@ local garages = {
 	[35] = { ["name"] = "Boats", ["payment"] = true, ["public"] = true },
 	[36] = { ["name"] = "Garbageman", ["payment"] = true, ["public"] = true },
 --	[37] = { ["name"] = "Garage", ["payment"] = true, ["public"] = true },
-	[38] = { ["name"] = "Prison", ["payment"] = true, ["perm"] = "nc.permissao" },
+	[38] = { ["name"] = "Prison", ["payment"] = true, ["perm"] = "dono.permissao" },
 	[39] = { ["name"] = "Tow", ["payment"] = true, ["perm"] = "mecanico.permissao" },
 	[40] = { ["name"] = "Tow", ["payment"] = true, ["perm"] = "mecanico.permissao" },
 	[41] = { ["name"] = "Tow", ["payment"] = true, ["perm"] = "mecanico.permissao" },
@@ -667,7 +667,7 @@ end
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("dv",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id, "nc.permissao")  then
+	if vRP.hasPermission(user_id, "dono.permissao")  then
 		local vehicle = vRPclient.getNearVehicle(source,15)
 		if vehicle then
 			vCLIENT.deleteVehicle(source,vehicle)
@@ -690,7 +690,7 @@ end)
 -- -----------------------------------------------------------------------------------------------------------------------------------------
 -- RegisterCommand("fgps",function(source,args,rawCommand)
 -- 	local user_id = vRP.getUserId(source)
--- 	if vRP.hasPermission(user_id, "nc.permissao")  then
+-- 	if vRP.hasPermission(user_id, "dono.permissao")  then
 -- 		local vehicle,vehNet,vehPlate,vehName,vehLock = vRPclient.vehList(source,11)
 -- 		if vehicle then
 -- 			vCLIENT.removeGpsVehicle(source,vehName)
@@ -721,7 +721,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("rgarage",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id, "nc.permissao")  then
+	if vRP.hasPermission(user_id, "dono.permissao")  then
 		spanwedVehs[args[1]..args[2]] = nil
 	end
 end)
@@ -843,7 +843,7 @@ end
 RegisterCommand("car",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
  	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao")  and args[1] then
+		if vRP.hasPermission(user_id, "dono.permissao")  and args[1] then
 			local plate = "1A3B5C7D"
 			TriggerClientEvent("adminVehicle",source,args[1],plate)
       		TriggerEvent("setPlateEveryone",plate)

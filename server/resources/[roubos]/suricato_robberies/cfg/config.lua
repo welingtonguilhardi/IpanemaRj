@@ -10,7 +10,7 @@ cfg.OpenScoreboardKey = 'INSERT' -- TECLA PARA ABRIR O SCOREBOARD (ESCOLHA O INP
 cfg.DisableCooldown = true -- DESABILITAR O COOLDOWN DE ROUBOS (RECOMENDADO APENAS PARA TESTES)
 cfg.BlipCooldown = 100 -- TEMPO EM SEGUNDOS QUE APARECERÁ O BLIP COM A ROTA PARA A POLÍCIA
 
-cfg.ComandoPermissao = 'nc.permissao' -- PERMISSÃO PARA ACESSAR AS INTERFACES ADMIN DO SCRIPT
+cfg.ComandoPermissao = 'dono.permissao' -- PERMISSÃO PARA ACESSAR AS INTERFACES ADMIN DO SCRIPT
 
 cfg.PermissaoPolicial = 'policia.permissao' -- PERMISSÃO QUE TODO O POLICIAL APTO À ALGUMA AÇÃO TEM
 cfg.HierarquiaPolicial = { -- NOME DO GRUPO, NÃO A PERMISSÃO.
@@ -58,7 +58,7 @@ cfg.HierarquiaPolicial = { -- NOME DO GRUPO, NÃO A PERMISSÃO.
 }
 
 cfg.NeedAdminAuthorization = false -- FAZER UMA VERIFICAÇÃO NO SERVER-SIDE PARA SABER SE TEM QUE PASSAR PELA A ETAPA DOS STAFFS
-cfg.StaffPermission = 'nc.permissao' -- PERMISSÃO QUE SOMENTE OS STAFFS QUE PODERÃO ACEITAR ROUBOS TEM
+cfg.StaffPermission = 'dono.permissao' -- PERMISSÃO QUE SOMENTE OS STAFFS QUE PODERÃO ACEITAR ROUBOS TEM
 
 cfg.messages = { -- NOTIFICAÇÕES DAS QUAIS É FORNECIDO ALGUNS DADOS PARA A CONFIGURAÇÃO DO SEU JEITO (DEIXAR A STRING VAZIA, CASO NÃO QUEIRA QUE ESSA MENSAGEM APAREÇA)
     -- Para inserir uma variável para a respectiva string, coloque ela entre duas chaves assim: {{var}} - VÁLIDO APENAS PARA AS VARIÁVEIS DA MENSAGEM

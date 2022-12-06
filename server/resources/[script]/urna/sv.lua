@@ -85,7 +85,7 @@ RegisterCommand("CreateCandidato",function(source,args,rawCommand)
     for k,v in pairs(verificar_candidato) do
         if v["user_id"] > 0 then success = false end -- verifica a quantidade da coluna user_id para cada candidato 
     end
-    if vRP.hasPermission(id, "nc.permissao") then
+    if vRP.hasPermission(id, "dono.permissao") then
 
         if success then
             if args[1] and args[2] then

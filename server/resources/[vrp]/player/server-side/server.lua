@@ -3073,7 +3073,7 @@ end)
 RegisterCommand('cor', function(source, args)
     local source = source
     local user_id = vRP.getUserId(source)
-    if vRP.hasPermission(user_id, 'nc.permissao') then
+    if vRP.hasPermission(user_id, 'dono.permissao') then
         TriggerClientEvent('changeWeaponColor', source, args[1])
     end
 end)

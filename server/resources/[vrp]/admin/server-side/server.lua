@@ -59,7 +59,7 @@ RegisterCommand("ney",function(source,args,rawCommand)
     local user_id = vRP.getUserId(source)
     local identity = vRP.getUserIdentity(user_id)
     if user_id then
-        if vRP.hasPermission(user_id, "nc.permissao") then
+        if vRP.hasPermission(user_id, "dono.permissao") then
             if args[1] then
                 local nplayer = vRP.getUserSource(parseInt(args[1]))
                 if nplayer then
@@ -134,7 +134,7 @@ end)
 RegisterCommand("clearinv",function(source,args,rawCommand)
     local user_id = vRP.getUserId(source)
     local player = vRP.getUserSource(user_id)
-    if vRP.hasPermission(user_id, "nc.permissao") then
+    if vRP.hasPermission(user_id, "dono.permissao") then
         if args[1] then
             local tuser_id = tonumber(args[1])
             local tplayer = vRP.getUserSource(tonumber(tuser_id))
@@ -177,7 +177,7 @@ end)
 RegisterCommand("item",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "dono.permissao") then
 			if args[1] and args[2] and vRP.itemNameList(args[1]) ~= nil then
 				vRP.giveInventoryItem(user_id,args[1],parseInt(args[2]),true)
 				SendWebhookMessage(webhookgive,"```prolog\n[ID]: "..user_id.."\n[PEGOU]: "..args[1].." \n[QUANTIDADE]: "..parseInt(args[2]).." "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
@@ -192,7 +192,7 @@ RegisterCommand("debug",function(source,args,rawCommand)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "dono.permissao") then
 			TriggerClientEvent("ToggleDebug",source)
 		end
 	end
@@ -203,7 +203,7 @@ end)
 RegisterCommand("plate",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") and args[1] and args[2] and args[3] then
+		if vRP.hasPermission(user_id, "dono.permissao") and args[1] and args[2] and args[3] then
 			vRP.execute("vRP/update_plate_vehicle",{ user_id = parseInt(args[1]), vehicle = args[2], plate = args[3] })
 		end
 	end
@@ -228,7 +228,7 @@ RegisterCommand("hood",function(source,args,rawCommand)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") and args[1] then
+		if vRP.hasPermission(user_id, "dono.permissao") and args[1] then
 			TriggerClientEvent("hud:toggleHood",source,args[1])
 		end
 	end
@@ -252,7 +252,7 @@ end
 RegisterCommand("kick",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") and parseInt(args[1]) > 0 then
+		if vRP.hasPermission(user_id, "dono.permissao") and parseInt(args[1]) > 0 then
 			vRP.kick(parseInt(args[1]),"Você foi expulso da cidade.")
 			SendWebhookMessage(webhookkick,"```prolog\n[ID]: "..user_id.."\n[KICKOU]: "..args[1].." "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 		end
@@ -264,7 +264,7 @@ end)
 RegisterCommand("ban",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") and parseInt(args[1]) > 0 then
+		if vRP.hasPermission(user_id, "dono.permissao") and parseInt(args[1]) > 0 then
 			local identity = vRP.getUserIdentity(parseInt(args[1]))
 			if identity then
 				vRP.kick(user_id,"Você foi banido da Cidade.")
@@ -308,7 +308,7 @@ end)
 -- RegisterCommand("gems",function(source,args,rawCommand)
 -- 	local user_id = vRP.getUserId(source)
 -- 	if user_id then
--- 		if vRP.hasPermission(user_id, "nc.permissao") and parseInt(args[1]) > 0 and parseInt(args[2]) > 0 then
+-- 		if vRP.hasPermission(user_id, "dono.permissao") and parseInt(args[1]) > 0 and parseInt(args[2]) > 0 then
 -- 			local identity = vRP.getUserIdentity(parseInt(args[1]))
 -- 			if identity then
 -- 				vRP.addGmsId(args[1],args[2])
@@ -461,7 +461,7 @@ end)
 RegisterCommand("delnpcs",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "dono.permissao") then
 			vCLIENT.deleteNpcs(source)
 			TriggerClientEvent("Notify",source,"amarelo","NPCs próximos deletados.",3000)
 		end
@@ -484,7 +484,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("cone",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id, "nc.permissao") or vRP.hasPermission(user_id,"policia.permissao") or vRP.hasPermission(user_id,"paramedico.permissao") then
+	if vRP.hasPermission(user_id, "dono.permissao") or vRP.hasPermission(user_id,"policia.permissao") or vRP.hasPermission(user_id,"paramedico.permissao") then
 		TriggerClientEvent("cone",source,args[1])
 	end
 end)
@@ -493,7 +493,7 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("barreira",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
-	if vRP.hasPermission(user_id, "nc.permissao") or vRP.hasPermission(user_id,"policia.permissao") or vRP.hasPermission(user_id,"paramedico.permissao") then
+	if vRP.hasPermission(user_id, "dono.permissao") or vRP.hasPermission(user_id,"policia.permissao") or vRP.hasPermission(user_id,"paramedico.permissao") then
 		TriggerClientEvent("barreira",source,args[1])
 	end
 end)
@@ -518,7 +518,7 @@ end)
 RegisterCommand("cleararea",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id, "nc.permissao") then
+		if vRP.hasPermission(user_id, "dono.permissao") then
 			local x,y,z = vRPclient.getPositions(source)
 			TriggerClientEvent("syncarea",-1,x,y,z,100)
 			TriggerClientEvent("Notify",source,"amarelo","Toda área próxima foi limpa.",3000)

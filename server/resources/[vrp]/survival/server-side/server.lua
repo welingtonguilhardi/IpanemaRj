@@ -75,7 +75,7 @@ end)
 RegisterCommand("kill",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id,"nc.permissao") then
+		if vRP.hasPermission(user_id,"dono.permissao") then
 			if args[1] then
 				local nplayer = vRP.getUserSource(parseInt(args[1]))
 				if nplayer then
@@ -104,7 +104,7 @@ end)
 RegisterCommand("good",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id,"nc.permissao") then
+		if vRP.hasPermission(user_id,"dono.permissao") then
 			if args[1] then
 				local nplayer = vRP.getUserSource(parseInt(args[1]))
 				if nplayer then
@@ -130,7 +130,7 @@ end)
 RegisterCommand("health",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id,"nc.permissao") then
+		if vRP.hasPermission(user_id,"dono.permissao") then
 			if args[1] then
 				local nplayer = vRP.getUserSource(parseInt(args[1]))
 				if nplayer then
@@ -152,7 +152,7 @@ end)
 RegisterCommand("armour",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id,"nc.permissao") then
+		if vRP.hasPermission(user_id,"dono.permissao") then
 			if args[1] then
 				local nplayer = vRP.getUserSource(parseInt(args[1]))
 				if nplayer then
@@ -185,7 +185,7 @@ end)
 RegisterCommand("re",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id,"nc.permissao") or vRP.hasPermission(user_id,"Police") then
+		if vRP.hasPermission(user_id,"dono.permissao") or vRP.hasPermission(user_id,"Police") then
 			local nplayer = vRPclient.nearestPlayer(source,2)
 			if nplayer then
 				if vRPclient.getHealth(nplayer) <= 101 then

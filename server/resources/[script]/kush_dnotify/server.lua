@@ -15,7 +15,7 @@ vCLIENT = Tunnel.getInterface("kush_dnotify")
 RegisterCommand('dnotify',function(source,args,rawCommand)
 	local source = source
     local user_id = vRP.getUserId(source)
-     if vRP.hasPermission(user_id,"nc.permissao") or vRP.hasPermission(user_id,"suporte.permissao") or vRP.hasPermission(user_id,"streamercerificado.permissao") then
+     if vRP.hasPermission(user_id,"dono.permissao") or vRP.hasPermission(user_id,"suporte.permissao") or vRP.hasPermission(user_id,"streamercerificado.permissao") then
         vCLIENT.tAdm(source)
     end
 end)
@@ -67,7 +67,7 @@ AddEventHandler('kush-common:killed',function(killer,weapon)
     if killer_id ~= nil then
         TriggerEvent('john:ncdelay',killer_id)
         synterinho(3553599,"🔫 LOG DE KILL", "> **__QUEM MATOU:__** \n```yaml\n"..killer_id.." " .. identityK.name .. " " .. identityK.name2 .. " ```\n> **__QUEM MORREU:__** \n```yaml\n"..user_id.." "..identityV.name.." "..identityV.name2.." ```\n> **__ARMA:__** \n```yaml\n "..weapon..'')
-        local amountStaff = vRP.getUsersByPermission("nc.permissao")
+        local amountStaff = vRP.getUsersByPermission("dono.permissao")
         for k,v in pairs(amountStaff) do 
             local player = vRP.getUserSource(parseInt(v))
             TriggerClientEvent("kush:DeathNotify",player,weapon,killer_id.." "..identityK.name.." "..identityK.name2,user_id.." "..identityV.name.." "..identityV.name2.." ")

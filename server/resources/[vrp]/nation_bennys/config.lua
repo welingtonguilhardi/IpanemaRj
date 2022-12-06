@@ -319,7 +319,7 @@ config.locais = {
 	[8] = vec3(-737.74, -1482.96, 4.45),
 }
 
-config.permissao = 	"nc.permissao"
+config.permissao = 	"mecanico.permissao"
 
 config.use_vehlist = true
 
