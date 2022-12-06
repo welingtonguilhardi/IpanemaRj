@@ -74,6 +74,11 @@ RegisterCommand("debugar",function(source,args,rawCommand)
 			vRPclient.applySkin(source,GetHashKey(model))
 			--vRP.updateSelectSkin(parseInt(user_id),GetHashKey(data.skin))	
 		end	
+		local charmode = vRP.getUData(user_id, "currentCharacterMode")
+        if charmode and charmode ~= "" then
+            local char = json.decode(charmode)
+            TriggerClientEvent("nation_barbershop:init", source, char)
+		end	
 		local custom = vCLIENT.getCustomization(source)
 		TriggerClientEvent("updateRoupas",source,custom)
 	end
