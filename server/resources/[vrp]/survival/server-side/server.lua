@@ -21,7 +21,7 @@ RegisterCommand("god",function(source,args,rawCommand)
 			if args[1] then
 				local nplayer = vRP.getUserSource(parseInt(args[1]))
 				if nplayer then
-					vCLIENT._revivePlayer(nplayer,400)
+					vCLIENT._revivePlayer(nplayer,200)
 					--vRP.upgradeThirst(parseInt(args[1]),100)
 					--vRP.upgradeHunger(parseInt(args[1]),100)
 					--vRP.downgradeStress(parseInt(args[1]),100)
@@ -33,7 +33,7 @@ RegisterCommand("god",function(source,args,rawCommand)
 				--vRP.upgradeHunger(user_id,100)
 				--vRPclient.setArmour(source,100)
 				--vRP.downgradeStress(user_id,100)
-				vCLIENT._revivePlayer(source,400)
+				vCLIENT._revivePlayer(source,200)
 				TriggerClientEvent("resetBleeding",source)
 				TriggerClientEvent("resetDiagnostic",source)
 			end
@@ -46,7 +46,7 @@ end)
 RegisterCommand("god2",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id,"mod.permissao") then
+		if vRP.hasPermission(user_id,"staff.permissao") then
 			if args[1] then
 				local nplayer = vRP.getUserSource(parseInt(args[1]))
 				if nplayer then
@@ -185,7 +185,7 @@ end)
 RegisterCommand("re",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id,"dono.permissao") or vRP.hasPermission(user_id,"Police") then
+		if vRP.hasPermission(user_id,"dono.permissao") or vRP.hasPermission(user_id,"paramedico.permissao") then
 			local nplayer = vRPclient.nearestPlayer(source,2)
 			if nplayer then
 				if vRPclient.getHealth(nplayer) <= 101 then
