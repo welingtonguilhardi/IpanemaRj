@@ -3120,8 +3120,10 @@ RegisterCommand('blusa',function(source,args,rawCommand)
 			if not vRP.searchReturn(source,user_id) then
 				if user_id then
 					local custom = vSKINSHOP.getCustomization(source)
+
+					
 					if args[1] == nil then
-						custom["t-shirt"]["item"] =  -1
+						custom["t-shirt"]["item"] = -1
 					end	
 					TriggerClientEvent("setblusa",source,args[1],args[2])
 					if args[1] then
@@ -3131,8 +3133,9 @@ RegisterCommand('blusa',function(source,args,rawCommand)
 						custom["t-shirt"]["texture"] = tonumber(args[2])
 					end	
 					local model = vRPclient.getModelPlayer(source)
+					print(model,custom)
 					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
-						TriggerClientEvent("updateRoupas",source,custom)
+						TriggerClientEvent("updateRoupas",source,json.encode(custom))
 					end
 					SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: BLUSA "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 				end
