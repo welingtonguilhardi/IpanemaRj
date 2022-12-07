@@ -2775,25 +2775,26 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- PREMIUMFIT
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("premiumfit",function(source,args,rawCommand)
+RegisterNetEvent("player:premiumfit")
+AddEventHandler("player:premiumfit",function(result)
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if not vRP.wantedReturn(user_id) and not vRP.reposeReturn(user_id) and vRP.getPremium(user_id) then
-			if args[1] then
-				if args[1] == "save" then
+		if not vRP.wantedReturn(user_id) and not vRP.reposeReturn(user_id) and vRP.hasPermission(user_id, 'dono.permissao') then
+			
+			if result == "salvar" then
 					local custom = vSKINSHOP.getCustomization(source)
 					if custom then
 						vRP.setSData("premClothes:"..parseInt(user_id),json.encode(custom))
-						TriggerClientEvent("Notify",source,"sucesso","Premiumfit salvo com sucesso.",3000)
+						TriggerClientEvent("Notify",source,"verde","Premiumfit salvo com sucesso.",3000)
 					end
-				end
+				
 			else
 				local consult = vRP.getSData("premClothes:"..parseInt(user_id))
 				local result = json.decode(consult)
 				if result then
 					TriggerClientEvent("updateRoupas",source,result)
-					TriggerClientEvent("Notify",source,"sucesso","Premiumfit aplicado com sucesso.",3000)
+					TriggerClientEvent("Notify",source,"verde","Premiumfit aplicado com sucesso.",3000)
 				end
 			end
 		end
@@ -3219,7 +3220,7 @@ RegisterCommand('maos',function(source,args,rawCommand)
 				if user_id then
 					local custom = vSKINSHOP.getCustomization(source)
 					if args[1] == nil then
-						return
+						custom["arms"]["item"] = 15
 					end	
 					TriggerClientEvent("setmaos",source,args[1],args[2])
 					
@@ -3372,29 +3373,14 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /oculos
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand('oculos',function(source,args,rawCommand)
+RegisterCommand('oculos',function(source,args,rawCommand)--não esta salvando no banco de dados a alteração pois se o player tomar um soco e perder o oculos e logo após ele da o comando jaqueta/ 15 por exemplo, ele voltará com o oculos na cara pq todas funções de roupas faz requisição ao banco de dados antes de setar  
 	local user_id = vRP.getUserId(source)
 	local identity = vRP.getUserIdentity(user_id)	
 	if vRPclient.getHealth(source) > 101 then
 		if not vRPclient.isHandcuffed(source) then
 			if not vRP.searchReturn(source,user_id) then
 				if user_id then
-					
-					local custom = vSKINSHOP.getCustomization(source)
-					if args[1] == nil then
-						custom["glass"]["item"] = -1
-					end	
 					TriggerClientEvent("setoculos",source,args[1],args[2])
-					if args[1] then
-						custom["glass"]["item"] = tonumber(args[1])
-					end	
-					if args[2] then
-						custom["glass"]["texture"] = tonumber(args[2])
-					end	
-					local model = vRPclient.getModelPlayer(source)
-					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
-						TriggerClientEvent("updateRoupas",source,custom)
-					end
 					SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: OCULOS "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")	
 				end
 			end
@@ -3430,26 +3416,6 @@ RegisterCommand('mochila',function(source,args,rawCommand)
             end
         end
     end
-end)
-
------------------------------------------------------------------------------------------------------------------------------------------
--- [BVIDA - desbugar animacao ---- /bvida --- colocar em vrp_player/server.lua]
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand('bvida',function(source,rawCommand)
-	local descricao1 = vRP.prompt(source,"Deseja utilizar o comando bvida?  DIGITE: sim","")
-    if descricao1 == "sim" or descricao1 == "Sim" or descricao1 == "SIM" then
-    if not use then
-		use = true
-		TriggerClientEvent('Notify',source,"sucesso","voce usou o comando bvida.")
-    local user_id = vRP.getUserId(source)
-        vRPclient._setCustomization(source,vRPclient.getCustomization(source))
-	else -- ou então, pula para a linha abaixo (opcional)
-		TriggerClientEvent('Notify',source,"negado","espere 1 minuto para executar esse comando novamente.") -- (opcional)
-		Wait(60000) -- espera 5 segundos
-        use = false -- redefine a informação que o player usou o comando
-        TriggerClientEvent('Notify',source,"negado","comando bvida liberado novamente.") 
-	end
-end
 end)
 RegisterCommand('bonusfarm',function(source,rawCommand)
 	local user_id = vRP.getUserId(source)

@@ -86,7 +86,8 @@ RegisterCommand("globalFunctions",function(source,args)
 		local ped = PlayerPedId()
 		if GetEntityHealth(ped) > 101 then
 			menuOpen = true
-
+			exports["dynamic"]:AddButton("Salvar","Salvar a roupa atual.","player:premiumfit","salvar","outfit",true)
+			exports["dynamic"]:AddButton("Aplicar","Aplicar a roupa salva.","player:premiumfit","","outfit",true)
 			exports["dynamic"]:AddButton("Remover","Remover a roupa atual.","player:outfitFunctions","remover","outfit",true)
 
 			exports["dynamic"]:AddButton("Informações","Todas as informações de sua identidade.","player:identityFunctions","","others",true)
