@@ -91,6 +91,7 @@ RegisterCommand("globalFunctions",function(source,args)
 			exports["dynamic"]:AddButton("Remover","Remover a roupa atual.","player:outfitFunctions","remover","outfit",true)
 
 			exports["dynamic"]:AddButton("Informações","Todas as informações de sua identidade.","player:identityFunctions","","others",true)
+			exports["dynamic"]:AddButton("Desbugar","Desbugar o personagem.","skinshop:debugar","","others",true)
 
 			if not IsPedInAnyVehicle(ped) then
 				exports["dynamic"]:AddButton("Rebocar","Colocar veículo na prancha do reboque.","towdriver:syncTow","tow","others",true)

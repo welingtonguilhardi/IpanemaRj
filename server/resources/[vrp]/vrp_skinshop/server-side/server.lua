@@ -64,25 +64,22 @@ end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- SKIN
 -----------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("debugar",function(source,args,rawCommand)
+RegisterNetEvent("skinshop:debugar")
+AddEventHandler("skinshop:debugar",function()
+	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		local model = vRPclient.getModelPlayer(source)
+		local model = vRPclient.getModelPlayer(source)--busca o modelo do personagem que fez a solicitação.
 		local data = vRP.getUserDataTable(user_id)
 		if data then
-			vRPclient.applySkin(source,GetHashKey(model))
-		end	
-		local charmode = vRP.getUData(user_id, "currentCharacterMode")
-        if charmode and charmode ~= "" then
-            local char = json.decode(charmode)
-            TriggerClientEvent("nation_barbershop:init", source, char)
-		end	
-		local custom = vCLIENT.getCustomization(source)
-		TriggerClientEvent("updateRoupas",source,custom)
-		local charmode = vRP.getUData(user_id, "currentCharacterMode")
-		local custsom = json.decode(charmode) or {}  
-		if charmode then
-			TriggerClientEvent("barbershop:setCustomization", source, custsom)
+			vRPclient.applySkin(source,GetHashKey(model))--seta uma skin no personagem, resetando todas sua caracteristicas e roupas
+			local charmode = vRP.getUData(user_id, "currentCharacterMode")--Busca no banco de dados as caracteristicas do personagem 
+			local custsom = json.decode(charmode) or {}  
+			if charmode then
+				TriggerClientEvent("barbershop:setCustomization", source, custsom)--atualiza caracteristicas do player
+			end	
+			local custom = vCLIENT.getCustomization(source) --Função para buscar roupas no banco de dados
+			TriggerClientEvent("updateRoupas",source,custom)
 		end	
 	end
 end)

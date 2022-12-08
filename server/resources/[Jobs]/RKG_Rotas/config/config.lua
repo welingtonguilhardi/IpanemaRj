@@ -1,6 +1,6 @@
 Config = {
     BindCancelRoute = "F7", -- Tecla para cancelar a rota.
-    RandomRoutes = true, -- true para deixar as rotas aleatórias.
+    RandomRoutes = false, -- true para deixar as rotas aleatórias.
     
     ["Orgs"] = {
         -------------------ORGS LEGAIS-------------------------------------------------------------
