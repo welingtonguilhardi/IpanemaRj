@@ -70,9 +70,7 @@ RegisterCommand("debugar",function(source,args,rawCommand)
 		local model = vRPclient.getModelPlayer(source)
 		local data = vRP.getUserDataTable(user_id)
 		if data then
-			--vCLIENT.Debug(source,data.skin)
 			vRPclient.applySkin(source,GetHashKey(model))
-			--vRP.updateSelectSkin(parseInt(user_id),GetHashKey(data.skin))	
 		end	
 		local charmode = vRP.getUData(user_id, "currentCharacterMode")
         if charmode and charmode ~= "" then
@@ -81,6 +79,11 @@ RegisterCommand("debugar",function(source,args,rawCommand)
 		end	
 		local custom = vCLIENT.getCustomization(source)
 		TriggerClientEvent("updateRoupas",source,custom)
+		local charmode = vRP.getUData(user_id, "currentCharacterMode")
+		local custsom = json.decode(charmode) or {}  
+		if charmode then
+			TriggerClientEvent("barbershop:setCustomization", source, custsom)
+		end	
 	end
 end)
 
