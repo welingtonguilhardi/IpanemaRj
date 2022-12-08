@@ -288,6 +288,12 @@ local pedList = {
 		model = { 0x49EADBF6,"ig_chef" },
 		anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
 	},	
+	{ -- Restaurante
+		distance = 15,
+		coords = { 786.1,-258.87,73.58,160.18 },
+		model = { 0x49EADBF6,"ig_chef" },
+		anim = { "anim@heists@heist_corona@single_team","single_team_loop_boss" }
+	},	
 	{ -- Oxy Store DESCONHECIDO
 		distance = 30,
 		coords = { -1636.74,-1092.17,13.08,320.32 },
