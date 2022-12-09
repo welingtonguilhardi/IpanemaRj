@@ -817,11 +817,21 @@ AddEventHandler("inventory:useItem",function(slot,rAmount)
 							end
 						end
 						if itemName == "cellbattery" then
-							active[user_id] = 15
-							vRPclient.stopActived(source)
-							vCLIENT.closeInventory(source)
-							vCLIENT.blockButtons(source,true)
-							TriggerClientEvent("Progress",source,15000,"Utilizando...")
+							if vRP.getInventoryItemAmount(user_id,"cellphone") < 1 then
+								if vRP.tryGetInventoryItem(user_id,"nbcellphone",1,true) then
+									active[user_id] = 15
+									vRPclient.stopActived(source)
+									vCLIENT.closeInventory(source)
+									vCLIENT.blockButtons(source,true)
+									TriggerClientEvent("Progress",source,15000,"Utilizando...")
+								else
+									vCLIENT.closeInventory(source)
+									TriggerClientEvent("Notify",source,"vermelho","Celular não encontrado.",3000)
+								end	
+							else
+									vCLIENT.closeInventory(source)
+									TriggerClientEvent("Notify",source,"vermelho","Já tem um celular carregado em sua mochila.",3000)
+							end	
 	
 							repeat
 								if active[user_id] == 0 then
