@@ -228,26 +228,6 @@ function cRP.setRemoveoutfit()
 		end
 end
 --end
------------------------------------------------------------------------------------------------------------------------------------------
--- SEATSHUFFLE
------------------------------------------------------------------------------------------------------------------------------------------
-Citizen.CreateThread(function()
-	while true do
-		local ped = PlayerPedId()
-		if IsPedInAnyVehicle(ped) and not IsPedOnAnyBike(ped) then
-			local veh = GetVehiclePedIsUsing(ped)
-			if GetPedInVehicleSeat(veh,0) == ped then
-				if not GetIsTaskActive(ped,164) and GetIsTaskActive(ped,165) then
-					SetPedIntoVehicle(ped,veh,0)
-					SetPedConfigFlag(ped,184,true)
-					SetVehicleCloseDoorDeferedAction(veh,0)
-				end
-			end
-		end
-
-		Citizen.Wait(100)
-	end
-end)
 -- -----------------------------------------------------------------------------------------------------------------------------------------
 -- -- SETENERGETIC
 -- -----------------------------------------------------------------------------------------------------------------------------------------
@@ -2546,17 +2526,17 @@ if DoesEntityExist(ped) and not IsEntityDead(ped) then
 		if IsPlayerAbleToVape == false then
 			PlayerIsAbleToVape()
 			TriggerEvent("Vape:HelpFadeIn", 0)
-			TriggerClientEvent("Notify",source,"aviso","Voçê começou usar seu vape..",5000)
+			TriggerEvent("Notify",source,"amarelo","Voçê começou usar seu vape..",5000)
 			Wait(Config.HelpTextLength)
 			TriggerEvent("Vape:HelpFadeOut", 0)
 		else
-			TriggerClientEvent("Notify",source,"aviso","Você já está segurando seu vape.",5000)
+			TriggerEvent("Notify",source,"amarelo","Você já está segurando seu vape.",5000)
 		end
 	else
-		TriggerClientEvent("Notify",source,"aviso","Você não pode fazer isso em um veículo.",5000)
+		TriggerEvent("Notify",source,"amarelo","Você não pode fazer isso em um veículo.",5000)
 	end
 else
-	TriggerClientEvent("Notify",source,"aviso","Você não pode fazer isso se estiver morto.",5000)
+	TriggerEvent("Notify",source,"amarelo","Você não pode fazer isso se estiver morto.",5000)
 end
 end)
 AddEventHandler("Vape:VapeAnimFix", function(source)
@@ -2572,9 +2552,9 @@ end)
 AddEventHandler("Vape:StopVaping", function(source)
 if IsPlayerAbleToVape == true then
 	PlayerIsUnableToVape()
-	TriggerClientEvent("Notify",source,"aviso","Você parou de usar seu vape.",5000)
+	TriggerEvent("Notify",source,"amarelo","Você parou de usar seu vape.",5000)
 else
-	TriggerClientEvent("Notify",source,"aviso","Você não está segurando seu vape.",5000)
+	TriggerEvent("Notify",source,"amarelo","Você não está segurando seu vape.",5000)
 end
 end)
 AddEventHandler("Vape:Drag", function()
@@ -2606,7 +2586,7 @@ if IsPlayerAbleToVape then
 		end
 	end
 else
-	TriggerClientEvent("Notify",source,"aviso","Você deve estar segurando seu vape para fazer isso.",5000)
+	TriggerEvent("Notify",source,"amarelo","Você deve estar segurando seu vape para fazer isso.",5000)
 end
 end)
 AddEventHandler("Vape:HelpFadeIn", function()
@@ -2681,7 +2661,7 @@ end)
 Citizen.CreateThread(function()
 while true do
 	local ped = GetPlayerPed(-1)
-	if IsPedInAnyVehicle(ped, true) then
+	if IsPedInAnyVehicle(ped, true) and IsPlayerAbleToVape then
 		PlayerIsEnteringVehicle()
 	end
 	if IsPlayerAbleToVape then

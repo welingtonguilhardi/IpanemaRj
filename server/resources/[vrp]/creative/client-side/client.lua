@@ -12,24 +12,24 @@ Citizen.CreateThread(function()
 		EnableDispatchService(i,false)
 	end
 end)
------------------------------------------------------------------------------------------------------------------------------------------
--- RADIOVOLUME
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("volume", function(source,args)
-	if args[1] then
-		if tonumber(args[1]) then
-			if tonumber(args[1]) <= 200 and tonumber(args[1]) >= 0 then
-				exports.tokovoip:setRadioVolume(tonumber(args[1])-100)
-			else
-				TriggerEvent("Notify","amarelo","Você deve digitar um número entre 0 e 200",5000)
-			end
-		else
-			TriggerEvent("Notify","amarelo","Você deve digitar um número entre 0 e 200",5000)
-		end
-	else
-		TriggerEvent("Notify","amarelo","Você deve digitar um número entre 0 e 200",5000)
-	end
-end)
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- -- RADIOVOLUME
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- RegisterCommand("volume", function(source,args)
+-- 	if args[1] then
+-- 		if tonumber(args[1]) then
+-- 			if tonumber(args[1]) <= 200 and tonumber(args[1]) >= 0 then
+-- 				exports.tokovoip:setRadioVolume(tonumber(args[1])-100)
+-- 			else
+-- 				TriggerEvent("Notify","amarelo","Você deve digitar um número entre 0 e 200",5000)
+-- 			end
+-- 		else
+-- 			TriggerEvent("Notify","amarelo","Você deve digitar um número entre 0 e 200",5000)
+-- 		end
+-- 	else
+-- 		TriggerEvent("Notify","amarelo","Você deve digitar um número entre 0 e 200",5000)
+-- 	end
+-- end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- TYREBURST
 -----------------------------------------------------------------------------------------------------------------------------------------

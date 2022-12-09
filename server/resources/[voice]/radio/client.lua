@@ -111,10 +111,11 @@ local isBroadcasting = false
 AddEventHandler('pma-voice:radioActive', function(broadCasting)
 	isBroadcasting = broadCasting
 end)
-
+IsPlayerAbleToVape = false
 Citizen.CreateThread(function()
 	while true do
 		Citizen.Wait(0)
+		
 		local playerPed = PlayerPedId()
 		local broadcastDictionary = "random@arrests"
 		local broadcastAnimation = "generic_radio_chatter"
@@ -124,20 +125,39 @@ Citizen.CreateThread(function()
 			while not HasAnimDictLoaded(broadcastDictionary) do
 				Citizen.Wait(150)
 			end
+
 			TaskPlayAnim(playerPed, broadcastDictionary, broadcastAnimation, 8.0, 0.0, -1, 49, 0, 0, 0, 0)                    
 			local coords = GetOffsetFromEntityInWorldCoords(PlayerPedId(),0.0,0.0,-5.0)
 			object = CreateObject(GetHashKey('prop_cs_hand_radio'),coords.x,coords.y,coords.z,true,true,true)
 			SetEntityCollision(object,false,false)
 			AttachEntityToEntity(object,PlayerPedId(),GetPedBoneIndex(PlayerPedId(),60309),0.06,0.05,0.03,-90.0,30.0,0.0,false,false,false,false,2,true)
-			SetTimeout(10000,function()
+			SetTimeout(20000,function()
 				DeleteObject(object)
 			end)
 		elseif not isBroadcasting and isPlayingBroadcastAnim then
 			StopAnimTask(playerPed, broadcastDictionary, broadcastAnimation, -4.0)
 			DeleteObject(object)
+		else	
+			local ped = GetPlayerPed(-1)
+			if IsPedInAnyVehicle(ped, true) and not isBroadcasting then
+				Citizen.Wait(0)
+				PlayerIsEnteringVehicle()
+			end	
+
 		end
 	end
 end)
+function PlayerIsEnteringVehicle()
+	-- if not IsPlayerAbleToVape then
+		local ped = GetPlayerPed(-1)
+		local ad = "anim@heists@humane_labs@finale@keycards"
+		Citizen.Wait(10)
+		if object then
+			DeleteObject(object)
+		end	
+		TaskPlayAnim(ped, ad, "exit", 8.00, -8.00, -1, (2 + 16 + 32), 0.00, 0, 0, 0)
+	-- end	
+end
 
 AddEventHandler("onClientResourceStart", function(resName)
 	if GetCurrentResourceName() ~= resName and "pma-voice" ~= resName then
