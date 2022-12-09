@@ -209,7 +209,7 @@ function tvRP.removeObjects(status)
 	TriggerEvent("camera")
 	TriggerEvent("binoculos")
 	if DoesEntityExist(object) then
---		TriggerServerEvent("tryDeleteEntity",ObjToNet(object))
+		TriggerServerEvent("tryDeleteEntity",ObjToNet(object))
 		TriggerServerEvent("tryDeleteEntity",NetworkGetNetworkIdFromEntity(object))
 		object = nil
 	end

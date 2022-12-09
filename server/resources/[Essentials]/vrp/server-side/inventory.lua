@@ -785,7 +785,7 @@ local itemlist = {
 		type = "use",
 		subtype = "comida",
 		transform = "nbcellphone",
-		durability = 10800,
+		durability = 14400,
 		weight = 0.75
 	},
 	["nbcellphone"] = {

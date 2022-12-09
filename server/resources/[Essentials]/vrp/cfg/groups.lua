@@ -1405,7 +1405,7 @@ cfg.groups = {
 		title = 'VIP Inicial',
 		gtype = 'vip'  
 	},
-	'bronze.permissao', 
+	'iniciante.permissao', 
 	'som.permissao',
 	'mochilam.permissao'
 	},
@@ -1429,6 +1429,46 @@ cfg.groups = {
 			gtype = "vip"
 		},
 		"ouro.permissao",
+		"mochila.permissao"
+	},
+	["Platina"] = {
+		_config = {
+			title = "Platina",
+			gtype = "vip"
+		},
+		"platina.permissao",
+		"mochila.permissao"
+	},
+	["Diamante"] = {
+		_config = {
+			title = "Diamante",
+			gtype = "vip"
+		},
+		"ouro.permissao",
+		"mochila.permissao"
+	},
+	["Ipanema"] = {
+		_config = {
+			title = "Ipanema",
+			gtype = "vip"
+		},
+		"ipanema.permissao",
+		"mochila.permissao"
+	},
+	["Patrocinador"] = {
+		_config = {
+			title = "Patrocinador",
+			gtype = "vip"
+		},
+		"patrocinador.permissao",
+		"mochila.permissao"
+	},
+	["Bilionario"] = {
+		_config = {
+			title = "Bilionario",
+			gtype = "vip"
+		},
+		"bilionario.permissao",
 		"mochila.permissao"
 	},
 	["Personalizado"] = {

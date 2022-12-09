@@ -916,7 +916,7 @@ AddEventHandler("mike:pneunamao",function()
     else
         TriggerEvent('cancelando',false)
         vRP._stopAnim(false)
-        vRP.vRP._removeObjects(source)
+        vRP._removeObjects(source)
         pneunamao = false
         pneu = {}
         FreezeEntityPosition(ped,false)

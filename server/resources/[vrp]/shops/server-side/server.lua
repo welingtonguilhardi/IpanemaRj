@@ -25,6 +25,7 @@ local shops = {
 			["hennessy"] = 215,
 			["roupas"] = 5000,
 			["tires"] = 2500,
+			["cellbattery"] = 200,
 			["toolbox"] = 3500
 		}
 	},

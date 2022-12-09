@@ -281,7 +281,7 @@ end)
 RegisterCommand("e2",function(source,args,rawCommand)
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.hasPermission(user_id,"Paramedic") then
+		if vRP.hasPermission(user_id,"dono.permissao") then
 			if vRPclient.getHealth(source) > 101 and not vCLIENT.getHandcuff(source) then
 				local nplayer = vRPclient.nearestPlayer(source,2)
 				if nplayer then
@@ -328,23 +328,57 @@ AddEventHandler("player:salary",function()
 	local source = source
 	local user_id = vRP.getUserId(source)
 	if user_id then
-		if vRP.getPremium(parseInt(user_id)) then
-			vRP.setSalary(parseInt(user_id),875)
-			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$875 dólares</b> de benefício.",5000)
-		end
 
+		--VIPS--
+		if vRP.hasPermission(parseInt(user_id),"iniciante.permissao")then
+			vRP.setSalary(parseInt(user_id),500)
+			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$500 dólares</b> de benefício.",5000)
+		end
+		if vRP.hasPermission(parseInt(user_id),"bronze.permissao")then
+			vRP.setSalary(parseInt(user_id),700)
+			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$700 dólares</b> de benefício.",5000)
+		end
+		if vRP.hasPermission(parseInt(user_id),"prata.permissao")then
+			vRP.setSalary(parseInt(user_id),850)
+			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$850 dólares</b> de benefício.",5000)
+		end
+		if vRP.hasPermission(parseInt(user_id),"ouro.permissao")then
+			vRP.setSalary(parseInt(user_id),950)
+			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$950 dólares</b> de benefício.",5000)
+		end
+		if vRP.hasPermission(parseInt(user_id),"platina.permissao")then
+			vRP.setSalary(parseInt(user_id),1050)
+			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$1050 dólares</b> de benefício.",5000)
+		end
+		if vRP.hasPermission(parseInt(user_id),"diamante.permissao")then
+			vRP.setSalary(parseInt(user_id),1150)
+			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$1150 dólares</b> de benefício.",5000)
+		end
+		if vRP.hasPermission(parseInt(user_id),"ipanema.permissao")then
+			vRP.setSalary(parseInt(user_id),1300)
+			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$1300 dólares</b> de benefício.",5000)
+		end
+		if vRP.hasPermission(parseInt(user_id),"patrocinador.permissao")then
+			vRP.setSalary(parseInt(user_id),1450)
+			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$1450 dólares</b> de benefício.",5000)
+		end
+		if vRP.hasPermission(parseInt(user_id),"bilionario.permissao")then
+			vRP.setSalary(parseInt(user_id),1600)
+			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$1600 dólares</b> de benefício.",5000)
+		end
+		--EMPREGOS--
 		if vRP.hasPermission(parseInt(user_id),"policia.permissao") then
-			vRP.setSalary(parseInt(user_id),1655)
-			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$1655 dólares</b> de salário.",5000)
+			vRP.setSalary(parseInt(user_id),3500)
+			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$3500 dólares</b> de salário.",5000)
 		end
 
 		if vRP.hasPermission(parseInt(user_id),"mecanico.permissao") then
-			vRP.setSalary(parseInt(user_id),1125)
+			vRP.setSalary(parseInt(user_id),3500)
 			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$1125 dólares</b> de salário.",5000)
 		end
 
 		if vRP.hasPermission(parseInt(user_id),"paramedico.permissao") then
-			vRP.setSalary(parseInt(user_id),1845)
+			vRP.setSalary(parseInt(user_id),3500)
 			TriggerClientEvent("Notify",source,"sucesso","Você recebeu <b>$1845 dólares</b> de salário.",5000)
 		end
 	end
@@ -3484,4 +3518,17 @@ RegisterCommand('tratar',function(source,args,rawCommand)
 
 		end
 	end
+end)
+-----------------------------------------------------------------------------------------------------------------------------------------
+-- id próximo
+-----------------------------------------------------------------------------------------------------------------------------------------	
+RegisterCommand('id',function(source,args,rawCommand)
+    local user_id = vRP.getUserId(source)
+    local nplayer = vRPclient.nearestPlayer(source,5)
+    if nplayer then
+        local nuser_id = vRP.getUserId(nplayer)
+        TriggerClientEvent("Notify",source,"amarelo","Jogador próximo: "..nuser_id..".",5000)
+    else
+        TriggerClientEvent("Notify",source,"vermelho","Nenhum Jogador Próximo",5000)
+    end
 end)

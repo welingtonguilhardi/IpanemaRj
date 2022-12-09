@@ -2,7 +2,7 @@
   "token": "MN295-YJCE4-K6F7S-M5PBE",
   "client": {
     "bankType": "picpay",
-    "uploadServer": "https://discordapp.com/api/webhooks/984523030132846673/oy3dtZCgcmHJdVGOUasm-zROZnZ_ndGpTVKW4DqXkpLobCgJBuLHSUUWQE26Q7faHoXC",
+    "uploadServer": "https://discord.com/api/webhooks/1050332836953067551/9_it-eXoN5p4GoVY2oEBxWknZathItzapzEfVQfDxLbpXJVyalLG3YBscNFmVEEKMpHr",
     "videoServer": "ws:/25.11.84.75:8080",
     "case": "iphonexs",
     "isAndroid": false,
@@ -42,16 +42,16 @@
   },
   
   "call_mode": "pma-voice",
-  "webhookURL": "https://discordapp.com/api/webhooks/984523030132846673/oy3dtZCgcmHJdVGOUasm-zROZnZ_ndGpTVKW4DqXkpLobCgJBuLHSUUWQE26Q7faHoXC",
+  "webhookURL": "https://discord.com/api/webhooks/1050332720846360606/3t3jsnfQxovDCDMOU_cb4WpsMQyRT9MLSmJQhH0zc8ECx-T47SvndHrWeIOgq2BGp6am",
   "instagram_verify": "instagram.verificado",
-  "moderator": "owner.permissao",
+  "moderator": "dono.permissao",
   "item": "cellphone",
   "base": "creative_v5",
   
   "services": [
-    { "name": "Policia", "number":"911", "permission":"Lspd" },
-    { "name": "Paramédico", "number":"112", "permission":"Paramedic" },
-    { "name": "Mecânico", "number":"443", "permission":"Mechanic" },
-    { "name": "Staff", "number":"001", "permission":"Admin" }
+    { "name": "Policia", "number":"911", "permission":"policia.permissao" },
+    { "name": "Paramédico", "number":"112", "permission":"paramedico.permissao" },
+    { "name": "Mecânico", "number":"443", "permission":"mecanico.permissao" },
+    { "name": "Staff", "number":"001", "permission":"staff.permissao" }
   ]
 }
