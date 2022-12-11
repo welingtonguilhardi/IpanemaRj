@@ -2118,10 +2118,6 @@ end)
 -- GARMAS
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand("gmuni",function(source,args,rawCommand)
-    vRP.addUserGroup()
-end)
-
-RegisterCommand("gmuni",function(source,args,rawCommand)
     local user_id = vRP.getUserId(source)
     if user_id then
         if vRPclient.getHealth(source) > 101 and not vCLIENT.getHandcuff(source) then

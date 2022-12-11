@@ -71,6 +71,7 @@ AddEventHandler("skinshop:debugar",function()
 	if user_id then
 		local model = vRPclient.getModelPlayer(source)--busca o modelo do personagem que fez a solicitação.
 		local data = vRP.getUserDataTable(user_id)
+		DebugMuni(source)
 		if data then
 			vRPclient.applySkin(source,GetHashKey(model))--seta uma skin no personagem, resetando todas sua caracteristicas e roupas
 			local charmode = vRP.getUData(user_id, "currentCharacterMode")--Busca no banco de dados as caracteristicas do personagem 
@@ -80,9 +81,20 @@ AddEventHandler("skinshop:debugar",function()
 			end	
 			local custom = vCLIENT.getCustomization(source) --Função para buscar roupas no banco de dados
 			TriggerClientEvent("updateRoupas",source,custom)
-		end	
+		end
+		
 	end
 end)
+function DebugMuni()
+	local user_id = vRP.getUserId(source)
+	local weapons = vRPclient.replaceWeapons(source)
+    for k,v in pairs(weapons) do
+		if v.ammo > 0 then
+			vRP.giveInventoryItem(user_id,vRP.itemAmmoList(k),v.ammo)
+			TriggerClientEvent("Notify",source,"verde","Suas munições foram todas guardadas.",1000)
+		end
+	end	
+end
 
 
 
@@ -105,25 +117,25 @@ end)
 -- 		end
 -- 	end
 -- end)
------------------------------------------------------------------------------------------------------------------------------------------
--- CHAPEU
------------------------------------------------------------------------------------------------------------------------------------------
-RegisterCommand("chapeu",function(source,args)
-	local user_id = vRP.getUserId(source)
-	local action = args[1]
-	if user_id then
-		if action then
-			if action == "true" or action == "1" then
-				local item,texture = vCLIENT.getHat(source)
-				TriggerClientEvent("vrp_skinshop:setHat",source,{ item,texture })
-			elseif action == "false" or action == "0" then
-				TriggerClientEvent("vrp_skinshop:setHat",source)
-			end
-		else
-			TriggerClientEvent("vrp_skinshop:setHat",source)
-		end
-	end
-end)
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- -- CHAPEU
+-- -----------------------------------------------------------------------------------------------------------------------------------------
+-- RegisterCommand("chapeu",function(source,args)
+-- 	local user_id = vRP.getUserId(source)
+-- 	local action = args[1]
+-- 	if user_id then
+-- 		if action then
+-- 			if action == "true" or action == "1" then
+-- 				local item,texture = vCLIENT.getHat(source)
+-- 				TriggerClientEvent("vrp_skinshop:setHat",source,{ item,texture })
+-- 			elseif action == "false" or action == "0" then
+-- 				TriggerClientEvent("vrp_skinshop:setHat",source)
+-- 			end
+-- 		else
+-- 			TriggerClientEvent("vrp_skinshop:setHat",source)
+-- 		end
+-- 	end
+-- end)
 -- -----------------------------------------------------------------------------------------------------------------------------------------
 -- -- OCULOS
 -- -----------------------------------------------------------------------------------------------------------------------------------------

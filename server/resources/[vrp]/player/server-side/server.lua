@@ -1077,7 +1077,7 @@ AddEventHandler("player:servicePolice",function()
 		SendWebhookMessage(webhooktoogle,"```prolog\n[POLICIAL]: "..user_id.." "..identity["name"].." "..identity["name2"].." \n[===========SAIU DE SERVICO==========] "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 		removeWeapon(source)
 		
-	elseif vRP.hasPermission(user_id,"paisanaTenente.permissao") then
+	elseif vRP.hasPermission(user_id,"BopepaisanaTenente.permissao") then
 		TriggerClientEvent("vrp_sysblips:ToggleService",source,"Policial em Serviço",47)
 		TriggerClientEvent("tencode:StatusService",source,true)
 		vRP.addUserGroup(user_id,"BopeTenente")
@@ -3112,344 +3112,460 @@ RegisterCommand('cor', function(source, args)
         TriggerClientEvent('changeWeaponColor', source, args[1])
     end
 end)
-
+use = false
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /mascara
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('mascara',function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	local identity = vRP.getUserIdentity(user_id)	
-	if vRPclient.getHealth(source) > 101 then
-		if not vRPclient.isHandcuffed(source) then
-			if not vRP.searchReturn(source,user_id) then
-				if user_id then
-					local custom = vSKINSHOP.getCustomization(source)
-					if args[1] == nil then
-						custom["mask"]["item"] = -1
-					end	
-					TriggerClientEvent("setmascara",source,args[1],args[2])
-					if args[1] then
-						custom["mask"]["item"] = tonumber(args[1])
-					end	
-					if args[2] then
-						custom["mask"]["texture"] = tonumber(args[2])
-					end	
-					local model = vRPclient.getModelPlayer(source)
-					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
-						TriggerClientEvent("updateRoupas",source,custom)
+	if not use then 
+		use = true
+		local user_id = vRP.getUserId(source)
+		local identity = vRP.getUserIdentity(user_id)	
+		if vRPclient.getHealth(source) > 101 then
+			if not vRPclient.isHandcuffed(source) then
+				if not vRP.searchReturn(source,user_id) then
+					if user_id then
+						local custom = vSKINSHOP.getCustomization(source)
+						if args[1] == nil then
+							custom["mask"]["item"] = -1
+							custom["mask"]["texture"] = 0
+						end	
+						if args[2] == nil then
+							custom["mask"]["texture"] = 0
+						end
+						TriggerClientEvent("setmascara",source,args[1],args[2])
+						if args[1] then
+							custom["mask"]["item"] = tonumber(args[1])
+						end	
+						if args[2] then
+							custom["mask"]["texture"] = tonumber(args[2])
+						end	
+						local model = vRPclient.getModelPlayer(source)
+						if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
+							TriggerClientEvent("updateRoupas",source,custom)
+							Citizen.Wait(5000)
+							use = false
+						end
+						SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: MASCARA "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 					end
-					SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: MASCARA "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 				end
 			end
 		end
-	end
+	else
+		TriggerClientEvent("Notify",source,"amarelo","Só é permitido trocar 1 peça de roupa  a cada 1 segundos",3000)
+	end	
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /blusa
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('blusa',function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	local identity = vRP.getUserIdentity(user_id)	
-	if vRPclient.getHealth(source) > 101 then
-		if not vRPclient.isHandcuffed(source) then
-			if not vRP.searchReturn(source,user_id) then
-				if user_id then
-					local custom = vSKINSHOP.getCustomization(source)
 
-					
-					if args[1] == nil then
-						custom["t-shirt"]["item"] = -1
-					end	
-					TriggerClientEvent("setblusa",source,args[1],args[2])
-					if args[1] then
-						custom["t-shirt"]["item"] = tonumber(args[1])
-					end	
-					if args[2] then
-						custom["t-shirt"]["texture"] = tonumber(args[2])
-					end	
-					local model = vRPclient.getModelPlayer(source)
-					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
-						TriggerClientEvent("updateRoupas",source,json.encode(custom))
+	if not use then
+		use = true
+		local user_id = vRP.getUserId(source)
+		local identity = vRP.getUserIdentity(user_id)	
+		if vRPclient.getHealth(source) > 101 then
+			if not vRPclient.isHandcuffed(source) then
+				if not vRP.searchReturn(source,user_id) then
+					if user_id then
+						local custom = vSKINSHOP.getCustomization(source)
+
+						
+						if args[1] == nil then
+							custom["t-shirt"]["item"] = -1
+							custom["t-shirt"]["texture"] = 0
+						end	
+
+						if args[2] == nil then
+							custom["t-shirt"]["texture"] = 0
+						end
+
+						TriggerClientEvent("setblusa",source,args[1],args[2])
+						if args[1] then
+							custom["t-shirt"]["item"] = tonumber(args[1])
+						end	
+						if args[2] then
+							custom["t-shirt"]["texture"] = tonumber(args[2])
+						end	
+						local model = vRPclient.getModelPlayer(source)
+						if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
+							TriggerClientEvent("updateRoupas",source,custom)
+							Citizen.Wait(5000)
+							use = false
+						end
+				
+						SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: BLUSA "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 					end
-					SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: BLUSA "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 				end
 			end
 		end
-	end
+	else
+		TriggerClientEvent("Notify",source,"amarelo","Só é permitido trocar 1 peça de roupa  a cada 1 segundos",3000)
+	end	
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /colete
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('colete',function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	local identity = vRP.getUserIdentity(user_id)	
-	if vRPclient.getHealth(source) > 101 then
-		if not vRPclient.isHandcuffed(source) then
-			if not vRP.searchReturn(source,user_id) then
-				if user_id then
-					
-					local custom = vSKINSHOP.getCustomization(source)
-					if args[1] == nil then
-						custom["vest"]["item"] = -1
-					end	
-					TriggerClientEvent("setcolete",source,args[1],args[2])
-					if args[1] then
-						custom["vest"]["item"] = tonumber(args[1])
-					end	
-					if args[2] then
-						custom["vest"]["texture"] = tonumber(args[2])
-					end	
-					local model = vRPclient.getModelPlayer(source)
-					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
-						TriggerClientEvent("updateRoupas",source,custom)
+	if not use then
+		use = true
+		local user_id = vRP.getUserId(source)
+		local identity = vRP.getUserIdentity(user_id)	
+		if vRPclient.getHealth(source) > 101 then
+			if not vRPclient.isHandcuffed(source) then
+				if not vRP.searchReturn(source,user_id) then
+					if user_id then
+						
+						local custom = vSKINSHOP.getCustomization(source)
+						if args[1] == nil then
+							custom["vest"]["item"] = -1
+							custom["vest"]["texture"] = 0
+						end	
+						if args[2] == nil then
+							custom["vest"]["texture"] = 0
+						end
+						TriggerClientEvent("setcolete",source,args[1],args[2])
+						if args[1] then
+							custom["vest"]["item"] = tonumber(args[1])
+						end	
+						if args[2] then
+							custom["vest"]["texture"] = tonumber(args[2])
+						end	
+						local model = vRPclient.getModelPlayer(source)
+						if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
+							TriggerClientEvent("updateRoupas",source,custom)
+							Citizen.Wait(5000)
+							use = false
+						end
+						SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: COLETE "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")	
 					end
-					SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: COLETE "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")	
 				end
 			end
 		end
-	end
+	else
+		TriggerClientEvent("Notify",source,"amarelo","Só é permitido trocar 1 peça de roupa  a cada 1 segundos",3000)
+	end		
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /jaqueta
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('jaqueta',function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	local identity = vRP.getUserIdentity(user_id)	
-	if vRPclient.getHealth(source) > 101 then
-		if not vRPclient.isHandcuffed(source) then
-			if not vRP.searchReturn(source,user_id) then
-				if user_id then
-					local custom = vSKINSHOP.getCustomization(source)
-					if args[1] == nil then
-						custom["torso2"]["item"] = -1
-					end	
-					TriggerClientEvent("setjaqueta",source,args[1],args[2])
-					
-					if args[1] then
-						custom["torso2"]["item"] = tonumber(args[1])
-					end	
-					if args[2] then
-						custom["torso2"]["texture"] = tonumber(args[2])
-					end	
+	if not use then
+		use = true
+		local user_id = vRP.getUserId(source)
+		local identity = vRP.getUserIdentity(user_id)	
+		if vRPclient.getHealth(source) > 101 then
+			if not vRPclient.isHandcuffed(source) then
+				if not vRP.searchReturn(source,user_id) then
+					if user_id then
+						local custom = vSKINSHOP.getCustomization(source)
+						if args[1] == nil then
+							custom["torso2"]["item"] = -1
+							custom["torso2"]["texture"] = 0
+						end	
+						if args[2] == nil then
+							custom["torso2"]["texture"] = 0
+						end
+						TriggerClientEvent("setjaqueta",source,args[1],args[2])
+						
+						if args[1] then
+							custom["torso2"]["item"] = tonumber(args[1])
+						end	
+						if args[2] then
+							custom["torso2"]["texture"] = tonumber(args[2])
+						end	
 
-					local model = vRPclient.getModelPlayer(source)
-					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
-						TriggerClientEvent("updateRoupas",source,custom)
+						local model = vRPclient.getModelPlayer(source)
+						if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
+							TriggerClientEvent("updateRoupas",source,custom)
+							Citizen.Wait(5000)
+							use = false
+						end
+						SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: JAQUETA "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")	
 					end
-					SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: JAQUETA "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")	
 				end
 			end
 		end
-	end
+	else
+		TriggerClientEvent("Notify",source,"amarelo","Só é permitido trocar 1 peça de roupa  a cada 1 segundos",3000)
+	end		
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /maos
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('maos',function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	local identity = vRP.getUserIdentity(user_id)	
-	if vRPclient.getHealth(source) > 101 then
-		if not vRPclient.isHandcuffed(source) then
-			if not vRP.searchReturn(source,user_id) then
-				if user_id then
-					local custom = vSKINSHOP.getCustomization(source)
-					if args[1] == nil then
-						custom["arms"]["item"] = 15
-					end	
-					TriggerClientEvent("setmaos",source,args[1],args[2])
-					
-					if args[1] then	
-						custom["arms"]["item"] = args[1]
-					end	
-					if args[2] then
-						custom["arms"]["texture"] = args[2]
-					end	
 
-					local model = vRPclient.getModelPlayer(source)
-					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
-						TriggerClientEvent("updateRoupas",source,custom)
+	if not use then
+		use = true
+		local user_id = vRP.getUserId(source)
+		local identity = vRP.getUserIdentity(user_id)	
+		if vRPclient.getHealth(source) > 101 then
+			if not vRPclient.isHandcuffed(source) then
+				if not vRP.searchReturn(source,user_id) then
+					if user_id then
+						local custom = vSKINSHOP.getCustomization(source)
+						if args[1] == nil then
+							custom["arms"]["item"] = 15
+							custom["arms"]["texture"] = 0
+						end	
+						if args[2] == nil then
+							custom["arms"]["texture"] = 0
+						end
+						TriggerClientEvent("setmaos",source,args[1],args[2])
+						
+						if args[1] then	
+							custom["arms"]["item"] = args[1]
+						end	
+						if args[2] then
+							custom["arms"]["texture"] = args[2]
+						end	
+
+						local model = vRPclient.getModelPlayer(source)
+						if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
+							TriggerClientEvent("updateRoupas",source,custom)
+							Citizen.Wait(5000)
+							use = false
+						end
+						SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: MAOS "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 					end
-					SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: MAOS "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 				end
 			end
 		end
-	end
+	else
+		TriggerClientEvent("Notify",source,"amarelo","Só é permitido trocar 1 peça de roupa  a cada 1 segundos",3000)
+	end	
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /calca
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('calca',function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	local identity = vRP.getUserIdentity(user_id)	
-	if vRPclient.getHealth(source) > 101 then
-		if not vRPclient.isHandcuffed(source) then
-			if not vRP.searchReturn(source,user_id) then
-				if user_id then
-					local custom = vSKINSHOP.getCustomization(source)
-					if args[1] == nil then
-						custom["pants"]["item"] = 0
-					end	
-					TriggerClientEvent("setcalca",source,args[1],args[2])
 
-					if args[1] then
-						custom["pants"]["item"] = tonumber(args[1])
-					end	
-					if args[2] then
-						custom["pants"]["texture"] = tonumber(args[2])
-					end	
-					local model = vRPclient.getModelPlayer(source)
-					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
-						TriggerClientEvent("updateRoupas",source,custom)
+	if not use then
+		use = true
+		local user_id = vRP.getUserId(source)
+		local identity = vRP.getUserIdentity(user_id)	
+		if vRPclient.getHealth(source) > 101 then
+			if not vRPclient.isHandcuffed(source) then
+				if not vRP.searchReturn(source,user_id) then
+					if user_id then
+						local custom = vSKINSHOP.getCustomization(source)
+						if args[1] == nil then
+							custom["pants"]["item"] = 0
+							custom["pants"]["texture"] = 0
+						end	
+						if args[2] == nil then
+							custom["pants"]["texture"] = 0
+						end
+						TriggerClientEvent("setcalca",source,args[1],args[2])
+
+						if args[1] then
+							custom["pants"]["item"] = tonumber(args[1])
+						end	
+						if args[2] then
+							custom["pants"]["texture"] = tonumber(args[2])
+						end	
+						local model = vRPclient.getModelPlayer(source)
+						if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
+							TriggerClientEvent("updateRoupas",source,custom)
+							Citizen.Wait(5000)
+							use = false
+						end
+						SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: CALÇA "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 					end
-					SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: CALÇA "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 				end
 			end
 		end
-	end
+	else
+		TriggerClientEvent("Notify",source,"amarelo","Só é permitido trocar 1 peça de roupa  a cada 1 segundos",3000)
+	end		
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /acessorios
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('acessorios',function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	local identity = vRP.getUserIdentity(user_id)	
-	if vRPclient.getHealth(source) > 101 then
-		if not vRPclient.isHandcuffed(source) then
-			if not vRP.searchReturn(source,user_id) then
-				if user_id then
-					
-					local custom = vSKINSHOP.getCustomization(source)
-					if args[1] == nil then
-						custom["accessory"]["item"] = -1
-					end	
 
-					TriggerClientEvent("setacessorios",source,args[1],args[2])
-					if args[1] then
-						custom["accessory"]["item"] = tonumber(args[1])
-					end	
-					if args[2] then
-						custom["accessory"]["texture"] = tonumber(args[2])
-					end	
-					local model = vRPclient.getModelPlayer(source)
-					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
-						TriggerClientEvent("updateRoupas",source,custom)
+	if not use then
+		use = true
+		local user_id = vRP.getUserId(source)
+		local identity = vRP.getUserIdentity(user_id)	
+		if vRPclient.getHealth(source) > 101 then
+			if not vRPclient.isHandcuffed(source) then
+				if not vRP.searchReturn(source,user_id) then
+					if user_id then
+						
+						local custom = vSKINSHOP.getCustomization(source)
+						if args[1] == nil then
+							custom["accessory"]["item"] = -1
+							custom["accessory"]["texture"] = 0
+						end	
+						if args[2] == nil then
+							custom["accessory"]["texture"] = 0
+						end
+						TriggerClientEvent("setacessorios",source,args[1],args[2])
+						if args[1] then
+							custom["accessory"]["item"] = tonumber(args[1])
+						end	
+						if args[2] then
+							custom["accessory"]["texture"] = tonumber(args[2])
+						end	
+						local model = vRPclient.getModelPlayer(source)
+						if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
+							TriggerClientEvent("updateRoupas",source,custom)
+							Citizen.Wait(5000)
+							use = false
+						end
+						SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: ACESSORIOS "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")	
 					end
-					SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: ACESSORIOS "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")	
 				end
 			end
 		end
-	end
+	else
+		TriggerClientEvent("Notify",source,"amarelo","Só é permitido trocar 1 peça de roupa  a cada 1 segundos",3000)
+	end		
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /sapatos
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('sapatos',function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	local identity = vRP.getUserIdentity(user_id)	
-	if vRPclient.getHealth(source) > 101 then
-		if not vRPclient.isHandcuffed(source) then
-			if not vRP.searchReturn(source,user_id) then
-				if user_id then
-					local custom = vSKINSHOP.getCustomization(source)
-					if args[1] == nil then
-						custom["shoes"]["item"] = -1
-					end	
-					TriggerClientEvent("setsapatos",source,args[1],args[2])
+	if not use then
+		use = true
+		local user_id = vRP.getUserId(source)
+		local identity = vRP.getUserIdentity(user_id)	
+		if vRPclient.getHealth(source) > 101 then
+			if not vRPclient.isHandcuffed(source) then
+				if not vRP.searchReturn(source,user_id) then
+					if user_id then
+						local custom = vSKINSHOP.getCustomization(source)
+						if args[1] == nil then
+							custom["shoes"]["item"] = -1
+							custom["shoes"]["texture"] = 0
+						end	
+						if args[2] == nil then
+							custom["shoes"]["texture"] = 0
+						end
+						TriggerClientEvent("setsapatos",source,args[1],args[2])
 
-					
-					if args[1] then
-						custom["shoes"]["item"] = tonumber(args[1])
-					end	
-					if args[2] then
-						custom["shoes"]["texture"] = tonumber(args[2])
-					end	
-					local model = vRPclient.getModelPlayer(source)
-					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
-						TriggerClientEvent("updateRoupas",source,custom)
+						
+						if args[1] then
+							custom["shoes"]["item"] = tonumber(args[1])
+						end	
+						if args[2] then
+							custom["shoes"]["texture"] = tonumber(args[2])
+						end	
+						local model = vRPclient.getModelPlayer(source)
+						if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
+							TriggerClientEvent("updateRoupas",source,custom)
+							Citizen.Wait(5000)
+							use = false
+						end
+						SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: SAPATOS "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 					end
-					SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: SAPATOS "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 				end
 			end
 		end
-	end
+	else
+		TriggerClientEvent("Notify",source,"amarelo","Só é permitido trocar 1 peça de roupa  a cada 1 segundos",3000)
+	end		
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /chapeu
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('chapeu',function(source,args,rawCommand)
-	local user_id = vRP.getUserId(source)
-	local identity = vRP.getUserIdentity(user_id)	
-	if vRPclient.getHealth(source) > 101 then
-		if not vRPclient.isHandcuffed(source) then
-			if not vRP.searchReturn(source,user_id) then
-				if user_id then
-					local custom = vSKINSHOP.getCustomization(source)
-					if args[1] == nil then
-						custom["hat"]["item"] = -1
-					end	
-					TriggerClientEvent("setchapeu",source,args[1],args[2])
-					if args[1] then
-						custom["hat"]["item"] = tonumber(args[1])
-					end	
-					if args[2] then
-						custom["hat"]["texture"] = tonumber(args[2])
-					end	
-					local model = vRPclient.getModelPlayer(source)
-					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
-						TriggerClientEvent("updateRoupas",source,custom)
+	if not use then
+		use = true
+		local user_id = vRP.getUserId(source)
+		local identity = vRP.getUserIdentity(user_id)	
+		if vRPclient.getHealth(source) > 101 then
+			if not vRPclient.isHandcuffed(source) then
+				if not vRP.searchReturn(source,user_id) then
+					if user_id then
+						local custom = vSKINSHOP.getCustomization(source)
+						if args[1] == nil then
+							custom["hat"]["item"] = -1
+							custom["hat"]["texture"] = 0
+						end	
+						if args[2] == nil then
+							custom["hat"]["texture"] = 0
+						end
+						TriggerClientEvent("setchapeu",source,args[1],args[2])
+						if args[1] then
+							custom["hat"]["item"] = tonumber(args[1])
+						end	
+						if args[2] then
+							custom["hat"]["texture"] = tonumber(args[2])
+						end	
+						local model = vRPclient.getModelPlayer(source)
+						if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
+							TriggerClientEvent("updateRoupas",source,custom)
+							Citizen.Wait(5000)
+							use = false
+						end
+						SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: CHAPEU "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 					end
-					SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: CHAPEU "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")
 				end
 			end
 		end
-	end
+	else
+		TriggerClientEvent("Notify",source,"amarelo","Só é permitido trocar 1 peça de roupa  a cada 1 segundos",3000)
+	end		
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /oculos
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('oculos',function(source,args,rawCommand)--não esta salvando no banco de dados a alteração pois se o player tomar um soco e perder o oculos e logo após ele da o comando jaqueta/ 15 por exemplo, ele voltará com o oculos na cara pq todas funções de roupas faz requisição ao banco de dados antes de setar  
-	local user_id = vRP.getUserId(source)
-	local identity = vRP.getUserIdentity(user_id)	
-	if vRPclient.getHealth(source) > 101 then
-		if not vRPclient.isHandcuffed(source) then
-			if not vRP.searchReturn(source,user_id) then
-				if user_id then
-					TriggerClientEvent("setoculos",source,args[1],args[2])
-					SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: OCULOS "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")	
+		local user_id = vRP.getUserId(source)
+		local identity = vRP.getUserIdentity(user_id)	
+		if vRPclient.getHealth(source) > 101 then
+			if not vRPclient.isHandcuffed(source) then
+				if not vRP.searchReturn(source,user_id) then
+					if user_id then
+						TriggerClientEvent("setoculos",source,args[1],args[2])
+						SendWebhookMessage(webhookvidaroupas,"```prolog\n[ID]: "..user_id.." "..identity.name.." "..identity.name2.." \n[UTILIZOU COMANDO]: OCULOS "..os.date("\n[Data]: %d/%m/%Y [Hora]: %H:%M:%S").." \r```")	
+					end
 				end
 			end
 		end
-	end
 end)
 -----------------------------------------------------------------------------------------------------------------------------------------
 -- /mochila
 -----------------------------------------------------------------------------------------------------------------------------------------
 RegisterCommand('mochila',function(source,args,rawCommand)
-    local user_id = vRP.getUserId(source)
-    if vRPclient.getHealth(source) > 101 then
-        if not vRPclient.isHandcuffed(source) then
-            if not vRP.searchReturn(source,user_id) then
-                if user_id then
-                    
-					local custom = vSKINSHOP.getCustomization(source)
-					if args[1] == nil then
-						custom["bag"]["item"] = -1
-					end	
-					TriggerClientEvent("setmochila",source,args[1],args[2])
-					if args[1] then
-						custom["bag"]["item"] = tonumber(args[1])
-					end	
-					if args[2] then
-						custom["bag"]["texture"] = tonumber(args[2])
-					end	
-					local model = vRPclient.getModelPlayer(source)
-					if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
-						TriggerClientEvent("updateRoupas",source,custom)
+	if not use then
+		use = true
+		local user_id = vRP.getUserId(source)
+		if vRPclient.getHealth(source) > 101 then
+			if not vRPclient.isHandcuffed(source) then
+				if not vRP.searchReturn(source,user_id) then
+					if user_id then
+						
+						local custom = vSKINSHOP.getCustomization(source)
+						if args[1] == nil then
+							custom["bag"]["item"] = -1
+							custom["bag"]["texture"] = 0
+						end	
+						if args[2] == nil then
+							custom["bag"]["texture"] = 0
+						end
+						TriggerClientEvent("setmochila",source,args[1],args[2])
+						if args[1] then
+							custom["bag"]["item"] = tonumber(args[1])
+						end	
+						if args[2] then
+							custom["bag"]["texture"] = tonumber(args[2])
+						end	
+						local model = vRPclient.getModelPlayer(source)
+						if model == "mp_m_freemode_01" or "mp_f_freemode_01" then
+							TriggerClientEvent("updateRoupas",source,custom)
+							Citizen.Wait(5000)
+							use = false
+						end
 					end
 				end
-            end
-        end
-    end
+			end
+		end
+	else
+		TriggerClientEvent("Notify",source,"amarelo","Só é permitido trocar 1 peça de roupa  a cada 1 segundos",3000)
+	end		
 end)
 RegisterCommand('bonusfarm',function(source,rawCommand)
 	local user_id = vRP.getUserId(source)
