@@ -153,7 +153,7 @@ function cnVRP.taskMechanic()
 		if finished then
 			local finished = taskBar(2500,7)
 			if finished then
-				local finished = taskBar(1000,7)
+				local finished = taskBar(1500,7)
 				if finished then
 					return true
 				end
